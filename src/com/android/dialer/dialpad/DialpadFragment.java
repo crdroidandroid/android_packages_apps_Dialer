@@ -820,7 +820,7 @@ public class DialpadFragment extends Fragment
                    (getActivity() instanceof DialtactsActivity ?
                             ((DialtactsActivity) getActivity()).getCallOrigin() : null));
             startActivity(intent);
-            hideAndClearDialpad();
+            hideAndClearDialpad(true);
         }
     }
 
