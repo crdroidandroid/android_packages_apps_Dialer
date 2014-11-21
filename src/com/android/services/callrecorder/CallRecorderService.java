@@ -20,6 +20,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaRecorder;
+import android.net.Uri;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.os.SystemProperties;
@@ -51,7 +52,7 @@ public class CallRecorderService extends Service {
 
     private static final String AUDIO_SOURCE_PROPERTY = "persist.call_recording.src";
 
-    private SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+    private SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyMMdd_HHmmssSSS");
 
     private int mDefaultEncoder;
 
@@ -60,6 +61,9 @@ public class CallRecorderService extends Service {
         public CallRecording stopRecording() {
             if (getState() == RecorderState.RECORDING) {
                 stopRecordingInternal();
+                Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                intent.setData(Uri.fromFile(mCurrentRecording.getFile()));
+                sendBroadcast(intent);
                 return mCurrentRecording;
             }
             return null;
@@ -68,7 +72,7 @@ public class CallRecorderService extends Service {
         @Override
         public boolean startRecording(String phoneNumber, long creationTime)
                 throws RemoteException {
-            String fileName = generateFilename();
+            String fileName = generateFilename(phoneNumber);
             mCurrentRecording = new CallRecording(phoneNumber, creationTime,
                     fileName, System.currentTimeMillis());
             return startRecordingInternal(mCurrentRecording.getFile());
@@ -201,13 +205,13 @@ public class CallRecorderService extends Service {
         return mState;
     }
 
-    private String generateFilename() {
+    private String generateFilename(String number) {
         String timestamp = DATE_FORMAT.format(new Date());
         int audioFormat = getAudioFormat();
         if (audioFormat == MediaRecorder.OutputFormat.AMR_WB){
-            return "callrecorder_" + timestamp + ".amr";
+            return number + "_" + timestamp + ".amr";
         } else {
-            return "callrecorder_" + timestamp + ".m4a ";
+            return number + "_" + timestamp + ".m4a ";
         }
     }
 
