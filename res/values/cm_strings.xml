@@ -126,10 +126,7 @@
     <string name="stop_call_playback">Stop</string>
     <string name="call_playback_error_message">Failed to play recording</string>
 
-    <!-- Sensor options -->
-    <string name="sensors_category_title">Sensor options</string>
-    <string name="smart_mute_title">Smart mute</string>
-    <string name="smart_mute_summary">Mute the incoming call by flipping the device</string>
+    <!-- Smart Call -->
     <string name="smart_dialer_title">Smart call</string>
     <string name="smart_dialer_summary">Automatically call the dialed number by moving your device to your ear</string>
 
