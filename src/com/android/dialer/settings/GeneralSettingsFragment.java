@@ -62,6 +62,8 @@ public class GeneralSettingsFragment extends PreferenceFragment
     private static final String PROX_AUTO_SPEAKER_DELAY  = "prox_auto_speaker_delay";
     private static final String PROX_AUTO_SPEAKER_INCALL_ONLY  = "prox_auto_speaker_incall_only";
 
+    private static final String FLIP_ACTION_KEY = "flip_action";
+
     private static final int MSG_UPDATE_RINGTONE_SUMMARY = 1;
 
     private Context mContext;
@@ -76,6 +78,8 @@ public class GeneralSettingsFragment extends PreferenceFragment
     private SwitchPreference mProxSpeaker;
     private SlimSeekBarPreference mProxSpeakerDelay;
     private SwitchPreference mProxSpeakerIncallOnly;
+
+    private ListPreference mFlipAction;
 
     // t9 search input locales that we have a custom overlay for
     private static final Locale[] T9_SEARCH_INPUT_LOCALES = new Locale[] {
@@ -124,6 +128,11 @@ public class GeneralSettingsFragment extends PreferenceFragment
             mProxSpeakerDelay.minimumValue(100);
             mProxSpeakerDelay.multiplyValue(100);
             mProxSpeakerDelay.setOnPreferenceChangeListener(this);
+        }
+
+        mFlipAction = (ListPreference) findPreference(FLIP_ACTION_KEY);
+        if (mFlipAction != null) {
+            mFlipAction.setOnPreferenceChangeListener(this);
         }
 
         if (mVibrateWhenRinging != null) {
@@ -182,6 +191,11 @@ public class GeneralSettingsFragment extends PreferenceFragment
             int delay = Integer.valueOf((String) objValue);
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.PROXIMITY_AUTO_SPEAKER_DELAY, delay);
+        } else if (preference == mFlipAction) {
+            int action = /*mFlipAction.findIndexOfValue*/Integer.valueOf((String) objValue);
+            Settings.System.putInt(mContext.getContentResolver(),
+                Settings.System.CALL_FLIP_ACTION_KEY, action);
+            updateFlipActionSummary(action);
         }
         return true;
     }
@@ -248,6 +262,13 @@ public class GeneralSettingsFragment extends PreferenceFragment
             }
         }
 
+        if (mFlipAction != null) {
+            int flipAction = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.CALL_FLIP_ACTION_KEY, 2);
+            mFlipAction.setValue(String.valueOf(flipAction));
+            updateFlipActionSummary(flipAction);
+        }
+
         // Lookup the ringtone name asynchronously.
         new Thread(mRingtoneLookupRunnable).start();
     }
@@ -286,5 +307,12 @@ public class GeneralSettingsFragment extends PreferenceFragment
 
         mT9SearchInputLocale.setEntries(entries);
         mT9SearchInputLocale.setEntryValues(values);
+    }
+
+    private void updateFlipActionSummary(int value) {
+        if (mFlipAction != null) {
+            String[] summaries = getResources().getStringArray(R.array.flip_action_summary_entries);
+            mFlipAction.setSummary(getString(R.string.flip_action_summary, summaries[value]));
+        }
     }
 }
