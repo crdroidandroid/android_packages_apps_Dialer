@@ -21,12 +21,14 @@ import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.PowerManager;
 import android.os.Vibrator;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
+import android.preference.SlimSeekBarPreference;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 
@@ -56,6 +58,10 @@ public class GeneralSettingsFragment extends PreferenceFragment
     private static final String BUTTON_T9_SEARCH_INPUT_LOCALE = "button_t9_search_input";
     public static final String BUTTON_SMART_DIALER_KEY = "button_smart_dialer";
 
+    private static final String PROX_AUTO_SPEAKER  = "prox_auto_speaker";
+    private static final String PROX_AUTO_SPEAKER_DELAY  = "prox_auto_speaker_delay";
+    private static final String PROX_AUTO_SPEAKER_INCALL_ONLY  = "prox_auto_speaker_incall_only";
+
     private static final int MSG_UPDATE_RINGTONE_SUMMARY = 1;
 
     private Context mContext;
@@ -66,6 +72,10 @@ public class GeneralSettingsFragment extends PreferenceFragment
     private Preference mRespondViaSms;
     private Preference mSpeedDialSettings;
     private ListPreference mT9SearchInputLocale;
+
+    private SwitchPreference mProxSpeaker;
+    private SlimSeekBarPreference mProxSpeakerDelay;
+    private SwitchPreference mProxSpeakerIncallOnly;
 
     // t9 search input locales that we have a custom overlay for
     private static final Locale[] T9_SEARCH_INPUT_LOCALES = new Locale[] {
@@ -103,6 +113,18 @@ public class GeneralSettingsFragment extends PreferenceFragment
         PreferenceCategory soundCategory = (PreferenceCategory) findPreference(CATEGORY_SOUNDS_KEY);
         Vibrator vibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
         boolean hasVibrator = vibrator != null && vibrator.hasVibrator();
+
+        mProxSpeaker = (SwitchPreference) findPreference(PROX_AUTO_SPEAKER);
+        mProxSpeakerIncallOnly = (SwitchPreference) findPreference(PROX_AUTO_SPEAKER_INCALL_ONLY);
+        mProxSpeakerDelay = (SlimSeekBarPreference) findPreference(PROX_AUTO_SPEAKER_DELAY);
+        if (mProxSpeakerDelay != null) {
+            mProxSpeakerDelay.setDefault(100);
+            mProxSpeakerDelay.isMilliseconds(true);
+            mProxSpeakerDelay.setInterval(1);
+            mProxSpeakerDelay.minimumValue(100);
+            mProxSpeakerDelay.multiplyValue(100);
+            mProxSpeakerDelay.setOnPreferenceChangeListener(this);
+        }
 
         if (mVibrateWhenRinging != null) {
             if (hasVibrator) {
@@ -156,6 +178,10 @@ public class GeneralSettingsFragment extends PreferenceFragment
                     Settings.System.VIBRATE_WHEN_RINGING, doVibrate ? 1 : 0);
         } else if (preference == mT9SearchInputLocale) {
             saveT9SearchInputLocale(preference, (String) objValue);
+        } else if (preference == mProxSpeakerDelay) {
+            int delay = Integer.valueOf((String) objValue);
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.PROXIMITY_AUTO_SPEAKER_DELAY, delay);
         }
         return true;
     }
@@ -171,6 +197,14 @@ public class GeneralSettingsFragment extends PreferenceFragment
         } else if (preference == mRespondViaSms || preference == mSpeedDialSettings) {
             // Needs to return false for the intent to launch.
             return false;
+        } else if (preference == mProxSpeaker) {
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.PROXIMITY_AUTO_SPEAKER,
+                    mProxSpeaker.isChecked() ? 1 : 0);
+        } else if (preference == mProxSpeakerIncallOnly) {
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.PROXIMITY_AUTO_SPEAKER_INCALL_ONLY,
+                    mProxSpeakerIncallOnly.isChecked() ? 1 : 0);
         }
         return true;
     }
@@ -181,6 +215,37 @@ public class GeneralSettingsFragment extends PreferenceFragment
 
         if (mVibrateWhenRinging != null) {
             mVibrateWhenRinging.setChecked(SettingsUtil.getVibrateWhenRingingSetting(mContext));
+        }
+
+        if (mProxSpeaker != null) {
+            PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+            if (pm.isWakeLockLevelSupported(
+                    PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK)
+                    && getResources().getBoolean(R.bool.config_enabled_speakerprox)) {
+                mProxSpeaker.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                        Settings.System.PROXIMITY_AUTO_SPEAKER, 0) == 1);
+                if (mProxSpeakerIncallOnly != null) {
+                    mProxSpeakerIncallOnly.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                            Settings.System.PROXIMITY_AUTO_SPEAKER_INCALL_ONLY, 0) == 1);
+                }
+                if (mProxSpeakerDelay != null) {
+                    final int proxDelay = Settings.System.getInt(mContext.getContentResolver(),
+                            Settings.System.PROXIMITY_AUTO_SPEAKER_DELAY, 100);
+                    // minimum 100 is 1 interval of the 100 multiplier
+                    mProxSpeakerDelay.setInitValue((proxDelay / 100) - 1);
+                }
+            } else {
+                getPreferenceScreen().removePreference(mProxSpeaker);
+                mProxSpeaker = null;
+                if (mProxSpeakerIncallOnly != null) {
+                    getPreferenceScreen().removePreference(mProxSpeakerIncallOnly);
+                    mProxSpeakerIncallOnly = null;
+                }
+                if (mProxSpeakerDelay != null) {
+                    getPreferenceScreen().removePreference(mProxSpeakerDelay);
+                    mProxSpeakerDelay = null;
+                }
+            }
         }
 
         // Lookup the ringtone name asynchronously.
