@@ -42,4 +42,7 @@
     <string name="summary_mute_ringer">mute the ringer</string>
     <string name="summary_dismiss_call">dismiss the call</string>
 
+    <!-- Title for the option managing whether or not to use non-intrusive incall UI. -->
+    <string name="use_non_intrusive_call_title">Non-intrusive incoming calls</string>
+
 </resources>

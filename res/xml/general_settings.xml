@@ -97,6 +97,11 @@
             android:persistent="false" />
     </PreferenceCategory>
 
+    <SwitchPreference
+        android:key="use_non_intrusive_call"
+        android:title="@string/use_non_intrusive_call_title"
+        android:persistent="false" />
+
     <PreferenceCategory
             android:key="category_prox_auto_speaker"
             android:title="@string/display_category_prox_auto_speaker_title" >
