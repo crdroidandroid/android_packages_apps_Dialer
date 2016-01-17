@@ -53,6 +53,8 @@ public class SoundSettingsFragment extends PreferenceFragment
 
   private static final int MSG_UPDATE_RINGTONE_SUMMARY = 1;
 
+  private static final String FLIP_ACTION_KEY = "flip_action";
+
   private Preference ringtonePreference;
   private final Handler ringtoneLookupComplete =
       new Handler() {
@@ -76,6 +78,7 @@ public class SoundSettingsFragment extends PreferenceFragment
   private SwitchPreference playDtmfTone;
   private ListPreference dtmfToneLength;
   private SwitchPreference enableDndInCall;
+  private ListPreference mFlipAction;
 
   private NotificationManager notificationManager;
 
@@ -103,6 +106,15 @@ public class SoundSettingsFragment extends PreferenceFragment
     enableDndInCall = (SwitchPreference) findPreference("incall_enable_dnd");
 
     PreferenceScreen ps = getPreferenceScreen();
+
+    mFlipAction = (ListPreference) findPreference(FLIP_ACTION_KEY);
+    if (mFlipAction != null) {
+      int flipAction = Settings.System.getInt(context.getContentResolver(),
+          Settings.System.CALL_FLIP_ACTION_KEY, 2);
+      mFlipAction.setValue(String.valueOf(flipAction));
+      updateFlipActionSummary(flipAction);
+      mFlipAction.setOnPreferenceChangeListener(this);
+    }
 
     if (hasVibrator()) {
       vibrateWhenRinging.setOnPreferenceChangeListener(this);
@@ -220,8 +232,20 @@ public class SoundSettingsFragment extends PreferenceFragment
         // At this time, it is unknown whether the user granted the permission
         return false;
       }
+    } else if (preference == mFlipAction) {
+      int index = mFlipAction.findIndexOfValue((String) objValue);
+      Settings.System.putInt(getActivity().getContentResolver(),
+          Settings.System.CALL_FLIP_ACTION_KEY, index);
+      updateFlipActionSummary(index);
     }
     return true;
+  }
+
+  private void updateFlipActionSummary(int value) {
+    if (mFlipAction != null) {
+      String[] summaries = getResources().getStringArray(R.array.flip_action_summary_entries);
+      mFlipAction.setSummary(getString(R.string.flip_action_summary, summaries[value]));
+    }
   }
 
   /** Click listener for toggle events. */
