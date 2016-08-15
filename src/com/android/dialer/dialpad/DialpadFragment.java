@@ -358,11 +358,15 @@ public class DialpadFragment extends Fragment
 
     @Override
     public void afterTextChanged(Editable input) {
+        final Activity activity = getActivity();
+        if (activity == null) {
+            return;
+        }
         // When DTMF dialpad buttons are being pressed, we delay SpecialCharSequenceMgr sequence,
         // since some of SpecialCharSequenceMgr's behavior is too abrupt for the "touch-down"
         // behavior.
         if (!mDigitsFilledByIntent &&
-                SpecialCharSequenceMgr.handleChars(getActivity(), input.toString(), mDigits)) {
+                SpecialCharSequenceMgr.handleChars(activity, input.toString(), mDigits)) {
             // A special sequence was entered, clear the digits
             mDigits.getText().clear();
         }
