@@ -25,13 +25,13 @@
         android:persistent="false"
         android:ringtoneType="ringtone" />
 
-    <CheckBoxPreference
+    <SwitchPreference
         android:key="@string/vibrate_on_preference_key"
         android:title="@string/vibrate_on_ring_title"
         android:persistent="false"
         android:defaultValue="false" />
 
-    <CheckBoxPreference
+    <SwitchPreference
         android:key="@string/play_dtmf_preference_key"
         android:title="@string/dtmf_tone_enable_title"
         android:persistent="false"
