@@ -132,13 +132,11 @@ final class VoicemailAudioManager implements OnAudioFocusChangeListener,
             return;
         }
 
-        if (mCallAudioState.getRoute() != newRoute) {
-            // Remember the new speaker state so it can be restored when the user plugs and unplugs
-            // a headset.
-            mWasSpeakerOn = newRoute == CallAudioState.ROUTE_SPEAKER;
-            setSystemAudioState(new CallAudioState(false /* muted */, newRoute,
-                    mCallAudioState.getSupportedRouteMask()));
-        }
+        // Remember the new speaker state so it can be restored when the user plugs and unplugs
+        // a headset.
+        mWasSpeakerOn = newRoute == CallAudioState.ROUTE_SPEAKER;
+        setSystemAudioState(new CallAudioState(false /* muted */, newRoute,
+                mCallAudioState.getSupportedRouteMask()));
     }
 
     private CallAudioState getInitialAudioState() {

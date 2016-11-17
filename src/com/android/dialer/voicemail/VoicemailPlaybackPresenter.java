@@ -266,6 +266,9 @@ public class VoicemailPlaybackPresenter implements MediaPlayer.OnPreparedListene
             // media player.
             mPosition = mMediaPlayer.getCurrentPosition();
             onPrepared(mMediaPlayer);
+            // set saved value.
+            setSpeakerphoneOn(mIsSpeakerphoneOn);
+            mVoicemailAudioManager.setSpeakerphoneOn(mIsSpeakerphoneOn);
         } else {
             if (!voicemailUri.equals(mVoicemailUri)) {
                 mVoicemailUri = voicemailUri;
