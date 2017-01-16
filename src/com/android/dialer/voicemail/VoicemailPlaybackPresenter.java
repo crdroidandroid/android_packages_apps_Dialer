@@ -655,6 +655,7 @@ public class VoicemailPlaybackPresenter implements MediaPlayer.OnPreparedListene
         mPosition = 0;
         if (mView != null) {
             mView.setClipPosition(0, mDuration.get());
+            mMediaPlayer.seekTo(mPosition);
         }
     }
 
