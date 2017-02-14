@@ -45,7 +45,7 @@ import android.preference.PreferenceManager;
  * and disabled. Most of that state is fed into this class through public methods.
  */
 public class ProximitySensor
-    implements AccelerometerListener.OrientationListener, InCallStateListener, AudioModeListener {
+    implements AccelerometerListener.ChangeListener, InCallStateListener, AudioModeListener {
 
   private static final String TAG = ProximitySensor.class.getSimpleName();
   private static final String PREF_KEY_DISABLE_PROXI_SENSOR = "disable_proximity_sensor_key";
@@ -108,9 +108,14 @@ public class ProximitySensor
 
   /** Called to identify when the device is laid down flat. */
   @Override
-  public void orientationChanged(int orientation) {
+  public void onOrientationChanged(int orientation) {
     this.orientation = orientation;
     updateProximitySensorMode();
+  }
+
+  @Override
+  public void onDeviceFlipped(boolean faceDown) {
+      // ignored
   }
 
   /** Called to keep track of the overall UI state. */
