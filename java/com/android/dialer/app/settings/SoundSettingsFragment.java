@@ -55,6 +55,8 @@ public class SoundSettingsFragment extends PreferenceFragmentCompat
 
   private static final String KEY_RECORDING_WARNING_PRESENTED = "recording_warning_presented";
 
+  private static final String BUTTON_SMART_MUTE_KEY = "button_smart_mute";
+
   private static final int NO_DTMF_TONE = 0;
   private static final int PLAY_DTMF_TONE = 1;
 
@@ -96,6 +98,7 @@ public class SoundSettingsFragment extends PreferenceFragmentCompat
   private ListPreference dtmfToneLength;
   private SwitchPreferenceCompat enableDndInCall;
   private SwitchPreferenceCompat callRecordAutostart;
+  private SwitchPreferenceCompat smartMute;
 
   private NotificationManager notificationManager;
 
@@ -123,6 +126,7 @@ public class SoundSettingsFragment extends PreferenceFragmentCompat
     dtmfToneLength = findPreference(context.getString(R.string.dtmf_tone_length_preference_key));
     enableDndInCall = findPreference("incall_enable_dnd");
     callRecordAutostart = findPreference(context.getString(R.string.call_recording_autostart_key));
+    smartMute = findPreference(BUTTON_SMART_MUTE_KEY);
 
     if (hasVibrator()) {
       vibrateWhenRinging.setOnPreferenceChangeListener(this);
@@ -169,6 +173,7 @@ public class SoundSettingsFragment extends PreferenceFragmentCompat
     } else {
       callRecordAutostart.setOnPreferenceChangeListener(this);
     }
+    smartMute.setOnPreferenceChangeListener(this);
     notificationManager = context.getSystemService(NotificationManager.class);
   }
 
@@ -257,6 +262,14 @@ public class SoundSettingsFragment extends PreferenceFragmentCompat
           return false;
         }
       }
+    } else if (preference == smartMute) {
+      boolean newValue = (Boolean) objValue;
+      final SharedPreferences prefs =
+              getPreferenceManager().getDefaultSharedPreferences(getContext());
+      prefs
+        .edit()
+        .putBoolean(BUTTON_SMART_MUTE_KEY, newValue)
+        .apply();
     }
     return true;
   }
