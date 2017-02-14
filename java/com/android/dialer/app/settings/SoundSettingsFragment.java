@@ -51,6 +51,8 @@ public class SoundSettingsFragment extends DialerPreferenceFragment
 
   private static final int MSG_UPDATE_RINGTONE_SUMMARY = 1;
 
+  public static final String BUTTON_SMART_MUTE_KEY = "button_smart_mute";
+
   private Preference ringtonePreference;
   private final Handler ringtoneLookupComplete =
       new Handler() {
