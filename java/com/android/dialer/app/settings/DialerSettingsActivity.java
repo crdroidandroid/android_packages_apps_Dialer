@@ -190,6 +190,11 @@ public class DialerSettingsActivity extends AppCompatPreferenceActivity {
       target.add(assistedDialingSettingsHeader);
     }
 
+    Header OtherSettingsHeader = new Header();
+    OtherSettingsHeader.titleRes = R.string.other_settings_label;
+    OtherSettingsHeader.fragment = OtherSettingsFragment.class.getName();
+    target.add(OtherSettingsHeader);
+
     if (showAbout()) {
       Header aboutPhoneHeader = new Header();
       aboutPhoneHeader.titleRes = R.string.about_phone_label;
