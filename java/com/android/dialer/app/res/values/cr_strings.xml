@@ -16,6 +16,9 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Preference titles -->
+    <string name="other_settings_label">Other settings</string>
+
     <!-- Smart Options -->
     <string name="smart_category_title">Other options</string>
     <string name="smart_mute_title">Smart mute</string>
@@ -30,4 +33,8 @@
 
   <!-- Tab text to show users their favorite contacts that they can call in 1 click [CHAR LIMIT=10] -->
   <string name="tab_title_favourites">Favorites</string>
+
+    <!-- Dialer postcall -->
+    <string name="enable_post_call_title">Post call snackbar</string>
+    <string name="enable_post_call_summary">Enable post call notifications at the bottom of screen</string>
 </resources>
