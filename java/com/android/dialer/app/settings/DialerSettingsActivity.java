@@ -162,6 +162,11 @@ public class DialerSettingsActivity extends AppCompatPreferenceActivity {
       accessibilitySettingsHeader.intent = accessibilitySettingsIntent;
       target.add(accessibilitySettingsHeader);
     }
+
+    Header OtherSettingsHeader = new Header();
+    OtherSettingsHeader.titleRes = R.string.other_settings_label;
+    OtherSettingsHeader.fragment = OtherSettingsFragment.class.getName();
+    target.add(OtherSettingsHeader);
   }
 
   private void addVoicemailSettings(List<Header> target, boolean isPrimaryUser) {
