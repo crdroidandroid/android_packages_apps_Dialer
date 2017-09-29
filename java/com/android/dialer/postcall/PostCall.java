@@ -28,6 +28,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import androidx.annotation.Nullable;
+import androidx.preference.PreferenceManager;
 
 import com.android.dialer.R;
 import com.android.dialer.common.Assert;
@@ -213,7 +214,12 @@ public class PostCall {
   }
 
   private static boolean isEnabled(Context context) {
-    return true;
+
+    SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+    boolean mEnabled = mPrefs.getBoolean("enable_post_call", true);
+
+    return mEnabled;
   }
 
   private static boolean isSimReady(Context context) {
