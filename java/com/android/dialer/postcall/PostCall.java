@@ -23,6 +23,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.design.widget.BaseTransientBottomBar.BaseCallback;
 import android.support.design.widget.Snackbar;
 import android.telephony.TelephonyManager;
@@ -211,7 +212,12 @@ public class PostCall {
   }
 
   private static boolean isEnabled(Context context) {
-    return true;
+
+    SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+    boolean mEnabled = mPrefs.getBoolean("enable_post_call", true);
+
+    return mEnabled;
   }
 
   private static boolean isSimReady(Context context) {
