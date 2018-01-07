@@ -47,4 +47,10 @@
     <string name="call_log_stats_title">Statistics</string>
 
     <string name="action_menu_helplines">Helplines</string>
+
+    <!-- Disable Proximity Options -->
+    <string name="disable_proximity_sensor_title">Disable proximity sensor</string>
+    <string name="disable_proximity_sensor_summary">Do not turn off touchscreen and display in call based on proximity sensor</string>
+    <string name="sensor_settings_titile">Sensors</string>
+
 </resources>
