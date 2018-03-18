@@ -18,6 +18,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
+  <string name="callFailed_incoming_cb_enabled">Odbiorca zablokował wszystkie połączenia przychodzące.</string>
   <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Połączenie nieodebrane i przekazane dalej</string>
   <!-- In-call screen: "call type" indication for a forwarded call [CHAR LIMIT=30] -->
@@ -35,6 +36,7 @@
   <string name="onscreenStopCallRecordText">Zatrzymaj nagrywanie</string>
   <string name="recording_time_text">Nagrywanie</string>
   <string name="recording_warning_title">Włączyć nagrywanie rozmów?</string>
+  <string name="call_state_dialing">Wybieranie numeru</string>
   <string name="call_state_active">Aktywne</string>
   <string name="call_state_unknown">Nieznane</string>
   <string name="call_state_disconnecting">Rozłączanie</string>
