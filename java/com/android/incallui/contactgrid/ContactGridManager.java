@@ -300,10 +300,10 @@ public class ContactGridManager {
 
       // Set direction of the name field
       int nameDirection = View.TEXT_DIRECTION_INHERIT;
-      boolean singleLine = true;
+      boolean singleLine = false;
       if (primaryInfo.nameIsNumber()) {
         nameDirection = View.TEXT_DIRECTION_LTR;
-	singleLine = false;
+        singleLine = true;
       }
       contactNameTextView.setTextDirection(nameDirection);
       contactNameTextView.setSingleLine(singleLine);
