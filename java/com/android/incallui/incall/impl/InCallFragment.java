@@ -23,6 +23,8 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Insets;
 import android.os.Bundle;
 import android.os.Handler;
@@ -48,6 +50,7 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.preference.PreferenceManager;
 
 import com.android.dialer.R;
 import com.android.dialer.common.Assert;
@@ -63,6 +66,7 @@ import com.android.incallui.incall.impl.ButtonController.CallRecordButtonControl
 import com.android.incallui.incall.impl.ButtonController.SpeakerButtonController;
 import com.android.incallui.incall.impl.ButtonController.UpgradeToRttButtonController;
 import com.android.incallui.incall.impl.InCallButtonGridFragment.OnButtonGridCreatedListener;
+import com.android.incallui.incall.protocol.ContactPhotoType;
 import com.android.incallui.incall.protocol.InCallButtonIds;
 import com.android.incallui.incall.protocol.InCallButtonIdsExtension;
 import com.android.incallui.incall.protocol.InCallButtonUi;
@@ -103,6 +107,8 @@ public class InCallFragment extends Fragment
   private int phoneType;
   private boolean stateRestored;
   private boolean userDeniedBluetooth;
+  private View topPhoneContainer;
+  private boolean isFullscreenPhoto = false;
 
   private final ActivityResultLauncher<String[]> permissionLauncher = registerForActivityResult(
           new ActivityResultContracts.RequestMultiplePermissions(),
@@ -178,8 +184,18 @@ public class InCallFragment extends Fragment
       @Nullable Bundle bundle) {
     LogUtil.i("InCallFragment.onCreateView", null);
     getActivity().setTheme(R.style.Theme_InCallScreen);
-    // Bypass to avoid StrictModeResourceMismatchViolation
-    final View view = layoutInflater.inflate(R.layout.frag_incall_voice, viewGroup, false);
+
+    SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+    isFullscreenPhoto = mPrefs.getBoolean("fullscreen_caller_photo", false);
+
+    final int res = isFullscreenPhoto ? R.layout.frag_incall_voice_fullscreen_photo :
+                        R.layout.frag_incall_voice;
+    final View view = layoutInflater.inflate(res, viewGroup, false);
+
+    if (isFullscreenPhoto) {
+      topPhoneContainer = view.findViewById(R.id.incall_contactgrid_container);
+    }
+
     contactGridManager =
         new ContactGridManager(
             view,
@@ -294,6 +310,15 @@ public class InCallFragment extends Fragment
     LogUtil.i("InCallFragment.setPrimary", primaryInfo.toString());
     setAdapterMedia(primaryInfo.multimediaData(), primaryInfo.showInCallButtonGrid());
     contactGridManager.setPrimary(primaryInfo);
+
+    if (topPhoneContainer != null) {
+      boolean hasPhoto = primaryInfo.photo() != null && primaryInfo.photoType() == ContactPhotoType.CONTACT;
+      if (hasPhoto) {
+        topPhoneContainer.setBackgroundColor(0x55000000);
+      } else {
+        topPhoneContainer.setBackgroundColor(Color.TRANSPARENT);
+      }
+    }
   }
 
   private void setAdapterMedia(MultimediaData multimediaData, boolean showInCallButtonGrid) {
