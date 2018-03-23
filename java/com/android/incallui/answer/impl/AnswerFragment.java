@@ -27,6 +27,7 @@ import android.app.KeyguardManager;
 import android.app.KeyguardManager.KeyguardDismissCallback;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
@@ -51,6 +52,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
+import androidx.preference.PreferenceManager;
 
 import com.android.dialer.R;
 import com.android.dialer.common.Assert;
@@ -157,6 +159,7 @@ public class AnswerFragment extends Fragment
   private ContactGridManager contactGridManager;
   private VideoCallScreen answerVideoCallScreen;
   private final Handler handler = new Handler(Looper.getMainLooper());
+  private boolean isFullscreenPhoto = false;
 
   private enum SecondaryBehavior {
     REJECT_WITH_SMS(
@@ -649,7 +652,15 @@ public class AnswerFragment extends Fragment
     buttonAcceptClicked = false;
     buttonRejectClicked = false;
 
-    View view = inflater.inflate(R.layout.fragment_incoming_call, container, false);
+    SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+    isFullscreenPhoto = mPrefs.getBoolean("fullscreen_caller_photo", false);
+
+    int res = R.layout.fragment_incoming_call;
+    if(isFullscreenPhoto){
+      res = R.layout.fragment_incoming_call_fullscreen_photo;
+    }
+
+    View view = inflater.inflate(res, container, false);
     secondaryButton = (SwipeButtonView) view.findViewById(R.id.incoming_secondary_button);
     answerAndReleaseButton = (SwipeButtonView) view.findViewById(R.id.incoming_secondary_button2);
 
@@ -1099,7 +1110,14 @@ public class AnswerFragment extends Fragment
     @Override
     public View onCreateView(
         LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-      return layoutInflater.inflate(R.layout.fragment_avatar, viewGroup, false);
+      SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+      boolean isFullscreenPhoto = mPrefs.getBoolean("fullscreen_caller_photo", false);
+
+      int res = R.layout.fragment_avatar;
+      if(isFullscreenPhoto){
+        res = R.layout.fragment_avatar_fullscreen_photo;
+      }
+      return layoutInflater.inflate(res, viewGroup, false);
     }
 
     @Override
