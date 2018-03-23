@@ -68,7 +68,7 @@ public class RttTranscriptMessageViewHolder extends RecyclerView.ViewHolder {
         avatarImageView.setVisibility(View.VISIBLE);
         GlidePhotoManagerComponent.get(container.getContext())
             .glidePhotoManager()
-            .loadContactPhoto(avatarImageView, photoInfo);
+            .loadContactPhoto(avatarImageView, photoInfo, false);
       }
       messageTextView.setTextAppearance(R.style.RttTranscriptBubble_Remote);
     } else {
