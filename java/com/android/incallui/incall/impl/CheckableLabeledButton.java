@@ -21,8 +21,6 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
 import android.os.Parcel;
@@ -70,18 +68,8 @@ public class CheckableLabeledButton extends LinearLayout implements Checkable {
     CharSequence labelText;
     boolean enabled;
 
-    SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-    boolean isFullscreenPhoto = mPrefs.getBoolean("fullscreen_caller_photo", false);
-    int resBackground = R.drawable.incall_button_background;
-    int resBackgroundMore = R.drawable.incall_button_background_more;
-
-    if(isFullscreenPhoto){
-      resBackground = R.drawable.incall_button_background_fullscreen_photo;
-      resBackgroundMore = R.drawable.incall_button_background_more_fullscreen_photo;
-    }
-
-    backgroundMore = getResources().getDrawable(resBackgroundMore, null);
-    background = getResources().getDrawable(resBackground, null);
+    backgroundMore = getResources().getDrawable(R.drawable.incall_button_background_more, null);
+    background = getResources().getDrawable(R.drawable.incall_button_background, null);
 
     TypedArray typedArray =
         context.obtainStyledAttributes(attrs, R.styleable.CheckableLabeledButton);
@@ -105,7 +93,7 @@ public class CheckableLabeledButton extends LinearLayout implements Checkable {
     iconView.setImageTintMode(Mode.SRC_IN);
     iconView.setImageTintList(getResources().getColorStateList(R.color.incall_button_icon, null));
 
-    iconView.setBackground(getResources().getDrawable(resBackground, null));
+    iconView.setBackground(getResources().getDrawable(R.drawable.incall_button_background, null));
     iconView.setDuplicateParentStateEnabled(true);
     iconView.setElevation(getResources().getDimension(R.dimen.incall_button_elevation));
     iconView.setStateListAnimator(

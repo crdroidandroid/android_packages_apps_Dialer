@@ -28,9 +28,4 @@
     android:key="displayOrder"
     android:title="@string/display_options_view_names_as"/>
 
-    <SwitchPreference
-        android:key="fullscreen_caller_photo"
-        android:title="@string/fullscreen_caller_photo_title"
-        android:summary="@string/fullscreen_caller_photo_summary"
-        android:defaultValue="false" />
 </PreferenceScreen>
