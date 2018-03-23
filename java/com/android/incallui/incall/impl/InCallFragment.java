@@ -21,6 +21,9 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.preference.PreferenceManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -58,6 +61,7 @@ import com.android.incallui.incall.impl.ButtonController.CallRecordButtonControl
 import com.android.incallui.incall.impl.ButtonController.SpeakerButtonController;
 import com.android.incallui.incall.impl.ButtonController.UpgradeToRttButtonController;
 import com.android.incallui.incall.impl.InCallButtonGridFragment.OnButtonGridCreatedListener;
+import com.android.incallui.incall.protocol.ContactPhotoType;
 import com.android.incallui.incall.protocol.InCallButtonIds;
 import com.android.incallui.incall.protocol.InCallButtonIdsExtension;
 import com.android.incallui.incall.protocol.InCallButtonUi;
@@ -70,6 +74,7 @@ import com.android.incallui.incall.protocol.PrimaryCallState;
 import com.android.incallui.incall.protocol.PrimaryCallState.ButtonState;
 import com.android.incallui.incall.protocol.PrimaryInfo;
 import com.android.incallui.incall.protocol.SecondaryInfo;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -96,8 +101,10 @@ public class InCallFragment extends Fragment
   private int voiceNetworkType;
   private int phoneType;
   private boolean stateRestored;
+  private View topPhoneContainer;
 
   private static final int REQUEST_CODE_CALL_RECORD_PERMISSION = 1000;
+  private boolean isFullscreenPhoto = false;
 
   // Add animation to educate users. If a call has enriched calling attachments then we'll
   // initially show the attachment page. After a delay seconds we'll animate to the button grid.
@@ -154,8 +161,18 @@ public class InCallFragment extends Fragment
       @Nullable Bundle bundle) {
     LogUtil.i("InCallFragment.onCreateView", null);
     getActivity().setTheme(R.style.Theme_InCallScreen);
-    // Bypass to avoid StrictModeResourceMismatchViolation
-    final View view = layoutInflater.inflate(R.layout.frag_incall_voice, viewGroup, false);
+
+    SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+    isFullscreenPhoto = mPrefs.getBoolean("fullscreen_caller_photo", false);
+
+    final int res = isFullscreenPhoto ? R.layout.frag_incall_voice_fullscreen_photo :
+                        R.layout.frag_incall_voice;
+    final View view = layoutInflater.inflate(res, viewGroup, false);
+
+    if (isFullscreenPhoto) {
+      topPhoneContainer = view.findViewById(R.id.incall_contactgrid_container);
+    }
+
     contactGridManager =
         new ContactGridManager(
             view,
@@ -275,6 +292,15 @@ public class InCallFragment extends Fragment
     LogUtil.i("InCallFragment.setPrimary", primaryInfo.toString());
     setAdapterMedia(primaryInfo.multimediaData(), primaryInfo.showInCallButtonGrid());
     contactGridManager.setPrimary(primaryInfo);
+
+    if (topPhoneContainer != null) {
+      boolean hasPhoto = primaryInfo.photo() != null && primaryInfo.photoType() == ContactPhotoType.CONTACT;
+      if (hasPhoto) {
+        topPhoneContainer.setBackgroundColor(0x55000000);
+      } else {
+        topPhoneContainer.setBackgroundColor(Color.TRANSPARENT);
+      }
+    }
 
     if (primaryInfo.shouldShowLocation()) {
       // Hide the avatar to make room for location
