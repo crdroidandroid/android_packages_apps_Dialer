@@ -18,6 +18,7 @@
 package com.android.incallui.contactgrid;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
@@ -35,6 +36,7 @@ import android.widget.ViewAnimator;
 
 import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
+import androidx.preference.PreferenceManager;
 
 import com.android.dialer.R;
 import com.android.dialer.common.Assert;
@@ -42,6 +44,7 @@ import com.android.dialer.common.LogUtil;
 import com.android.dialer.glidephotomanager.GlidePhotoManagerComponent;
 import com.android.dialer.glidephotomanager.PhotoInfo;
 import com.android.dialer.widget.BidiTextView;
+import com.android.incallui.autoresizetext.AutoResizeTextView;
 import com.android.incallui.incall.protocol.ContactPhotoType;
 import com.android.incallui.incall.protocol.PrimaryCallState;
 import com.android.incallui.incall.protocol.PrimaryInfo;
@@ -97,6 +100,8 @@ public class ContactGridManager {
   private PrimaryCallState primaryCallState = PrimaryCallState.empty();
   private boolean isInMultiWindowMode;
 
+  private boolean isFullscreenPhoto = false;
+
   public ContactGridManager(View view, @Nullable ImageView avatarImageView, int avatarSize,
                             boolean showAnonymousAvatar) {
     context = view.getContext();
@@ -123,6 +128,9 @@ public class ContactGridManager {
 
     deviceNumberTextView = view.findViewById(R.id.contactgrid_device_number_text);
     deviceNumberDivider = view.findViewById(R.id.contactgrid_location_divider);
+
+    SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+    isFullscreenPhoto = mPrefs.getBoolean("fullscreen_caller_photo", false);
   }
 
   public void show() {
@@ -292,10 +300,14 @@ public class ContactGridManager {
 
       // Set direction of the name field
       int nameDirection = View.TEXT_DIRECTION_INHERIT;
+      boolean singleLine = false;
       if (primaryInfo.nameIsNumber()) {
         nameDirection = View.TEXT_DIRECTION_LTR;
+        singleLine = true;
       }
       contactNameTextView.setTextDirection(nameDirection);
+      contactNameTextView.setSingleLine(singleLine);
+      ((AutoResizeTextView)contactNameTextView).setMaxLines(2);
     }
 
     if (avatarImageView != null) {
@@ -336,7 +348,7 @@ public class ContactGridManager {
 
     GlidePhotoManagerComponent.get(context)
         .glidePhotoManager()
-        .loadContactPhoto(avatarImageView, photoInfoBuilder.build());
+        .loadContactPhoto(avatarImageView, photoInfoBuilder.build(), isFullscreenPhoto);
   }
 
   /**
