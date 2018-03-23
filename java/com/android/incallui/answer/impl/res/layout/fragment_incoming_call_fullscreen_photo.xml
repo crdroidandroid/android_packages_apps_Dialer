@@ -49,6 +49,13 @@
       android:visibility="gone"/>
 
   <FrameLayout
+      android:id="@+id/incall_data_container"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:clipChildren="false"
+      android:clipToPadding="false"/>
+
+  <FrameLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:fitsSystemWindows="true">
@@ -78,45 +85,57 @@
         android:id="@+id/incall_contact_grid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="24dp"
         android:clipChildren="false"
         android:clipToPadding="false"
         android:focusable="true"
         android:gravity="top|center_horizontal"
         android:orientation="vertical">
 
-      <include
-          android:id="@id/contactgrid_top_row"
-          layout="@layout/incall_contactgrid_top_row"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginBottom="8dp"
-          android:layout_marginStart="24dp"
-          android:layout_marginEnd="24dp"/>
-
-      <!-- We have to keep deprecated singleLine to allow long text being truncated with ellipses.
-           a bug -->
-      <com.android.incallui.autoresizetext.AutoResizeTextView
-          android:id="@id/contactgrid_contact_name"
+   <LinearLayout
           android:layout_width="match_parent"
-          android:layout_height="72dp"
-          android:layout_marginBottom="8dp"
-          android:layout_marginStart="24dp"
-          android:layout_marginEnd="24dp"
-          android:singleLine="true"
-          android:textAppearance="@style/Dialer.Incall.TextAppearance.Large"
-          android:textSize="@dimen/answer_contact_name_text_size"
-          app:autoResizeText_minTextSize="@dimen/answer_contact_name_min_size"
-          tools:ignore="Deprecated"
-          tools:text="Jake Peralta"/>
-
-      <include
-          android:id="@id/contactgrid_bottom_row"
-          layout="@layout/incall_contactgrid_bottom_row"
-          android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_marginStart="24dp"
-          android:layout_marginEnd="24dp"/>
+          android:paddingTop="24dp"
+          android:paddingBottom="8dp"
+          android:gravity="top|center_horizontal"
+          android:background="#55000000"
+          android:orientation="vertical">
+
+        <include
+            android:id="@id/contactgrid_top_row"
+            layout="@layout/incall_contactgrid_top_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"/>
+
+        <!-- We have to keep deprecated singleLine to allow long text being truncated with ellipses.
+             b/31396406 -->
+        <com.android.incallui.autoresizetext.CustomAutoResizeTextView
+            android:id="@id/contactgrid_contact_name"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:singleLine="false"
+            android:textAppearance="@style/Dialer.Incall.TextAppearance.Large"
+            android:textSize="@dimen/answer_contact_name_text_size"
+            app:resizing_text_min_size="@dimen/answer_contact_name_min_size"
+            tools:ignore="Deprecated"
+            tools:text="Jake Peralta"/>
+
+        <include
+            android:id="@id/contactgrid_bottom_row"
+            layout="@layout/incall_contactgrid_bottom_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"/>
+    </LinearLayout>
 
       <!-- TODO(a bug): textColorPrimary or textColorPrimaryInverse? -->
       <TextView
@@ -140,18 +159,6 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"/>
 
-      <include
-          layout="@layout/device_number_row"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"/>
-
-      <FrameLayout
-          android:id="@+id/incall_data_container"
-          android:layout_width="match_parent"
-          android:layout_height="0dp"
-          android:layout_weight="1"
-          android:clipChildren="false"
-          android:clipToPadding="false">
         <LinearLayout
             android:id="@+id/incall_data_container_chip_container"
             android:layout_width="wrap_content"
@@ -160,16 +167,14 @@
             android:orientation="horizontal"
             android:visibility="gone">
         </LinearLayout>
-      </FrameLayout>
 
       <!-- Space holder for answer method. This is used to get better scaling to make room for
       incall_data_container on different screen size. -->
       <Space
           android:layout_width="match_parent"
           android:layout_height="220dp"/>
-
-    </LinearLayout>
-  </FrameLayout>
+        </LinearLayout>
+      </FrameLayout>
 
   <com.android.incallui.answer.impl.affordance.SwipeButtonView
       android:id="@+id/incoming_secondary_button"
