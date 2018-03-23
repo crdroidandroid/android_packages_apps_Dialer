@@ -36,4 +36,9 @@
       android:title="@string/display_options_view_names_as"
       android:defaultValue="@string/display_options_view_given_name_first_value"/>
 
+    <SwitchPreference
+        android:key="fullscreen_caller_photo"
+        android:title="@string/fullscreen_caller_photo_title"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
