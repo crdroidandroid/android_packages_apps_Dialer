@@ -68,12 +68,12 @@ public class GlidePhotoManagerImpl implements GlidePhotoManager {
             ? DefaultLookupUriGenerator.generateUri(photoInfo)
             : parseUri(photoInfo.getLookupUri()));
     badge.setOverlay(null);
-    loadContactPhoto(badge, photoInfo);
+    loadContactPhoto(badge, photoInfo, false);
   }
 
   @MainThread
   @Override
-  public void loadContactPhoto(ImageView imageView, PhotoInfo photoInfo) {
+  public void loadContactPhoto(ImageView imageView, PhotoInfo photoInfo, boolean isFullscreenPhoto) {
     Assert.isMainThread();
     imageView.setContentDescription(
         TextUtils.expandTemplate(
@@ -82,11 +82,11 @@ public class GlidePhotoManagerImpl implements GlidePhotoManager {
             // and a phone number. We use DialerBidiFormatter to wrap the phone number with TTS
             // span.
             DialerBidiFormatter.format(photoInfo.getName())));
-    GlideRequest<Drawable> request = buildRequest(GlideApp.with(imageView), photoInfo);
+    GlideRequest<Drawable> request = buildRequest(GlideApp.with(imageView), photoInfo, isFullscreenPhoto);
     request.into(imageView);
   }
 
-  private GlideRequest<Drawable> buildRequest(GlideRequests requestManager, PhotoInfo photoInfo) {
+  private GlideRequest<Drawable> buildRequest(GlideRequests requestManager, PhotoInfo photoInfo, boolean isFullscreenPhoto) {
     // Warning: Glide ignores extra attributes on BitmapDrawable such as tint and draw the bitmap
     // directly so be sure not to set tint in the XML of any drawable referenced below.
 
@@ -118,7 +118,7 @@ public class GlidePhotoManagerImpl implements GlidePhotoManager {
         .placeholder(defaultDrawable) // when the photo is still loading.
         .fallback(defaultDrawable); // when there's nothing to load.
 
-    if (circleCrop) {
+    if (circleCrop && !isFullscreenPhoto) {
       request.circleCrop();
     }
 
