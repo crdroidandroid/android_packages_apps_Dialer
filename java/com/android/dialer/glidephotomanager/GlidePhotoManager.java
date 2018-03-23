@@ -40,5 +40,5 @@ public interface GlidePhotoManager {
    * ends.
    */
   @MainThread
-  void loadContactPhoto(ImageView imageView, PhotoInfo photoInfo);
+  void loadContactPhoto(ImageView imageView, PhotoInfo photoInfo, boolean isFullscreenPhoto);
 }
