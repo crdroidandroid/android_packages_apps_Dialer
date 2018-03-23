@@ -17,17 +17,52 @@
 
 package com.android.dialer.app.settings;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceManager;
+import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.dialer.R;
 
-public class DisplayOptionsSettingsFragment extends PreferenceFragmentCompat {
+public class DisplayOptionsSettingsFragment extends PreferenceFragmentCompat
+    implements Preference.OnPreferenceChangeListener {
+
+  private static final String FULLSCREEN_CALLER_PHOTO = "fullscreen_caller_photo";
+
+  private SharedPreferences mPrefs;
+  private boolean mEnabled;
+
+  private SwitchPreferenceCompat mFullscreenCallerPhoto;
 
   @Override
   public void onCreatePreferences(@Nullable Bundle savedInstanceState, @Nullable String rootKey) {
     addPreferencesFromResource(R.xml.display_options_settings);
+
+    Context context = getActivity();
+
+    mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+    mFullscreenCallerPhoto = findPreference(FULLSCREEN_CALLER_PHOTO);
+    mFullscreenCallerPhoto.setChecked(mPrefs.getBoolean(FULLSCREEN_CALLER_PHOTO, false));
+    mFullscreenCallerPhoto.setOnPreferenceChangeListener(this);
+
+  }
+
+  @Override
+  public boolean onPreferenceChange(Preference preference, Object objValue) {
+    if (preference == mFullscreenCallerPhoto) {
+        boolean value = (Boolean) objValue;
+        mPrefs
+          .edit()
+          .putBoolean(FULLSCREEN_CALLER_PHOTO, value)
+          .apply();
+        return true;
+    }
+    return false;
   }
 }
