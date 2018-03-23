@@ -39,4 +39,11 @@
       android:defaultValue="@string/display_options_view_given_name_first_value"
       app:iconSpaceReserved="false"/>
 
+  <SwitchPreferenceCompat
+      android:key="fullscreen_caller_photo"
+      android:title="@string/fullscreen_caller_photo_title"
+      android:summary="@string/fullscreen_caller_photo_summary"
+      android:defaultValue="false" />
+      app:iconSpaceReserved="false"/>
+
 </PreferenceScreen>
