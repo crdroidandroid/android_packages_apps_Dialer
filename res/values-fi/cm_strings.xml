@@ -147,4 +147,6 @@
   <string name="type_missed_vowifi">Vastaamaton Wi-Fi-äänipuhelu</string>
   <!-- Title for missed wifi video call in call details screen [CHAR LIMIT=60] -->
   <string name="type_missed_video_wifi">Vastaamaton Wi-Fi-videopuhelu</string>
+  <!-- Disclaimer -->
+  <string name="lookup_disclaimer">Haku voi lähettää kyselyjä suojatun protokollan (https) kautta etäsivustoille tietojen keräämiseksi. Kysely voi sisältää toisen osapuolen puhelinnumeron tai hakukyselyn</string>
 </resources>
