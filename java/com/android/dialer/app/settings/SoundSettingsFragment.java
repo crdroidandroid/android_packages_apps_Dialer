@@ -24,6 +24,7 @@ import android.app.AlertDialog;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -42,6 +43,7 @@ import androidx.annotation.Nullable;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
 
@@ -61,6 +63,11 @@ public class SoundSettingsFragment extends PreferenceFragmentCompat
   private static final int DTMF_TONE_TYPE_NORMAL = 0;
 
   private static final int MSG_UPDATE_RINGTONE_SUMMARY = 1;
+
+  private static final String AUTO_CALL_RECORDING_KEY = "auto_call_recording";
+
+  private SharedPreferences mPrefs;
+  private SwitchPreferenceCompat mAutoCallRecording;
 
   private DefaultRingtonePreference ringtonePreference;
   private final Handler ringtoneLookupComplete =
@@ -112,6 +119,11 @@ public class SoundSettingsFragment extends PreferenceFragmentCompat
     addPreferencesFromResource(R.xml.sound_settings);
 
     Context context = getActivity();
+    mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+    mAutoCallRecording = findPreference(AUTO_CALL_RECORDING_KEY);
+    mAutoCallRecording.setChecked(mPrefs.getBoolean(AUTO_CALL_RECORDING_KEY, false));
+    mAutoCallRecording.setOnPreferenceChangeListener(this);
 
     ringtonePreference = findPreference(context.getString(R.string.ringtone_preference_key));
     vibrateWhenRinging = findPreference(context.getString(R.string.vibrate_on_preference_key));
@@ -227,6 +239,12 @@ public class SoundSettingsFragment extends PreferenceFragmentCompat
         // At this time, it is unknown whether the user granted the permission
         return false;
       }
+    } else if (preference == mAutoCallRecording) {
+        boolean value = (Boolean) objValue;
+        mPrefs
+          .edit()
+          .putBoolean(AUTO_CALL_RECORDING_KEY, value)
+          .apply();
     }
     return true;
   }
