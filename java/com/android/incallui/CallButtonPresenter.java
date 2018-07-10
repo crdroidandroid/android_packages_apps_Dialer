@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Trace;
+import android.os.Handler;
 import android.telecom.CallAudioState;
 import android.telecom.PhoneAccountHandle;
 
@@ -114,6 +115,11 @@ public class CallButtonPresenter
 
     CallRecorder recorder = CallRecorder.getInstance();
     recorder.addRecordingProgressListener(recordingProgressListener);
+    if (recorder.isRecording()) {
+        inCallButtonUi.setCallRecordingState(true);
+    } else {
+        inCallButtonUi.setCallRecordingState(false);
+    }
 
     // Update the buttons state immediately for the current call
     onStateChange(InCallState.NO_CALLS, inCallPresenter.getInCallState(), CallList.getInstance());
@@ -144,6 +150,10 @@ public class CallButtonPresenter
   @Override
   public void onStateChange(InCallState oldState, InCallState newState, CallList callList) {
     Trace.beginSection("CallButtonPresenter.onStateChange");
+    CallRecorder recorder = CallRecorder.getInstance();
+    SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+    boolean isAutoCallRecording = mPrefs.getBoolean("auto_call_recording", false);
+
     if (call != null) {
       call.removeListener(this);
     }
@@ -152,6 +162,14 @@ public class CallButtonPresenter
     } else if (newState == InCallState.INCALL) {
       call = callList.getActiveOrBackgroundCall();
 
+      if (!recorder.isRecording() && isAutoCallRecording && call != null) {
+        new Handler().postDelayed(new Runnable() {
+          @Override
+          public void run() {
+            callRecordClicked(true);
+          }
+        }, 500);
+      }
       // When connected to voice mail, automatically shows the dialpad.
       // (On previous releases we showed it when in-call shows up, before waiting for
       // OUTGOING.  We may want to do that once we start showing "Voice mail" label on
@@ -166,7 +184,10 @@ public class CallButtonPresenter
         getActivity().showDialpadFragment(false /* show */, true /* animate */);
       }
       call = callList.getIncomingCall();
-    } else {
+    } else if (call != null) {
+      if (recorder.isRecording() && isAutoCallRecording) {
+        callRecordClicked(false);
+      }
       call = null;
     }
 
@@ -299,21 +320,7 @@ public class CallButtonPresenter
   public void callRecordClicked(boolean checked) {
     CallRecorder recorder = CallRecorder.getInstance();
     if (checked) {
-      final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-      boolean warningPresented = prefs.getBoolean(KEY_RECORDING_WARNING_PRESENTED, false);
-      if (!warningPresented) {
-        new AlertDialog.Builder(getActivity())
-            .setTitle(R.string.recording_warning_title)
-            .setMessage(R.string.recording_warning_text)
-            .setPositiveButton(R.string.onscreenCallRecordText, (dialog, which) -> {
-              prefs.edit()
-                  .putBoolean(KEY_RECORDING_WARNING_PRESENTED, true)
-                  .apply();
-              startCallRecordingOrAskForPermission();
-            })
-            .setNegativeButton(android.R.string.cancel, null)
-            .show();
-      } else {
+       if(!recorder.isRecording()) {
         startCallRecordingOrAskForPermission();
       }
     } else {
