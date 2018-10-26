@@ -29,6 +29,8 @@ import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
 import android.telephony.CarrierConfigManager;
 import android.telephony.TelephonyManager;
+import android.telephony.SubscriptionInfo;
+import android.telephony.SubscriptionManager;
 import android.text.TextUtils;
 import com.android.dialer.app.R;
 import com.android.dialer.common.Assert;
@@ -39,6 +41,7 @@ import com.android.dialer.notification.NotificationChannelManager;
 import com.android.dialer.phonenumberutil.PhoneNumberHelper;
 import com.android.dialer.telecom.TelecomUtil;
 import com.android.dialer.theme.base.ThemeComponent;
+import java.util.List;
 
 /** Shows a notification in the status bar for legacy vociemail. */
 @TargetApi(VERSION_CODES.O)
@@ -117,9 +120,27 @@ public final class LegacyVoicemailNotifier {
       contentIntent = voicemailSettingsIntent;
     }
 
+    int resId = android.R.drawable.stat_notify_voicemail;
+
+    if (pinnedTelephonyManager.getPhoneCount() > 1) {
+        SubscriptionManager subManager = context.getSystemService(SubscriptionManager.class);
+        List<SubscriptionInfo> subInfoList = subManager.getActiveSubscriptionInfoList();
+        if (handle != null && !TextUtils.isEmpty(handle.getId()) && subInfoList!= null) {
+            for (SubscriptionInfo subInfo: subInfoList) {
+                if (handle.getId().equals(subInfo.getIccId())) {
+                    int slotId = subInfo.getSimSlotIndex();
+                    resId = (slotId == 0) ? R.drawable.stat_notify_voicemail_sub1
+                            : (slotId == 1) ? R.drawable.stat_notify_voicemail_sub2
+                            : android.R.drawable.stat_notify_voicemail;
+                    break;
+                }
+            }
+        }
+    }
+
     Notification.Builder builder =
         new Notification.Builder(context)
-            .setSmallIcon(android.R.drawable.stat_notify_voicemail)
+            .setSmallIcon(resId)
             .setColor(ThemeComponent.get(context).theme().getColorPrimary())
             .setWhen(System.currentTimeMillis())
             .setContentTitle(notificationTitle)
