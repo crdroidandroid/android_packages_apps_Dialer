@@ -43,7 +43,8 @@
       android:importantForAccessibility="no"
       android:scaleType="center"
       android:src="@drawable/quantum_ic_search_vd_theme_24"
-      android:tint="@color/searchbox_icon_tint"/>
+      android:tint="@color/searchbox_icon_tint"
+      android:background="?android:selectableItemBackgroundBorderless" />
 
     <TextView
       android:id="@+id/search_box_start_search"
