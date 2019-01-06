@@ -78,11 +78,6 @@ public class TopRow {
         labelIsSingleLine = false;
       } else {
         label = getLabelForIncoming(context, state);
-        // Show phone number if it's not displayed in name (center row) or location field (bottom
-        // row).
-        if (shouldShowNumber(primaryInfo, true /* isIncoming */)) {
-          label = TextUtils.concat(label, " ", spanDisplayNumber(primaryInfo.number()));
-        }
       }
     } else if (VideoUtils.hasSentVideoUpgradeRequest(state.sessionModificationState())
         || VideoUtils.hasReceivedVideoUpgradeRequest(state.sessionModificationState())) {

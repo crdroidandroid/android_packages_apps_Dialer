@@ -99,6 +99,10 @@ public class BottomRow {
       }
     } else {
       label = getLabelForPhoneNumber(primaryInfo);
+      // Show phone number if number type (Mobile, Home, Work....) is present.
+      if (label != null) {
+        label = TextUtils.concat(label, ": ", spanDisplayNumber(primaryInfo.number()));
+      }
       shouldPopulateAccessibilityEvent = primaryInfo.nameIsNumber();
     }
 
