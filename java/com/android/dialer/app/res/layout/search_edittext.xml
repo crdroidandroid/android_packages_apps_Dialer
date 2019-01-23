@@ -14,6 +14,7 @@
      limitations under the License.
 -->
 <view xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   android:id="@+id/search_view_container"
   class="com.android.dialer.app.widget.SearchEditTextLayout"
   android:layout_width="match_parent"
@@ -28,6 +29,7 @@
   android:orientation="horizontal">
 
   <RelativeLayout
+    app:cardCornerRadius="@dimen/search_bar_corner_radius"
     android:id="@+id/search_box_collapsed"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
