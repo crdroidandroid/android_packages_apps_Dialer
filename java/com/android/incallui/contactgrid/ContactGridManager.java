@@ -37,7 +37,7 @@ import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.lettertile.LetterTileDrawable;
 import com.android.dialer.util.DrawableConverter;
-import com.android.incallui.autoresizetext.AutoResizeTextView;
+import com.android.incallui.autoresizetext.CustomAutoResizeTextView;
 import com.android.incallui.incall.protocol.ContactPhotoType;
 import com.android.incallui.incall.protocol.PrimaryCallState;
 import com.android.incallui.incall.protocol.PrimaryInfo;
@@ -296,7 +296,7 @@ public class ContactGridManager {
       }
       contactNameTextView.setTextDirection(nameDirection);
       contactNameTextView.setSingleLine(singleLine);
-      ((AutoResizeTextView)contactNameTextView).setMaxLines(2);
+      ((CustomAutoResizeTextView)contactNameTextView).setMaxLines(2);
     }
 
     if (avatarImageView != null) {
