@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Copyright (C) 2012 The Android Open Source Project
   ~
@@ -13,11 +12,10 @@
   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License
-  -->
-<!-- The colors in this file aren't configured at the theme level. -->
+-->
 <resources>
-  <!-- Settings -->
-  <color name="dialer_settings_theme_color_dark">#1C3AA9</color>
 
-  <color name="dialer_divider_line_color">#282828</color>
+  <!-- 87% white -->
+  <color name="block_report_spam_primary_text_color">#deffffff</color>
+
 </resources>

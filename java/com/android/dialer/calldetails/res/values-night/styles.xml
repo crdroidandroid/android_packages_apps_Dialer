@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (C) 2012 The Android Open Source Project
+  ~ Copyright (C) 2017 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -14,10 +14,17 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License
   -->
-<!-- The colors in this file aren't configured at the theme level. -->
 <resources>
-  <!-- Settings -->
-  <color name="dialer_settings_theme_color_dark">#1C3AA9</color>
+  <style name="CallDetailsActionItemStyle" parent="Dialer.TextAppearance.Secondary.Ellipsize">
+    <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    <item name="android:clickable">true</item>
+    <item name="android:drawablePadding">28dp</item>
+    <item name="android:gravity">center_vertical</item>
+    <item name="android:paddingStart">28dp</item>
+    <item name="android:paddingEnd">28dp</item>
+    <item name="android:paddingTop">16dp</item>
+    <item name="android:textColor">#ffffff</item>
+    <item name="android:paddingBottom">16dp</item>
+  </style>
 
-  <color name="dialer_divider_line_color">#282828</color>
 </resources>
