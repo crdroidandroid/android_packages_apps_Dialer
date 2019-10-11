@@ -44,7 +44,7 @@
 
   <!-- Used to style all Dialer's button's text. Every button is awarded this for free if the parent
      activity's theme extends from Dialer.ThemeBase(.NoActionBar) or doesn't specify a theme. -->
-  <style name="DialerButtonTextStyle" parent="@android:style/TextAppearance.Material.Widget.Button">
+  <style name="DialerButtonTextStyle" parent="@android:style/TextAppearance.DeviceDefault.Widget.Button">
     <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
   </style>
 
@@ -55,7 +55,6 @@
     <!-- TODO(a bug): figure out why ?android:attr/colorPrimary doesn't work here -->
     <item name="android:colorAccent">@color/dialer_theme_color</item>
     <item name="colorAccent">@color/dialer_theme_color</item>
-    <item name="android:textColorPrimary">@color/dialer_primary_text_color</item>
     <item name="android:textColorSecondary">@color/dialer_secondary_text_color</item>
   </style>
 </resources>

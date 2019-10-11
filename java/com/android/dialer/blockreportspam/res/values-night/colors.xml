@@ -13,17 +13,9 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License
 -->
-
 <resources>
-  <color name="nav_item">#80FFFFFF</color>
-  <color name="nav_item_selected">#FFFFFF</color>
 
-  <color name="voicemail_icon_disabled_tint">#80ffffff</color>
-
-  <!-- Text color for the "Remove" text when a contact is dragged on top of the remove view -->
-  <color name="remove_highlighted_text_color">#FF3F3B</color>
-
-  <!--  Colors for blocked numbers list -->
-  <color name="blocked_number_block_color">#F44336</color>
+  <!-- 87% white -->
+  <color name="block_report_spam_primary_text_color">#deffffff</color>
 
 </resources>
