@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (C) 2018 The Android Open Source Project
+  ~ Copyright (C) 2012 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -13,12 +12,16 @@
   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License
-  -->
-<resources>
-  <dimen name="search_bar_margin">8dp</dimen>
-  <dimen name="collapsed_search_bar_height">48dp</dimen>
-  <!-- collapsed + margin * 2 -->
-  <dimen name="expanded_search_bar_height">64dp</dimen>
+-->
 
-  <dimen name="search_bar_corner_radius">@*android:dimen/config_dialogCornerRadius</dimen>
+<resources>
+  <color name="voicemail_icon_disabled_tint">#80ffffff</color>
+
+  <!-- Text color for the "Remove" text when a contact is dragged on top of the remove view -->
+  <color name="remove_highlighted_text_color">#FF3F3B</color>
+
+  <!--  Colors for blocked numbers list -->
+  <color name="blocked_number_block_color">#F44336</color>
+
+  <color name="ic_launcher_background">@color/dialer_theme_color</color>
 </resources>
