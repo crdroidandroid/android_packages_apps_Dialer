@@ -14,11 +14,12 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License
   -->
-<resources>
-  <dimen name="search_bar_margin">8dp</dimen>
-  <dimen name="collapsed_search_bar_height">48dp</dimen>
-  <!-- collapsed + margin * 2 -->
-  <dimen name="expanded_search_bar_height">64dp</dimen>
 
-  <dimen name="search_bar_corner_radius">@*android:dimen/config_dialogCornerRadius</dimen>
+<resources>
+  <!-- TODO(a bug): remove these? -->
+  <color name="feature_icon_read_color">#9E9E9E</color>
+  <color name="feature_icon_unread_color">#777777</color>
+
+  <color name="call_type_icon_read_color">#757575</color>
+  <color name="call_type_icon_unread_color">#D32F2F</color>
 </resources>
