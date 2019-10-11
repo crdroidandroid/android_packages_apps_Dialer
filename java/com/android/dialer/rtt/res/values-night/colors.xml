@@ -15,10 +15,7 @@
   ~ limitations under the License
   -->
 <resources>
-  <dimen name="search_bar_margin">8dp</dimen>
-  <dimen name="collapsed_search_bar_height">48dp</dimen>
-  <!-- collapsed + margin * 2 -->
-  <dimen name="expanded_search_bar_height">64dp</dimen>
-
-  <dimen name="search_bar_corner_radius">@*android:dimen/config_dialogCornerRadius</dimen>
+  <color name="rtt_transcript_primary_color">#92bcd1</color>
+  <color name="rtt_transcript_primary_color_dark">#576f7a</color>
+  <color name="rtt_transcript_background_color">#232324</color>
 </resources>

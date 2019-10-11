@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (C) 2018 The Android Open Source Project
+  ~ Copyright (C) 2016 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -15,10 +15,6 @@
   ~ limitations under the License
   -->
 <resources>
-  <dimen name="search_bar_margin">8dp</dimen>
-  <dimen name="collapsed_search_bar_height">48dp</dimen>
-  <!-- collapsed + margin * 2 -->
-  <dimen name="expanded_search_bar_height">64dp</dimen>
-
-  <dimen name="search_bar_corner_radius">@*android:dimen/config_dialogCornerRadius</dimen>
+  <color name="shortcut_add_contact_foreground_color">@*android:color/accent_device_default_light</color>
+  <color name="shortcut_add_contact_background_color">@*android:color/primary_dark_device_default_settings</color>
 </resources>

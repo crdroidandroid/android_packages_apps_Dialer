@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (C) 2018 The Android Open Source Project
+  ~ Copyright (C) 2017 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -15,10 +15,16 @@
   ~ limitations under the License
   -->
 <resources>
-  <dimen name="search_bar_margin">8dp</dimen>
-  <dimen name="collapsed_search_bar_height">48dp</dimen>
-  <!-- collapsed + margin * 2 -->
-  <dimen name="expanded_search_bar_height">64dp</dimen>
+  <style name="CallDetailsActionItemStyle" parent="Dialer.TextAppearance.Secondary.Ellipsize">
+    <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    <item name="android:clickable">true</item>
+    <item name="android:drawablePadding">28dp</item>
+    <item name="android:gravity">center_vertical</item>
+    <item name="android:paddingStart">28dp</item>
+    <item name="android:paddingEnd">28dp</item>
+    <item name="android:paddingTop">16dp</item>
+    <item name="android:textColor">#ffffff</item>
+    <item name="android:paddingBottom">16dp</item>
+  </style>
 
-  <dimen name="search_bar_corner_radius">@*android:dimen/config_dialogCornerRadius</dimen>
 </resources>
