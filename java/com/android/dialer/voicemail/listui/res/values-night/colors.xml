@@ -15,10 +15,5 @@
   ~ limitations under the License
   -->
 <resources>
-  <dimen name="search_bar_margin">8dp</dimen>
-  <dimen name="collapsed_search_bar_height">48dp</dimen>
-  <!-- collapsed + margin * 2 -->
-  <dimen name="expanded_search_bar_height">64dp</dimen>
-
-  <dimen name="search_bar_corner_radius">@*android:dimen/config_dialogCornerRadius</dimen>
+  <color name="voicemail_icon_disabled_tint">#80ffffff</color>
 </resources>
