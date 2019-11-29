@@ -499,8 +499,7 @@ public class CallButtonPresenter
     final CallRecorder recorder = CallRecorder.getInstance();
     final UserManager userManager = getContext().getSystemService(UserManager.class);
 
-    final boolean showCallRecordOption = recorder.canRecordInCurrentCountry()
-        && !isVideo && call.getState() == DialerCallState.ACTIVE
+    final boolean showCallRecordOption = !isVideo && call.getState() == DialerCallState.ACTIVE
         && userManager.isUserUnlocked();
 
     otherAccount = TelecomUtil.getOtherAccount(getContext(), call.getAccountHandle());
