@@ -553,8 +553,7 @@ public class CallButtonPresenter
             && call.getState() != DialerCall.State.CONNECTING;
 
     final CallRecorder recorder = CallRecorder.getInstance();
-    final boolean showCallRecordOption = recorder.canRecordInCurrentCountry()
-        && !isVideo && call.getState() == DialerCall.State.ACTIVE;
+    final boolean showCallRecordOption = !isVideo && call.getState() == DialerCall.State.ACTIVE;
 
     otherAccount = TelecomUtil.getOtherAccount(getContext(), call.getAccountHandle());
     boolean showSwapSim =
