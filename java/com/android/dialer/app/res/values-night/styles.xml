@@ -165,6 +165,6 @@
 
   <style name="PromoLinkStyle">
     <item name="android:textColor">?android:attr/colorPrimary</item>
-    <item name="android:fontFamily">"sans-serif-medium"</item>
+    <item name="android:fontFamily">"@*android:string/config_headlineFontFamilyMedium"</item>
   </style>
 </resources>
