@@ -29,6 +29,6 @@
   </style>
 
   <style name="phoneaccount_textview_unread_call">
-    <item name="android:fontFamily">sans-serif-medium</item>
+    <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
   </style>
 </resources>
