@@ -363,7 +363,7 @@
   <string name="description_clear_search">Clear search</string>
 
   <!-- The font-family to use for the text inside the searchbox. -->
-  <string name="search_font_family" translatable="false">sans-serif</string>
+  <string name="search_font_family" translatable="false">@*android:string/config_bodyFontFamily</string>
 
   <!-- Title for Select Account Dialog [CHAR LIMIT=30] -->
   <string name="select_account_dialog_title">Account</string>
