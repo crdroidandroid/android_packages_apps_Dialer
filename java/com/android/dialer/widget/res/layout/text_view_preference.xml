@@ -19,6 +19,6 @@
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
   android:padding="16dp"
-  android:fontFamily="sans-serif"
+  android:fontFamily="@*android:string/config_bodyFontFamily"
   android:linksClickable="true"
   android:singleLine="false"/>

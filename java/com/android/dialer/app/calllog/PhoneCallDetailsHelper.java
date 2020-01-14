@@ -385,7 +385,7 @@ public class PhoneCallDetailsHelper
     TextView title = new TextView(context);
     title.setText(R.string.voicemail_donation_promo_title);
 
-    title.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+    title.setTypeface(Typeface.create("@*android:string/config_headlineFontFamilyMedium", Typeface.NORMAL));
     title.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
     title.setTextColor(ContextCompat.getColor(context, R.color.dialer_primary_text_color));
     title.setPadding(
