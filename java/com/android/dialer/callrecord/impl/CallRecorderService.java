@@ -23,6 +23,8 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.media.MediaRecorder;
 import android.media.MediaScannerConnection;
+import android.media.MediaScannerConnection.MediaScannerConnectionClient;
+import android.net.Uri;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.text.TextUtils;
@@ -51,6 +53,7 @@ public class CallRecorderService extends Service {
   private MediaRecorder mMediaRecorder = null;
   private RecorderState mState = RecorderState.IDLE;
   private CallRecording mCurrentRecording = null;
+  private MediaScannerConnectionClient mClient;
 
   private SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyMMdd_HHmmssSSS");
 
@@ -69,6 +72,7 @@ public class CallRecorderService extends Service {
       String fileName = generateFilename(phoneNumber);
       mCurrentRecording = new CallRecording(phoneNumber, creationTime,
           fileName, System.currentTimeMillis());
+          mClient = new MediaScanner(getApplicationContext());
       return startRecordingInternal(mCurrentRecording.getFile());
     }
 
@@ -199,10 +203,34 @@ public class CallRecorderService extends Service {
       } catch (IllegalStateException e) {
         Log.e(TAG, "Exception closing media recorder", e);
       }
-      MediaScannerConnection.scanFile(this,
-          new String[] { mCurrentRecording.fileName }, null, null);
+      ((MediaScanner)mClient).connectAndScan(mCurrentRecording.getFile().getAbsolutePath());
       mMediaRecorder = null;
       mState = RecorderState.IDLE;
+    }
+  }
+
+  private final class MediaScanner implements MediaScannerConnectionClient {
+
+    private String mFileName;
+    private MediaScannerConnection mConnection;
+
+    public MediaScanner(Context ctx) {
+      mConnection = new MediaScannerConnection(ctx, this);
+    }
+
+    @Override
+    public void onMediaScannerConnected() {
+      mConnection.scanFile(mFileName, null);
+    }
+
+    @Override
+    public void onScanCompleted(String path, Uri uri) {
+      mConnection.disconnect();
+    }
+
+    public void connectAndScan(String filename) {
+      this.mFileName = filename;
+      mConnection.connect();
     }
   }
 
