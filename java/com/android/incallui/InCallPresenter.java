@@ -19,6 +19,7 @@ package com.android.incallui;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Trace;
 import android.provider.BlockedNumberContract;
@@ -1363,7 +1364,8 @@ public class InCallPresenter implements CallList.Listener, AudioModeProvider.Aud
         extras.getParcelableArrayList(android.telecom.Call.AVAILABLE_PHONE_ACCOUNTS);
 
     if (phoneAccountHandles == null || phoneAccountHandles.isEmpty()) {
-      String scheme = call.getHandle().getScheme();
+      Uri callHandle = call.getHandle();
+      String scheme = callHandle == null ? "null" : callHandle.getScheme();
       final String errorMsg =
           PhoneAccount.SCHEME_TEL.equals(scheme)
               ? context.getString(R.string.callFailed_simError)
