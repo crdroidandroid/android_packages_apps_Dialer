@@ -47,7 +47,7 @@ public class CallRecorderService extends Service {
   private MediaRecorder mMediaRecorder = null;
   private CallRecording mCurrentRecording = null;
 
-  private final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyMMdd_HHmmssSSS");
+  private final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyyMMdd-HHmmss");
 
   private final ICallRecorderService.Stub mBinder = new ICallRecorderService.Stub() {
     @Override
@@ -212,7 +212,7 @@ public class CallRecorderService extends Service {
 
     int formatChoice = getAudioFormatChoice();
     String extension = formatChoice == 0 ? ".amr" : ".m4a";
-    return number + "_" + timestamp + extension;
+    return "CallRecord_" + timestamp + "_" + number + extension;
   }
 
   public static boolean isEnabled(Context context) {
