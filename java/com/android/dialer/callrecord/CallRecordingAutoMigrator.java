@@ -110,7 +110,7 @@ public class CallRecordingAutoMigrator {
         // delete file
         LogUtils.i(TAG, "Successfully migrated recording " + recording + " (ID " + id + ")");
         recording.delete();
-      } catch (IOException e) {
+      } catch (Exception e) {
         LogUtils.w(TAG, "Failed migrating call recording " + recording, e);
       } finally {
         if (os != null) {
