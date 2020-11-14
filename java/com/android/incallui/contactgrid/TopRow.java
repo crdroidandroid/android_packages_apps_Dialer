@@ -17,6 +17,7 @@
 package com.android.incallui.contactgrid;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.telephony.PhoneNumberUtils;
@@ -26,7 +27,7 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextDirectionHeuristics;
 import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.incallui.call.state.DialerCallState;
@@ -164,7 +165,7 @@ public class TopRow {
     int start = label.indexOf(state.connectionLabel());
     int end = start + state.connectionLabel().length();
     spannable.setSpan(
-        new ForegroundColorSpan(state.primaryColor()),
+        new StyleSpan(Typeface.BOLD),
         start,
         end,
         Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
