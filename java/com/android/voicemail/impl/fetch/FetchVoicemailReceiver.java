@@ -202,6 +202,11 @@ public class FetchVoicemailReceiver extends BroadcastReceiver {
         new Runnable() {
           @Override
           public void run() {
+              // Begin, Moto changes
+              if (networkCallback != null) {
+                  networkCallback.waitForIpv4();
+              }
+              // End, Moto changes
             try {
               while (retryCount > 0) {
                 VvmLog.i(TAG, "fetching voicemail, retry count=" + retryCount);
