@@ -23,6 +23,8 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.Settings;
+import android.telecom.TelecomManager;
 import com.android.dialer.common.LogUtil;
 
 /**
@@ -42,6 +44,14 @@ public class AccelerometerListener {
   private static final int VERTICAL_DEBOUNCE = 100;
   private static final int HORIZONTAL_DEBOUNCE = 500;
   private static final double VERTICAL_ANGLE = 50.0;
+
+  // Flip action IDs
+  private static final int MUTE_RINGER = 0;
+  private static final int DISMISS_CALL = 1;
+  private static final int RINGING_NO_ACTION = 2;
+
+  private Context mContext;
+
   private SensorManager sensorManager;
   private Sensor sensor;
   // mOrientation is the orientation value most recently reported to the client.
@@ -88,8 +98,13 @@ public class AccelerometerListener {
         }
       };
 
+  private interface ResettableSensorEventListener extends SensorEventListener {
+    public void reset();
+  }
+
   public AccelerometerListener(Context context) {
-    sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+    mContext = context;
+    sensorManager = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
     sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
   }
 
@@ -109,6 +124,25 @@ public class AccelerometerListener {
       } else {
         sensorManager.unregisterListener(sensorListener);
         handler.removeMessages(ORIENTATION_CHANGED);
+      }
+    }
+  }
+
+  public void enableSensor(boolean enable) {
+    if (DEBUG) Log.d(TAG, "enableSensor(" + enable + ")");
+    int action = getFlipAction();
+    synchronized (this) {
+      if (enable) {
+        if (action != RINGING_NO_ACTION) {
+          mFlipListener.reset();
+          sensorManager.registerListener(mFlipListener,
+              sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+              SensorManager.SENSOR_DELAY_NORMAL);
+        }
+      } else {
+        if (action != RINGING_NO_ACTION) {
+          sensorManager.unregisterListener(mFlipListener);
+        }
       }
     }
   }
@@ -168,5 +202,110 @@ public class AccelerometerListener {
   public interface OrientationListener {
 
     void orientationChanged(int orientation);
+  }
+
+  private final ResettableSensorEventListener
+      mFlipListener = new ResettableSensorEventListener() {
+    // Our accelerometers are not quite accurate.
+    private static final int FACE_UP_GRAVITY_THRESHOLD = 7;
+    private static final int FACE_DOWN_GRAVITY_THRESHOLD = -7;
+    private static final int TILT_THRESHOLD = 3;
+    private static final int SENSOR_SAMPLES = 3;
+    private static final int MIN_ACCEPT_COUNT = SENSOR_SAMPLES - 1;
+
+    private boolean mStopped;
+    private boolean mWasFaceUp;
+    private boolean[] mSamples = new boolean[SENSOR_SAMPLES];
+    private int mSampleIndex;
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int acc) {
+    }
+
+    @Override
+    public void reset() {
+      mWasFaceUp = false;
+      mStopped = false;
+      for (int i = 0; i < SENSOR_SAMPLES; i++) {
+        mSamples[i] = false;
+      }
+    }
+
+    private boolean filterSamples() {
+      int trues = 0;
+      for (boolean sample : mSamples) {
+        if(sample) {
+          ++trues;
+        }
+      }
+      return trues >= MIN_ACCEPT_COUNT;
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+      if (mStopped) {
+        return;
+      }
+      // Add a sample overwriting the oldest one. Several samples
+      // are used to avoid the erroneous values the sensor sometimes
+      // returns.
+      float z = event.values[2];
+
+      if (!mWasFaceUp) {
+        // Check if its face up enough.
+        mSamples[mSampleIndex] = z > FACE_UP_GRAVITY_THRESHOLD;
+
+        // face up
+        if (filterSamples()) {
+          mWasFaceUp = true;
+          for (int i = 0; i < SENSOR_SAMPLES; i++) {
+            mSamples[i] = false;
+          }
+        }
+      } else {
+        // Check if its face down enough.
+        mSamples[mSampleIndex] = z < FACE_DOWN_GRAVITY_THRESHOLD;
+
+        // face down
+        if (filterSamples()) {
+          mStopped = true;
+          handleAction();
+        }
+      }
+
+      mSampleIndex = ((mSampleIndex + 1) % SENSOR_SAMPLES);
+    }
+  };
+
+  public void handleAction() {
+    switch(getFlipAction()) {
+      case MUTE_RINGER:
+        {
+          TelecomManager tm =
+              (TelecomManager) mContext.getSystemService(Context.TELECOM_SERVICE);
+          if (tm != null) {
+            tm.silenceRinger();
+          }
+        }
+        break;
+      case DISMISS_CALL:
+        {
+          TelecomManager tm =
+              (TelecomManager) mContext.getSystemService(Context.TELECOM_SERVICE);
+          if (tm != null) {
+            tm.endCall();
+          }
+        }
+        break;
+      case RINGING_NO_ACTION:
+        default:
+          //no action
+          break;
+    }
+  }
+
+  private int getFlipAction(){
+    return Settings.System.getInt(mContext.getContentResolver(),
+        Settings.System.CALL_FLIP_ACTION_KEY, RINGING_NO_ACTION);
   }
 }

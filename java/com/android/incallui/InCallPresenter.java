@@ -197,6 +197,7 @@ public class InCallPresenter implements CallList.Listener, AudioModeProvider.Aud
         }
       };
   private InCallState inCallState = InCallState.NO_CALLS;
+  private AccelerometerListener mAccelerometerListener;
   private ProximitySensor proximitySensor;
   private final PseudoScreenState pseudoScreenState = new PseudoScreenState();
   private boolean serviceConnected;
@@ -374,6 +375,8 @@ public class InCallPresenter implements CallList.Listener, AudioModeProvider.Aud
 
     this.proximitySensor = proximitySensor;
     addListener(this.proximitySensor);
+
+    mAccelerometerListener = new AccelerometerListener(context);
 
     if (themeColorManager == null) {
       themeColorManager = new ThemeColorManager(new InCallUIMaterialColorMapUtils(this.context));
@@ -873,6 +876,10 @@ public class InCallPresenter implements CallList.Listener, AudioModeProvider.Aud
         "Phone switching state: " + oldState + " -> " + newState);
     inCallState = newState;
 
+    if (!newState.isIncoming() && mAccelerometerListener != null) {
+      mAccelerometerListener.enableSensor(false);
+    }
+
     // Foreground call changed
     DialerCall primary = null;
     if (newState == InCallState.INCOMING) {
@@ -964,6 +971,10 @@ public class InCallPresenter implements CallList.Listener, AudioModeProvider.Aud
     LogUtil.i(
         "InCallPresenter.onIncomingCall", "Phone switching state: " + oldState + " -> " + newState);
     inCallState = newState;
+
+    if (newState.isIncoming() && mAccelerometerListener != null) {
+      mAccelerometerListener.enableSensor(true);
+    }
 
     Trace.beginSection("listener.onIncomingCall");
     for (IncomingCallListener listener : incomingCallListeners) {
@@ -1344,6 +1355,9 @@ public class InCallPresenter implements CallList.Listener, AudioModeProvider.Aud
     // (1) Attempt to answer a call
     if (incomingCall != null) {
       incomingCall.answer(VideoProfile.STATE_AUDIO_ONLY);
+      if (mAccelerometerListener != null) {
+        mAccelerometerListener.enableSensor(false);
+      }
       return true;
     }
 
@@ -1648,6 +1662,8 @@ public class InCallPresenter implements CallList.Listener, AudioModeProvider.Aud
         proximitySensor.tearDown();
       }
       proximitySensor = null;
+
+      mAccelerometerListener = null;
 
       if (statusBarNotifier != null) {
         removeListener(statusBarNotifier);
