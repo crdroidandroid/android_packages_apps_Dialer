@@ -26,7 +26,6 @@
       android:layout_width="match_parent"
       android:layout_height="@dimen/tab_height"
       android:layout_gravity="top"
-      android:elevation="@dimen/tab_elevation"
       android:orientation="horizontal"
       android:textAllCaps="true"/>
   <android.support.v4.view.ViewPager

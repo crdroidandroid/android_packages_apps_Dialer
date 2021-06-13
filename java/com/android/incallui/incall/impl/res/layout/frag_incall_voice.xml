@@ -19,7 +19,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/dndndn">
 
   <RelativeLayout
       android:id="@+id/incall_ui_container"
@@ -27,7 +28,8 @@
       android:layout_height="match_parent"
       android:clipChildren="false"
       android:clipToPadding="false"
-      android:fitsSystemWindows="true">
+      android:fitsSystemWindows="true"
+      android:background="@color/dndndn">
 
     <LinearLayout
         android:id="@id/incall_contact_grid"
@@ -37,17 +39,12 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-      <ImageView
-          android:id="@id/contactgrid_avatar"
-          android:layout_width="@dimen/incall_avatar_size"
-          android:layout_height="@dimen/incall_avatar_size"
-          android:layout_marginBottom="8dp"
-          android:elevation="2dp"/>
 
       <include
           layout="@layout/incall_contactgrid_top_row"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:layout_gravity="top"
           android:layout_marginStart="@dimen/incall_window_margin_horizontal"
           android:layout_marginEnd="@dimen/incall_window_margin_horizontal"/>
 
@@ -57,6 +54,7 @@
           android:id="@id/contactgrid_contact_name"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:layout_marginTop="12dp"
           android:layout_marginBottom="4dp"
           android:layout_marginStart="@dimen/incall_window_margin_horizontal"
           android:layout_marginEnd="@dimen/incall_window_margin_horizontal"
@@ -64,7 +62,16 @@
           android:textAppearance="@style/Dialer.Incall.TextAppearance.Large"
           app:autoResizeText_minTextSize="28sp"
           tools:ignore="Deprecated"
-          tools:text="Jake Peralta"/>
+          tools:text="Jake Peralta"
+          android:textColor="@color/dndn"/>
+
+      <ImageView
+          android:id="@id/contactgrid_avatar"
+          android:layout_width="@dimen/incall_avatar_size"
+          android:layout_height="@dimen/incall_avatar_size"
+          android:layout_marginTop="12dp"
+          android:layout_marginBottom="8dp"
+          android:elevation="2dp"/>
 
       <include
           layout="@layout/incall_contactgrid_bottom_row"

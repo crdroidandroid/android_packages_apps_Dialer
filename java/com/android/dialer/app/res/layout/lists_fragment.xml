@@ -32,8 +32,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/action_bar_height_large"
-        android:background="?android:attr/colorPrimary"
-        android:elevation="@dimen/tab_elevation"/>
+        android:background="?android:attr/colorPrimary"/>
 
     <com.android.contacts.common.list.ViewPagerTabs
         android:id="@+id/lists_pager_header"
@@ -41,7 +40,6 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/tab_height"
         android:layout_gravity="top"
-        android:elevation="@dimen/tab_elevation"
         android:orientation="horizontal"
         android:textAllCaps="true"/>
 

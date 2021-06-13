@@ -164,15 +164,10 @@ public class PhoneCallDetailsHelper
     }
 
     // Show the video icon if the call had video enabled.
-    views.callTypeIcons.setShowVideo(
-        (details.features & Calls.FEATURES_VIDEO) == Calls.FEATURES_VIDEO);
-    views.callTypeIcons.setShowHd(
-        (details.features & Calls.FEATURES_HD_CALL) == Calls.FEATURES_HD_CALL);
-    views.callTypeIcons.setShowWifi(
-        MotorolaUtils.shouldShowWifiIconInCallLog(context, details.features));
-    views.callTypeIcons.setShowAssistedDialed(
-        (details.features & TelephonyManagerCompat.FEATURES_ASSISTED_DIALING)
-            == TelephonyManagerCompat.FEATURES_ASSISTED_DIALING);
+    views.callTypeIcons.setShowVideo(false);
+    views.callTypeIcons.setShowHd((false));
+    views.callTypeIcons.setShowWifi((false));
+    views.callTypeIcons.setShowAssistedDialed((false));
     if (BuildCompat.isAtLeastP()) {
       views.callTypeIcons.setShowRtt((details.features & Calls.FEATURES_RTT) == Calls.FEATURES_RTT);
     }

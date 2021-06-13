@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (C) 2018 The Android Open Source Project
+  ~ Copyright (C) 2021 NezukoOS
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -14,6 +15,6 @@
   ~ limitations under the License
   -->
 <resources>
-  <!-- Essential theme colors -->
-  <color name="dialer_theme_color_dark">#000000</color>
+    <color name="dndn">#FFFFFF</color>
+    <color name="dndndn">#000000</color>
 </resources>

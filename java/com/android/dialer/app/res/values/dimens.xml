@@ -30,15 +30,15 @@
 
   <!-- Call Log -->
   <dimen name="call_log_horizontal_margin">8dp</dimen>
-  <dimen name="call_log_outer_margin">8dp</dimen>
-  <dimen name="call_log_start_margin">8dp</dimen>
+  <dimen name="call_log_outer_margin">16dp</dimen>
+  <dimen name="call_log_start_margin">16dp</dimen>
   <dimen name="call_log_name_margin_bottom">2dp</dimen>
   <dimen name="call_log_call_account_margin_bottom">2dp</dimen>
   <dimen name="call_log_vertical_padding">8dp</dimen>
   <dimen name="call_log_list_item_info_margin_start">16dp</dimen>
 
   <!-- Size of contact photos in the call log and call details. -->
-  <dimen name="contact_photo_size">48dp</dimen>
+  <dimen name="contact_photo_size">39dp</dimen>
 
   <!-- Dimensions for speed dial tiles -->
   <dimen name="contact_tile_divider_width">1dp</dimen>

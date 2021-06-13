@@ -87,7 +87,7 @@
   <!-- Padding used between lines of text in the call subject dialog. -->
   <dimen name="call_subject_dialog_between_line_margin">8dp</dimen>
   <!-- Size of the contact photo in the call subject dialog. -->
-  <dimen name="call_subject_dialog_contact_photo_size">50dp</dimen>
+  <dimen name="call_subject_dialog_contact_photo_size">30dp</dimen>
   <!-- Margin above the edit text in the call subject dialog. -->
   <dimen name="call_subject_dialog_edit_spacing">60dp</dimen>
   <!-- Size of primary text in the call subject dialog. -->

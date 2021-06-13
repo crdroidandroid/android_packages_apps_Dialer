@@ -15,5 +15,5 @@
   ~ limitations under the License
   -->
 <resources>
-  <dimen name="incall_avatar_size">64dp</dimen>
+  <dimen name="incall_avatar_size">80dp</dimen>
 </resources>

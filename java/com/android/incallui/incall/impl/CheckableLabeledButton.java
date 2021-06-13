@@ -36,6 +36,7 @@ import android.widget.Checkable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.content.res.Resources;
 
 /** A button to show on the incall screen */
 public class CheckableLabeledButton extends LinearLayout implements Checkable {
@@ -50,6 +51,8 @@ public class CheckableLabeledButton extends LinearLayout implements Checkable {
   private TextView labelView;
   private Drawable background;
   private Drawable backgroundMore;
+  Resources res = getResources();
+  boolean isDarkM = res.getBoolean(R.bool.nevergonnagiveyouup);
 
   public CheckableLabeledButton(Context context, AttributeSet attrs) {
     super(context, attrs);
@@ -114,6 +117,11 @@ public class CheckableLabeledButton extends LinearLayout implements Checkable {
     labelView.setLayoutParams(labelParams);
     labelView.setTextAppearance(R.style.Dialer_Incall_TextAppearance_Label);
     labelView.setText(labelText);
+    if (isDarkM){
+      labelView.setTextColor(Color.WHITE);
+    } else{
+      labelView.setTextColor(Color.BLACK);
+    }
     labelView.setSingleLine();
     labelView.setMaxEms(9);
     labelView.setEllipsize(TruncateAt.END);
@@ -135,10 +143,18 @@ public class CheckableLabeledButton extends LinearLayout implements Checkable {
   }
 
   public void setCheckedColor(@ColorInt int color) {
-    iconView.setImageTintList(
-        new ColorStateList(
-            new int[][] {new int[] {android.R.attr.state_checked}, new int[] {}},
-            new int[] {color, Color.WHITE}));
+    if (isDarkM){
+      iconView.setImageTintList(
+          new ColorStateList(
+              new int[][] {new int[] {android.R.attr.state_checked}, new int[] {}},
+              new int[] {color, Color.WHITE}));
+    } 
+    else{
+      iconView.setImageTintList(
+          new ColorStateList(
+              new int[][] {new int[] {android.R.attr.state_checked}, new int[] {}},
+              new int[] {color, Color.BLACK}));      
+    }
   }
 
   public Drawable getIconDrawable() {

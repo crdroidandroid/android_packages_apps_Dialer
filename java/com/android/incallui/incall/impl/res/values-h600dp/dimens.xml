@@ -16,5 +16,5 @@
   -->
 
 <resources>
-  <dimen name="incall_avatar_size">88dp</dimen>
+  <dimen name="incall_avatar_size">100dp</dimen>
 </resources>

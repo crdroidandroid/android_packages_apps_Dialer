@@ -24,8 +24,7 @@
   android:paddingStart="@dimen/call_log_start_margin"
   android:paddingEnd="@dimen/call_log_outer_margin"
   android:paddingTop="@dimen/call_log_vertical_padding"
-  android:paddingBottom="@dimen/call_log_vertical_padding"
-  android:background="?android:attr/selectableItemBackground">
+  android:paddingBottom="@dimen/call_log_vertical_padding">
 
   <QuickContactBadge
     android:id="@+id/quick_contact_photo"
