@@ -23,8 +23,11 @@ import android.app.Activity;
 import android.app.KeyguardManager;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.database.ContentObserver;
 import android.database.Cursor;
+import android.graphics.Canvas;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -46,6 +49,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.ItemTouchHelper.SimpleCallback;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -296,6 +301,31 @@ public class CallLogFragment extends Fragment
 
   protected void setupView(View view) {
     recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+    SimpleCallback simpleCallback = new SimpleCallback(50, ItemTouchHelper.LEFT) {
+
+        @Override
+        public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(RecyclerView.ViewHolder holder, int direction) {
+            if (holder instanceof CallLogListItemViewHolder) {
+                CallLogListItemViewHolder viewHolder = ((CallLogListItemViewHolder) holder);
+                getContext().startActivity(new Intent(Intent.ACTION_CALL).setData(Uri.parse("tel: " + viewHolder.number)));
+            }
+            adapter.notifyItemChanged(holder.getAdapterPosition());
+        }
+
+        @Override
+        public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+            super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+        }
+    };
+
+    ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+    itemTouchHelper.attachToRecyclerView(recyclerView);
+
     recyclerView.setHasFixedSize(true);
     layoutManager = new LinearLayoutManager(getActivity());
     recyclerView.setLayoutManager(layoutManager);
