@@ -15,8 +15,12 @@
  */
 
 package com.android.dialer.app.calllog;
+import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator;
 
 import static android.Manifest.permission.READ_CALL_LOG;
+
+import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -24,8 +28,11 @@ import android.app.KeyguardManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.content.Intent;
 import android.database.ContentObserver;
 import android.database.Cursor;
+import android.graphics.Canvas;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -94,6 +101,7 @@ public class CallLogFragment extends Fragment
   private static final String KEY_HAS_READ_CALL_LOG_PERMISSION = "has_read_call_log_permission";
   private static final String KEY_REFRESH_DATA_REQUIRED = "refresh_data_required";
   private static final String KEY_SELECT_ALL_MODE = "select_all_mode_checked";
+  private static final String TAG = "satyam";
 
   // No limit specified for the number of logs to show; use the CallLogQueryHandler's default.
   private static final int NO_LOG_LIMIT = -1;
@@ -297,6 +305,40 @@ public class CallLogFragment extends Fragment
 
   protected void setupView(View view) {
     recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(50, ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove( RecyclerView recyclerView,   RecyclerView.ViewHolder viewHolder,   RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder holder, int direction) {
+                Log.d("satyam", "onSwiped: "+holder);
+                Log.d("satyam", "onSwiped: "+ holder.getItemViewType());
+		if (holder instanceof CallLogListItemViewHolder){
+		CallLogListItemViewHolder viewHolder = ((CallLogListItemViewHolder)holder);
+		Log.d("satyam", ""+viewHolder+" "+viewHolder.displayNumber+" "+viewHolder.number+" "+viewHolder.nameOrNumber);
+		getContext().startActivity(new Intent(Intent.ACTION_CALL).setData(Uri.parse("tel: "+viewHolder.number)));
+		}
+		adapter.notifyItemChanged(holder.getAdapterPosition());
+            }
+
+            @Override
+            public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+                new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+                        .addBackgroundColor(getContext().getColor(R.color.rec_decorator))
+                        .addSwipeLeftLabel("Calling")
+			.setSwipeRightLabelColor(getContext().getColor(R.color.rec_textcolor))
+                        .create()
+                        .decorate();
+                Log.d(TAG, "onChildDraw: " + dX + " " + dY + " " + (actionState == ItemTouchHelper.ACTION_STATE_DRAG) + " " + isCurrentlyActive);
+                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+
+            }
+        };
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
+
     if (ConfigProviderComponent.get(getContext())
         .getConfigProvider()
         .getBoolean("is_call_log_item_anim_null", false)) {
