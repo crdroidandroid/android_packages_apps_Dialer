@@ -18,25 +18,33 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/incall_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/dndndn">
+    android:layout_height="match_parent">
 
-  <RelativeLayout
+    <ImageView
+        android:id="@id/contactgrid_avatar"
+	android:foreground="@drawable/gradientBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+	android:alpha="0.9"
+	android:scaleType="centerCrop"/>
+
+    <RelativeLayout
       android:id="@+id/incall_ui_container"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:clipChildren="false"
       android:clipToPadding="false"
-      android:fitsSystemWindows="true"
-      android:background="@color/dndndn">
+      android:fitsSystemWindows="true">
 
     <LinearLayout
         android:id="@id/incall_contact_grid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:gravity="center_horizontal"
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="12dp"
+        android:gravity="start"
         android:orientation="vertical">
 
 
@@ -44,9 +52,10 @@
           layout="@layout/incall_contactgrid_top_row"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_gravity="top"
-          android:layout_marginStart="@dimen/incall_window_margin_horizontal"
+          android:layout_gravity="start|top"
+          android:layout_marginStart="12dp"
           android:layout_marginEnd="@dimen/incall_window_margin_horizontal"/>
+
 
       <!-- We have to keep deprecated singleLine to allow long text being truncated with ellipses.
                  a bug -->
@@ -56,37 +65,32 @@
           android:layout_height="wrap_content"
           android:layout_marginTop="12dp"
           android:layout_marginBottom="4dp"
-          android:layout_marginStart="@dimen/incall_window_margin_horizontal"
-          android:layout_marginEnd="@dimen/incall_window_margin_horizontal"
-          android:singleLine="true"
+          android:layout_marginStart="12dp"
+          android:layout_marginEnd="22dp"
+          android:layout_gravity="start"
           android:textAppearance="@style/Dialer.Incall.TextAppearance.Large"
-          app:autoResizeText_minTextSize="28sp"
-          tools:ignore="Deprecated"
-          tools:text="Jake Peralta"
-          android:textColor="@color/dndn"/>
-
-      <ImageView
-          android:id="@id/contactgrid_avatar"
-          android:layout_width="@dimen/incall_avatar_size"
-          android:layout_height="@dimen/incall_avatar_size"
-          android:layout_marginTop="12dp"
-          android:layout_marginBottom="8dp"
-          android:elevation="2dp"/>
+          android:textSize="@dimen/answer_contact_name_text_size"
+          app:autoResizeText_minTextSize="32sp"
+          tools:text="Jake \nPeralta"
+          android:textColor="@android:color/white"/>
 
       <include
           layout="@layout/incall_contactgrid_bottom_row"
+          android:layout_gravity="start"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_marginStart="@dimen/incall_window_margin_horizontal"
-          android:layout_marginEnd="@dimen/incall_window_margin_horizontal"/>
+          android:layout_marginStart="12dp"
+          android:layout_marginEnd="24dp"/>
 
       <FrameLayout
           android:id="@+id/incall_location_holder"
+          android:layout_gravity="start"
           android:layout_width="match_parent"
           android:layout_height="match_parent"/>
 
       <include
           layout="@layout/device_number_row"
+          android:layout_gravity="start"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"/>
     </LinearLayout>
@@ -115,7 +119,6 @@
         android:layout_alignParentBottom="true"
         android:clipChildren="false"
         android:clipToPadding="false"
-        tools:background="@android:color/white"
         tools:visibility="gone"/>
     <ImageButton
         android:id="@+id/incall_end_call"

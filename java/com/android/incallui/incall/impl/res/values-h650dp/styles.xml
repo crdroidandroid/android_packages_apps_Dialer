@@ -18,7 +18,6 @@
 <resources>
 
   <style name="DialpadContainer">
-    <item name="android:layout_below">@id/incall_contact_grid</item>
     <item name="android:layout_marginTop">8dp</item>
   </style>
 </resources>

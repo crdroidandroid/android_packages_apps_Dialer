@@ -19,7 +19,7 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="wrap_content"
   android:layout_height="wrap_content"
-  android:gravity="center"
+  android:gravity="start"
   android:orientation="horizontal"
   tools:showIn="@layout/incall_contact_grid">
   <ImageView
@@ -44,6 +44,7 @@
     android:scrollHorizontally="true"
     android:textAppearance="@style/Dialer.Incall.TextAppearance"
     tools:text="Captain Holt"
-    android:layout_gravity="center_horizontal"
-    android:textColor="@color/dndn"/>
+    android:layout_marginStart="0dp"
+    android:layout_gravity="start"
+    android:textColor="@android:color/white"/>
 </LinearLayout>

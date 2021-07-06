@@ -22,6 +22,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
+import android.util.Log;
 import android.annotation.TargetApi;
 import android.app.KeyguardManager;
 import android.app.KeyguardManager.KeyguardDismissCallback;
@@ -42,9 +43,12 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.annotation.VisibleForTesting;
 import android.support.v4.app.Fragment;
+import android.graphics.Color;
 import android.text.TextUtils;
 import android.transition.TransitionManager;
 import android.view.LayoutInflater;
+import android.view.WindowManager;
+import android.view.Window;
 import android.view.View;
 import android.view.View.AccessibilityDelegate;
 import android.view.View.OnClickListener;
@@ -80,6 +84,8 @@ import com.android.incallui.contactgrid.ContactGridManager;
 import com.android.incallui.incall.protocol.ContactPhotoType;
 import com.android.incallui.incall.protocol.InCallScreen;
 import com.android.incallui.incall.protocol.InCallScreenDelegate;
+
+import android.view.SurfaceControl;
 import com.android.incallui.incall.protocol.InCallScreenDelegateFactory;
 import com.android.incallui.incall.protocol.PrimaryCallState;
 import com.android.incallui.incall.protocol.PrimaryInfo;
@@ -616,7 +622,8 @@ public class AnswerFragment extends Fragment
       if (!(current instanceof AvatarFragment)) {
         LogUtil.i("AnswerFragment.updateDataFragment", "Replacing avatar fragment");
         // Needs replacement
-        newFragment = new AvatarFragment();
+        //newFragment = new AvatarFragment(); sochra hu 1m koi ni what I was saying ki nuke this fragement totally and use incall ui method to fetch avatar image pta nhi chlega aisa kya
+	
       }
     } else {
       // Needs empty
@@ -721,6 +728,14 @@ public class AnswerFragment extends Fragment
     buttonRejectClicked = false;
 
     View view = inflater.inflate(R.layout.fragment_incoming_call, container, false);
+        Window window = getActivity().getWindow();
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+	window.setStatusBarColor(Color.TRANSPARENT);
+        window.setNavigationBarColor(Color.TRANSPARENT);
+        window.setNavigationBarContrastEnforced(false);
+        window.setDecorFitsSystemWindows(false);
+        window.getDecorView().setSystemUiVisibility(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        view.setFitsSystemWindows(false);
     secondaryButton = (SwipeButtonView) view.findViewById(R.id.incoming_secondary_button);
     answerAndReleaseButton = (SwipeButtonView) view.findViewById(R.id.incoming_secondary_button2);
 
@@ -746,7 +761,8 @@ public class AnswerFragment extends Fragment
             });
     updateImportanceBadgeVisibility();
 
-    contactGridManager = new ContactGridManager(view, null, 0, false /* showAnonymousAvatar */);
+    contactGridManager = new ContactGridManager(view, ((ImageView)view.findViewById(R.id.contactgrid_avatar2)), getResources().getDimensionPixelSize(R.dimen.incall_avatar_size), true /* showAnonymousAvatar */);
+    contactGridManager.setAvatarHidden(false);
     boolean isInMultiWindowMode = getActivity().isInMultiWindowMode();
     contactGridManager.onMultiWindowModeChanged(isInMultiWindowMode);
 
@@ -1187,7 +1203,17 @@ public class AnswerFragment extends Fragment
     @Override
     public View onCreateView(
         LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-      return layoutInflater.inflate(R.layout.fragment_avatar, viewGroup, false);
+	View v = layoutInflater.inflate(R.layout.fragment_avatar, viewGroup, false);
+        Window window = getActivity().getWindow();
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        window.setStatusBarColor(Color.TRANSPARENT);
+        window.setNavigationBarColor(Color.TRANSPARENT);
+        window.setNavigationBarContrastEnforced(false);
+        window.setDecorFitsSystemWindows(false);
+        window.getDecorView().setSystemUiVisibility(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+	v.setFitsSystemWindows(false);
+
+      return v;
     }
 
     @Override

@@ -20,7 +20,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
-    android:gravity="center_horizontal"
+    android:gravity="start"
     android:orientation="horizontal">
   <ImageView
       android:id="@id/contactgrid_workIcon"
@@ -51,26 +51,29 @@
       android:id="@+id/contactgrid_bottom_text_switcher"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_gravity="start"
+      android:layout_marginStart="0dp"
       android:layout_marginBottom="2dp"
       android:measureAllChildren="false">
     <com.android.dialer.widget.BidiTextView
         android:id="@+id/contactgrid_bottom_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:singleLine="true"
+        android:layout_gravity="start"
+        android:layout_marginStart="0dp"
         android:textAppearance="@style/Dialer.Incall.TextAppearance"
         tools:gravity="start"
         tools:text="Mobile +1 (650) 253-0000"
-        android:textColor="@color/dndn"/>
+        android:textColor="@android:color/white"/>
     <Chronometer
         android:id="@+id/contactgrid_bottom_timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="start"
+        android:layout_marginStart="0dp"
         android:singleLine="true"
         android:textAppearance="@style/Dialer.Incall.TextAppearance"
-        tools:gravity="center"
-        android:textColor="@color/dndn"/>
+        tools:gravity="start"
+        android:textColor="@*android:color/accent_device_default_dark"/>
   </ViewAnimator>
 </LinearLayout>

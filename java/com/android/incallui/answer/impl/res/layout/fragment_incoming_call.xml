@@ -25,6 +25,15 @@
     android:clipToPadding="false"
     android:keepScreenOn="true">
 
+    <ImageView
+	android:id="@+id/contactgrid_avatar2"
+        android:foreground="@drawable/gradientBg"
+        android:src="@drawable/nopicbg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.8"
+        android:scaleType="centerCrop"/>
+
   <TextureView
       android:id="@+id/incoming_preview_texture_view"
       android:layout_width="match_parent"
@@ -51,7 +60,7 @@
   <FrameLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:fitsSystemWindows="true">
+      android:fitsSystemWindows="false">
 
     <FrameLayout
         android:id="@+id/answer_method_container"
@@ -82,16 +91,16 @@
         android:clipChildren="false"
         android:clipToPadding="false"
         android:focusable="true"
-        android:gravity="top|center_horizontal"
+        android:gravity="top|start"
         android:orientation="vertical">
 
       <include
           android:id="@id/contactgrid_top_row"
           layout="@layout/incall_contactgrid_top_row"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
           android:layout_marginBottom="8dp"
-          android:layout_marginStart="24dp"
+          android:layout_marginStart="12dp"
           android:layout_marginEnd="24dp"/>
 
       <!-- We have to keep deprecated singleLine to allow long text being truncated with ellipses.
@@ -100,22 +109,26 @@
           android:id="@id/contactgrid_contact_name"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:layout_marginTop="32dp"
           android:layout_marginBottom="8dp"
-          android:layout_marginStart="24dp"
-          android:layout_marginEnd="24dp"
-          android:singleLine="true"
+          android:layout_marginStart="12dp"
+          android:layout_marginEnd="22dp"
+          android:layout_gravity="start"
+	  android:maxLines="2"
+	  android:singleLine="false"
           android:textAppearance="@style/Dialer.Incall.TextAppearance.Large"
           android:textSize="@dimen/answer_contact_name_text_size"
           app:autoResizeText_minTextSize="@dimen/answer_contact_name_min_size"
-          tools:ignore="Deprecated"
-          tools:text="Jake Peralta"/>
+          tools:text="Jake Peralta"
+          android:textColor="@android:color/white"/>
 
       <include
           android:id="@id/contactgrid_bottom_row"
           layout="@layout/incall_contactgrid_bottom_row"
+          android:layout_gravity="start"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_marginStart="24dp"
+          android:layout_marginStart="12dp"
           android:layout_marginEnd="24dp"/>
 
       <!-- TODO(a bug): textColorPrimary or textColorPrimaryInverse? -->
@@ -148,8 +161,7 @@
       <FrameLayout
           android:id="@+id/incall_data_container"
           android:layout_width="match_parent"
-          android:layout_height="0dp"
-          android:layout_weight="1"
+          android:layout_height="match_parent"
           android:clipChildren="false"
           android:clipToPadding="false">
         <LinearLayout

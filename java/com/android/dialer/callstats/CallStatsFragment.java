@@ -114,7 +114,7 @@ public class CallStatsFragment extends Fragment implements
     mLayoutManager = new LinearLayoutManager(getActivity());
     mRecyclerView.setLayoutManager(mLayoutManager);
     mEmptyListView = (EmptyContentView) view.findViewById(R.id.empty_list_view);
-    mEmptyListView.setImage(R.drawable.empty_call_log);
+    mEmptyListView.setImage(R.drawable.oneplus_empty_call_log_illustration);
     mEmptyListView.setActionClickedListener(this);
 
     mSumHeaderView = (TextView) view.findViewById(R.id.sum_header);

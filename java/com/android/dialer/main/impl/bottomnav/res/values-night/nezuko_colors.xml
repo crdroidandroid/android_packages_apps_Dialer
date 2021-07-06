@@ -15,6 +15,6 @@
   ~ limitations under the License
   -->
 <resources>
-    <color name="goolag_deez_nutz">#ff8ab4f8</color>
+    <color name="goolag_deez_nutz">#000</color>
     <color name="goolag_tint">#508ab4f8</color>
 </resources>

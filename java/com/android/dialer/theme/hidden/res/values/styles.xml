@@ -20,6 +20,7 @@
     <!-- Used to automatically style all buttons in Dialer -->
     <item name="android:textAppearanceButton">@style/DialerButtonTextStyle</item>
     <item name="android:colorButtonNormal">?android:attr/colorPrimary</item>
+    <item name="android:windowLightStatusBar">true</item>
 
     <!-- Used to style link text -->
     <item name="android:textColorLink">@color/dialer_theme_color</item>

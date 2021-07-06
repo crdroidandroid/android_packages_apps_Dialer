@@ -18,7 +18,18 @@ package com.android.incallui.contactgrid;
 
 import android.content.Context;
 import android.graphics.drawable.Animatable;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import com.android.incallui.call.state.DialerCallState;
+import java.util.Timer;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.BitmapDrawable;
+import android.renderscript.Allocation;
+import android.renderscript.Element;
+import android.renderscript.RenderScript;
+import android.renderscript.ScriptIntrinsicBlur;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewCompat;
@@ -45,12 +56,15 @@ import com.android.incallui.incall.protocol.ContactPhotoType;
 import com.android.incallui.incall.protocol.PrimaryCallState;
 import com.android.incallui.incall.protocol.PrimaryInfo;
 import java.util.List;
-
+import android.util.Log;
+import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 /** Utility to manage the Contact grid */
 public class ContactGridManager {
 
+
   private final Context context;
   private final View contactGridLayout;
+  private Timer timer;
 
   // Row 0: Captain Holt        ON HOLD
   // Row 0: Calling...
@@ -95,12 +109,13 @@ public class ContactGridManager {
   private PrimaryCallState primaryCallState = PrimaryCallState.empty();
   private final LetterTileDrawable letterTile;
   private boolean isInMultiWindowMode;
+  View view;
 
   public ContactGridManager(
       View view, @Nullable ImageView avatarImageView, int avatarSize, boolean showAnonymousAvatar) {
     context = view.getContext();
     Assert.isNotNull(context);
-
+    this.view = view;
     this.avatarImageView = avatarImageView;
     this.avatarSize = avatarSize;
     this.showAnonymousAvatar = showAnonymousAvatar;
@@ -290,6 +305,15 @@ public class ContactGridManager {
               ? PhoneNumberUtils.createTtsSpannable(primaryInfo.name())
               : primaryInfo.name());
 
+	if (!primaryInfo.nameIsNumber()){
+	String name = primaryInfo.name();
+	String[] names = name.split(" ", 2);
+        String firstName = names[0];
+        String restName  = "";
+	if (names.length > 1)
+            restName = "\n"+names[1];
+	contactNameTextView.setText(firstName+restName);
+	}
       // Set direction of the name field
       int nameDirection = View.TEXT_DIRECTION_INHERIT;
       if (primaryInfo.nameIsNumber()) {
@@ -299,6 +323,7 @@ public class ContactGridManager {
     }
 
     if (avatarImageView != null) {
+	Log.d("satyam", ""+hideAvatar);
       if (hideAvatar) {
         avatarImageView.setVisibility(View.GONE);
       } else if (avatarSize > 0 && updateAvatarVisibility()) {
@@ -349,27 +374,10 @@ public class ContactGridManager {
     boolean hasPhoto =
         primaryInfo.photo() != null && primaryInfo.photoType() == ContactPhotoType.CONTACT;
     if (hasPhoto) {
-      avatarImageView.setBackground(
-          DrawableConverter.getRoundedDrawable(
-              context, primaryInfo.photo(), avatarSize, avatarSize));
+        avatarImageView.setImageDrawable(primaryInfo.photo());
     } else {
-      // Contact has a photo, don't render a letter tile.
-      letterTile.setCanonicalDialerLetterTileDetails(
-          primaryInfo.name(),
-          primaryInfo.contactInfoLookupKey(),
-          LetterTileDrawable.SHAPE_CIRCLE,
-          LetterTileDrawable.getContactTypeFromPrimitives(
-              primaryCallState.isVoiceMailNumber(),
-              primaryInfo.isSpam(),
-              primaryCallState.isBusinessNumber(),
-              primaryInfo.numberPresentation(),
-              primaryCallState.isConference()));
-      // By invalidating the avatarImageView we force a redraw of the letter tile.
-      // This is required to properly display the updated letter tile iconography based on the
-      // contact type, because the background drawable reference cached in the view, and the
-      // view is not aware of the mutations made to the background.
-      avatarImageView.invalidate();
-      avatarImageView.setBackground(letterTile);
+	Drawable defaultImg =  context.getDrawable(R.drawable.nopicbg);
+        avatarImageView.setImageDrawable(defaultImg);
     }
   }
   /**
@@ -429,6 +437,7 @@ public class ContactGridManager {
       bottomTextSwitcher.setVisibility(View.VISIBLE);
     }
 
+    setAvatarAlphaToMax(info.isTimerVisible);
     if (info.isTimerVisible) {
       bottomTextSwitcher.setDisplayedChild(1);
       bottomTimerView.setBase(
@@ -450,6 +459,11 @@ public class ContactGridManager {
     }
   }
 
+  public void setAvatarAlphaToMax(boolean transMax){
+      if (avatarImageView!=null){
+          avatarImageView.animate().alpha(transMax? 1f : .85f).setInterpolator(new LinearOutSlowInInterpolator()).setDuration(1500).start();
+      }
+  }
   private void updateDeviceNumberRow() {
     // It might not be available, e.g. in video call.
     if (deviceNumberTextView == null) {

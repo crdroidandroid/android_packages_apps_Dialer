@@ -28,20 +28,28 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"/>
 
-  <!-- We have to keep deprecated singleLine to allow long text being truncated with ellipses.
-       a bug -->
-  <com.android.incallui.autoresizetext.AutoResizeTextView
-    android:id="@id/contactgrid_contact_name"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:singleLine="true"
-    android:textAppearance="@style/Dialer.Incall.TextAppearance.Large"
-    app:autoResizeText_minTextSize="28sp"
-    tools:text="Jake Peralta"
-    tools:ignore="Deprecated"/>
+      <!-- We have to keep deprecated singleLine to allow long text being truncated with ellipses.
+                 a bug -->
+      <com.android.incallui.autoresizetext.AutoResizeTextView
+          android:id="@id/contactgrid_contact_name"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="12dp"
+          android:layout_marginBottom="4dp"
+          android:layout_marginStart="12dp"
+          android:layout_marginEnd="100dp"
+          android:layout_gravity="start"
+          android:textAppearance="@style/Dialer.Incall.TextAppearance.Large"
+          android:textSize="@dimen/answer_contact_name_text_size"
+          app:autoResizeText_minTextSize="24sp"
+          tools:text="Jake Peralta"
+          android:textColor="@color/dndn"/>
 
   <include
     layout="@layout/incall_contactgrid_bottom_row"
+    android:layout_gravity="start"
+    android:layout_marginStart="12dp"
+    android:layout_marginEnd="24dp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"/>
 </LinearLayout>

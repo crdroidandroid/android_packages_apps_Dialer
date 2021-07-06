@@ -21,14 +21,28 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
+
+import java.util.Timer;
+import java.util.TimerTask;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.view.WindowManager;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.graphics.drawable.GradientDrawable;
+import android.animation.ValueAnimator;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import com.android.incallui.call.state.DialerCallState;
+import android.support.v4.view.animation.LinearOutSlowInInterpolator;
+import android.util.Log;
+import android.view.animation.DecelerateInterpolator;
 import android.telecom.CallAudioState;
 import android.telephony.TelephonyManager;
 import android.transition.TransitionManager;
@@ -72,6 +86,8 @@ import com.android.incallui.incall.protocol.PrimaryInfo;
 import com.android.incallui.incall.protocol.SecondaryInfo;
 import java.util.ArrayList;
 import java.util.List;
+import android.view.WindowManager;
+import com.android.incallui.incall.protocol.ContactPhotoType;
 
 /** Fragment that shows UI for an ongoing voice call. */
 public class InCallFragment extends Fragment
@@ -97,7 +113,6 @@ public class InCallFragment extends Fragment
   private boolean stateRestored;
 
   private static final int REQUEST_CODE_CALL_RECORD_PERMISSION = 1000;
-
   // Add animation to educate users. If a call has enriched calling attachments then we'll
   // initially show the attachment page. After a delay seconds we'll animate to the button grid.
   private final Handler handler = new Handler();
@@ -131,6 +146,8 @@ public class InCallFragment extends Fragment
       setSecondary(savedSecondaryInfo);
     }
   }
+    Timer timer = new Timer();
+    TimerTask timerTask;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -144,6 +161,8 @@ public class InCallFragment extends Fragment
     }
   }
 
+  private ImageView avatarImageView;
+
   @Nullable
   @Override
   @SuppressLint("MissingPermission")
@@ -153,18 +172,27 @@ public class InCallFragment extends Fragment
       @Nullable Bundle bundle) {
     LogUtil.i("InCallFragment.onCreateView", null);
     getActivity().setTheme(R.style.Theme_InCallScreen);
+        Window window = getActivity().getWindow();
+	window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        window.setStatusBarColor(Color.TRANSPARENT);
+        window.setNavigationBarColor(Color.TRANSPARENT);
+        window.setNavigationBarContrastEnforced(false);
+        window.setDecorFitsSystemWindows(false);
+        window.getDecorView().setSystemUiVisibility(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
     // Bypass to avoid StrictModeResourceMismatchViolation
     final View view =
         StrictModeUtils.bypass(
             () -> layoutInflater.inflate(R.layout.frag_incall_voice, viewGroup, false));
+   this.view  = view;
+    avatarImageView = (ImageView) view.findViewById(R.id.contactgrid_avatar);
     contactGridManager =
         new ContactGridManager(
             view,
-            (ImageView) view.findViewById(R.id.contactgrid_avatar),
+            avatarImageView,
             getResources().getDimensionPixelSize(R.dimen.incall_avatar_size),
             true /* showAnonymousAvatar */);
     contactGridManager.onMultiWindowModeChanged(getActivity().isInMultiWindowMode());
-
     paginator = (InCallPaginator) view.findViewById(R.id.incall_paginator);
     pager = (LockableViewPager) view.findViewById(R.id.incall_pager);
     pager.setOnTouchListener(
@@ -204,6 +232,7 @@ public class InCallFragment extends Fragment
           @Override
           public void onViewDetachedFromWindow(View v) {}
         });
+    view.setFitsSystemWindows(false);
     return view;
   }
 
@@ -290,7 +319,7 @@ public class InCallFragment extends Fragment
         ((RelativeLayout.LayoutParams) params).removeRule(RelativeLayout.BELOW);
       }
       dialpadView.setLayoutParams(params);
-    }
+      }
   }
 
   private void setAdapterMedia(MultimediaData multimediaData, boolean showInCallButtonGrid) {

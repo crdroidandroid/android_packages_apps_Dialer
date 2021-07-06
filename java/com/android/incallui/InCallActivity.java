@@ -940,7 +940,7 @@ public class InCallActivity extends TransactionSafeFragmentActivity
     }
 
     if (backgroundDirty) {
-      getWindow().setBackgroundDrawable(backgroundDrawable);
+        getWindow().setBackgroundDrawable(backgroundDrawable);
     }
   }
 

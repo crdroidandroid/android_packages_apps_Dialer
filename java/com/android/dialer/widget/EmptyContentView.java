@@ -67,8 +67,6 @@ public class EmptyContentView extends LinearLayout implements View.OnClickListen
     actionView = (TextView) findViewById(R.id.empty_list_view_action);
     actionView.setOnClickListener(this);
 
-    imageView.setImageTintList(
-        ColorStateList.valueOf(ThemeComponent.get(context).theme().getColorIconSecondary()));
   }
 
   public void setDescription(int resourceId) {

@@ -19,7 +19,6 @@
 <ImageView
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:id="@id/contactgrid_avatar"
-  android:layout_width="@dimen/answer_avatar_size"
-  android:layout_height="@dimen/answer_avatar_size"
-  android:layout_gravity="center"
-  android:elevation="@dimen/answer_data_elevation"/>
+  android:scaleType="centerCrop"
+  android:layout_width="0dp"
+  android:layout_height="0dp" />

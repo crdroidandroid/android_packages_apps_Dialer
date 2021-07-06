@@ -15,7 +15,7 @@
   -->
 <resources>
   <!-- Essential theme colors -->
-  <color name="dialer_theme_color">#2A56C6</color>
+  <color name="dialer_theme_color">@color/dndndn</color>
   <color name="dialer_theme_color_20pct">#332A56C6</color>
   <color name="dialer_theme_color_dark">@color/dialer_background_color</color>
   <color name="dialer_secondary_color">#F50057</color>

@@ -202,7 +202,7 @@ public class ContactsFragment extends Fragment
     recyclerView.setLayoutManager(manager);
 
     emptyContentView = view.findViewById(R.id.empty_list_view);
-    emptyContentView.setImage(R.drawable.empty_contacts);
+    emptyContentView.setImage(R.drawable.oneplus_empty_contacts_illustration);
     emptyContentView.setActionClickedListener(this);
 
     if (PermissionsUtil.hasContactsReadPermissions(getContext())) {

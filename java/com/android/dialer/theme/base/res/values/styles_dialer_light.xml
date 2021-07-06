@@ -21,8 +21,8 @@
     <item name="android:windowActivityTransitions">false</item>
     <item name="android:windowIsTranslucent">true</item>
 
-    <item name="android:statusBarColor">#a3a3a3</item>
-    <item name="android:navigationBarColor">@android:color/transparent</item>
+    <item name="android:statusBarColor">@color/dndndn</item>
+    <item name="android:navigationBarColor">@color/dndndn</item>
     <item name="android:windowDrawsSystemBarBackgrounds">true</item>
   </style>
 
