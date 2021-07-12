@@ -15,7 +15,6 @@
  */
 
 package com.android.dialer.app.calllog;
-import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator;
 
 import static android.Manifest.permission.READ_CALL_LOG;
 
@@ -32,6 +31,7 @@ import android.content.Intent;
 import android.database.ContentObserver;
 import android.database.Cursor;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -75,12 +75,20 @@ import com.android.dialer.metrics.Metrics;
 import com.android.dialer.metrics.MetricsComponent;
 import com.android.dialer.metrics.jank.RecyclerViewJankLogger;
 import com.android.dialer.oem.CequintCallerIdManager;
+//import androidx.core.content.ContextCompat;
+import android.support.v4.content.ContextCompat;
+
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
+import android.text.TextPaint;
+
 import com.android.dialer.performancereport.PerformanceReport;
 import com.android.dialer.phonenumbercache.ContactInfoHelper;
 import com.android.dialer.util.PermissionsUtil;
 import com.android.dialer.widget.EmptyContentView;
 import com.android.dialer.widget.EmptyContentView.OnEmptyViewActionButtonClickedListener;
 import java.util.Arrays;
+import android.provider.CallLog;
 
 /**
  * Displays a list of call log entries. To filter for a particular kind of call (all, missed or
@@ -302,10 +310,25 @@ public class CallLogFragment extends Fragment
     setupView(view);
     return view;
   }
+  private String concatCallIds(long[] callIds) {
+      if (callIds == null || callIds.length == 0) {
+        return null;
+      }
+
+      StringBuilder str = new StringBuilder();
+      for (long callId : callIds) {
+        if (str.length() != 0) {
+          str.append(",");
+        }
+        str.append(callId);
+      }
+
+      return str.toString();
+    }
 
   protected void setupView(View view) {
     recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(50, ItemTouchHelper.LEFT) {
+    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(50, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove( RecyclerView recyclerView,   RecyclerView.ViewHolder viewHolder,   RecyclerView.ViewHolder target) {
                 return false;
@@ -316,24 +339,40 @@ public class CallLogFragment extends Fragment
                 Log.d("satyam", "onSwiped: "+holder);
                 Log.d("satyam", "onSwiped: "+ holder.getItemViewType());
 		if (holder instanceof CallLogListItemViewHolder){
-		CallLogListItemViewHolder viewHolder = ((CallLogListItemViewHolder)holder);
-		Log.d("satyam", ""+viewHolder+" "+viewHolder.displayNumber+" "+viewHolder.number+" "+viewHolder.nameOrNumber);
-		getContext().startActivity(new Intent(Intent.ACTION_CALL).setData(Uri.parse("tel: "+viewHolder.number)));
-		}
-		adapter.notifyItemChanged(holder.getAdapterPosition());
-            }
+                    CallLogListItemViewHolder viewHolder = ((CallLogListItemViewHolder)holder);
+                    if (direction == ItemTouchHelper.LEFT){
+                        getContext().startActivity(new Intent(Intent.ACTION_CALL).setData(Uri.parse("tel: "+viewHolder.number)));
+                    } else {
+                        getContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms",viewHolder.number, null)));
+                    }
+                    adapter.notifyItemChanged(holder.getAdapterPosition());
+                }
+	    }
 
             @Override
-            public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
-                new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
-                        .addBackgroundColor(getContext().getColor(R.color.rec_decorator))
-                        .addSwipeLeftLabel("Calling")
-			.setSwipeRightLabelColor(getContext().getColor(R.color.rec_textcolor))
-                        .create()
-                        .decorate();
-                Log.d(TAG, "onChildDraw: " + dX + " " + dY + " " + (actionState == ItemTouchHelper.ACTION_STATE_DRAG) + " " + isCurrentlyActive);
-                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
-
+            public void onChildDraw(Canvas canvas, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+		if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
+                    if (dX > 0) { // Right swipe
+                        canvas.clipRect(viewHolder.itemView.getLeft(), viewHolder.itemView.getTop(), viewHolder.itemView.getLeft() + (int) dX, viewHolder.itemView.getBottom());
+                            Drawable icon =  getResources().getDrawable(R.drawable.sms); //Change icon if needed
+                            int iconSize = icon.getIntrinsicHeight();
+                            int halfIcon = iconSize / 2;
+                            int top = viewHolder.itemView.getTop() + ((viewHolder.itemView.getBottom() - viewHolder.itemView.getTop()) / 2 - halfIcon);
+                            icon.setBounds(viewHolder.itemView.getLeft() + 20, top, viewHolder.itemView.getLeft() + 20 + icon.getIntrinsicWidth(), top + icon.getIntrinsicHeight());
+                            icon.draw(canvas);
+                    } else if (dX < 0) { // Left swipe
+                        canvas.clipRect(viewHolder.itemView.getRight() + (int) dX, viewHolder.itemView.getTop(), viewHolder.itemView.getRight(), viewHolder.itemView.getBottom());
+                            Drawable icon =  getResources().getDrawable(R.drawable.phone_new);
+                            int iconHorizontalMargin = 20;
+                            int iconSize = icon.getIntrinsicHeight();
+                            int halfIcon = iconSize / 2;
+                            int top = viewHolder.itemView.getTop() + ((viewHolder.itemView.getBottom() - viewHolder.itemView.getTop()) / 2 - halfIcon);
+                            int imgLeft = viewHolder.itemView.getRight() - iconHorizontalMargin - halfIcon * 2;
+                            icon.setBounds(imgLeft, top, viewHolder.itemView.getRight() - iconHorizontalMargin, top + icon.getIntrinsicHeight());
+                            icon.draw(canvas);
+                    }
+                }
+                super.onChildDraw(canvas, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
             }
         };
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
