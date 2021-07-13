@@ -59,15 +59,12 @@ final class BottomNavItem extends LinearLayout {
             ? getResources().getColor(R.color.accent_color)
             : getResources().getColor(R.color.dndn);
     image.setImageTintList(ColorStateList.valueOf(colorId));
-    image.setVisibility(GONE);
     text.setTextColor(colorId);
   }
 
   void setup(@StringRes int stringRes, @DrawableRes int drawableRes) {
     text.setText(stringRes);
-    image.setVisibility(GONE);
     image.setImageResource(drawableRes);
-    image.setVisibility(GONE);
   }
 
   void setNotificationCount(int count) {

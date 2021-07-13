@@ -162,6 +162,7 @@ public class InCallFragment extends Fragment
   }
 
   private ImageView avatarImageView;
+  private View view;
 
   @Nullable
   @Override
