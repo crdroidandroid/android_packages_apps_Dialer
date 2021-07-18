@@ -15,6 +15,6 @@
   ~ limitations under the License
   -->
 <resources>
-  <color name="shortcut_add_contact_foreground_color">@*android:color/accent_device_default_light</color>
-  <color name="shortcut_add_contact_background_color">@*android:color/primary_dark_device_default_settings</color>
+  <color name="shortcut_add_contact_foreground_color">#5195EA</color>
+  <color name="shortcut_add_contact_background_color">@*android:color/primary_dark_material_dark</color>
 </resources>
