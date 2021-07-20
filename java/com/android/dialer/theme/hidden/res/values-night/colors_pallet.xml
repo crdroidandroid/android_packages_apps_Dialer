@@ -22,14 +22,14 @@
   <color name="google_blue_100">#D2E3FC</color>
   <color name="google_blue_50">#E8F0FE</color>
 
-  <color name="google_grey_900">#202124</color>
-  <color name="google_grey_800">#3C4043</color>
-  <color name="google_grey_700">#5F6368</color>
-  <color name="google_grey_600">#80868B</color>
-  <color name="google_grey_500">#9AA0A6</color>
-  <color name="google_grey_400">#BDC1C6</color>
-  <color name="google_grey_300">#DADCE0</color>
-  <color name="google_grey_200">#E8EAED</color>
-  <color name="google_grey_100">#F1F3F4</color>
-  <color name="google_grey_50">#F8F9FA</color>
+  <color name="google_grey_50">#202124</color>
+  <color name="google_grey_100">#3C4043</color>
+  <color name="google_grey_200">#5F6368</color>
+  <color name="google_grey_300">#80868B</color>
+  <color name="google_grey_400">#9AA0A6</color>
+  <color name="google_grey_500">#BDC1C6</color>
+  <color name="google_grey_600">#DADCE0</color>
+  <color name="google_grey_700">#E8EAED</color>
+  <color name="google_grey_800">#F1F3F4</color>
+  <color name="google_grey_900">#F8F9FA</color>
 </resources>
