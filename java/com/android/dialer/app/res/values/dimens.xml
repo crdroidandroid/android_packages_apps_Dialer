@@ -46,11 +46,11 @@
   <item name="contact_tile_height_to_width_ratio" type="dimen">76%</item>
   <dimen name="contact_tile_text_side_padding">12dp</dimen>
   <dimen name="contact_tile_text_bottom_padding">9dp</dimen>
-  <dimen name="favorites_row_top_padding">1dp</dimen>
-  <dimen name="favorites_row_start_padding">1dp</dimen>
+  <dimen name="favorites_row_top_padding">8dp</dimen>
+  <dimen name="favorites_row_start_padding">4dp</dimen>
 
   <!-- Padding from the last contact tile will provide the end padding. -->
-  <dimen name="favorites_row_end_padding">0dp</dimen>
+  <dimen name="favorites_row_end_padding">4dp</dimen>
 
   <!-- Size of the star icon on the favorites tile. -->
   <dimen name="favorites_star_icon_size">12dp</dimen>

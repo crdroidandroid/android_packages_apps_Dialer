@@ -42,7 +42,7 @@ public class PhoneFavoriteSquareTileView extends PhoneFavoriteTileView {
     super(context, attrs);
 
     heightToWidthRatio =
-        getResources().getFraction(R.dimen.contact_tile_height_to_width_ratio, 1, 1);
+        getResources().getFraction(R.dimen.contact_tile_height_to_width_ratio, 2, 1);
   }
 
   @Override
