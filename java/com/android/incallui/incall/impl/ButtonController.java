@@ -17,7 +17,7 @@
 package com.android.incallui.incall.impl;
 
 import android.content.res.Resources;
-import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.CallSuper;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
@@ -683,9 +683,7 @@ interface ButtonController {
 
     @Override
     public void onClick(View view) {
-      AnimationDrawable drawable = (AnimationDrawable) button.getIconDrawable();
-      drawable.stop(); // animation is one shot, stop it so it can be started again.
-      drawable.start();
+      Drawable drawable = (Drawable) button.getIconDrawable();
       delegate.swapSimClicked();
     }
   }

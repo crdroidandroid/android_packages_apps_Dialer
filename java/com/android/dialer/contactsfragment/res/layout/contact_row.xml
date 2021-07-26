@@ -33,7 +33,7 @@
       android:paddingBottom="@dimen/row_top_bottom_padding"
       android:paddingStart="@dimen/row_start_padding"
       android:gravity="center_vertical"
-      android:background="?android:attr/selectableItemBackground">
+      android:background="@color/dndndn">
 
     <QuickContactBadge
         android:id="@+id/photo"

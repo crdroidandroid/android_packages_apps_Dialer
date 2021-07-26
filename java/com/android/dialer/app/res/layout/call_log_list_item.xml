@@ -40,8 +40,7 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     app:cardElevation="0dp"
-    android:background="#00000000"
-    >
+    app:cardBackgroundColor="@color/dndndn">
 
     <LinearLayout
       android:layout_width="match_parent"

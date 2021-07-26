@@ -17,11 +17,10 @@
 <resources>
 
   <style name="LaunchTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
-    <item name="android:colorPrimary">@color/dialer_theme_color</item>
-    <item name="colorPrimary">@color/dialer_theme_color</item>
-    <item name="android:colorPrimaryDark">@color/dialer_theme_color_dark</item>
-    <item name="colorPrimaryDark">@color/dialer_theme_color_dark</item>
-    <item name="android:windowLightStatusBar">true</item>
+    <item name="android:colorPrimary">@color/dndndn</item>
+    <item name="colorPrimary">@color/dndndn</item>
+    <item name="android:colorPrimaryDark">@color/dndndn</item>
+    <item name="colorPrimaryDark">@color/dndndn</item>
   </style>
 
   <!-- Activities should use this theme as their style -->
@@ -50,7 +49,7 @@
 
   <!-- Colors our actionbar in action mode to dialer theme color. -->
   <style name="MainActionModeStyle" parent="@style/Widget.AppCompat.ActionMode">
-    <item name="background">?android:attr/colorPrimary</item>
+    <item name="background">@color/dndndn</item>
     <item name="titleTextStyle">@style/ActionModeTitleTextStyle</item>
   </style>
 

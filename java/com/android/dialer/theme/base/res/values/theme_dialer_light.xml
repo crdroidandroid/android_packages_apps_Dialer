@@ -17,7 +17,7 @@
 <resources>
   <!-- Deprecated: ActionBars are clunky and Toolbar (along with Dialer.ThemeBase.NoActionBar)
       should be used in favor-->
-  <style name="Dialer.ThemeBase.ActionBar">
+  <style name="Dialer.ThemeBase.ActionBar" parent="Theme.AppCompat.DayNight.DarkActionBar">
     <!-- These are used to style all actionbars in Dialer. These aren't needed in Dialer.ThemeBase.NoActionBar -->
     <item name="actionBarStyle">@style/DialerActionBarBaseStyle</item>
     <item name="actionBarSize">@dimen/action_bar_height</item>

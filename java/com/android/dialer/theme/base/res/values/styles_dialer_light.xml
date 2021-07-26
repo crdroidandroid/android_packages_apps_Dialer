@@ -29,10 +29,10 @@
   <!-- Style applied to the "Settings" screen.  Keep in sync with SettingsLight in Telephony. -->
   <style name="SettingsStyle" parent="Dialer.ThemeBase.ActionBar">
     <!-- Setting text. -->
-    <item name="android:textColorPrimary">@color/settings_text_color_primary</item>
+    <item name="android:textColorPrimary">@color/dndn</item>
     <!-- Setting description. -->
     <item name="android:textColorSecondary">@color/settings_text_color_secondary</item>
-    <item name="android:windowBackground">?android:attr/colorBackground</item>
+    <item name="android:windowBackground">@color/dndndn</item>
     <item name="android:colorAccent">?android:attr/colorPrimary</item>
   </style>
 
@@ -43,7 +43,7 @@
     <item name="android:gravity">end|center_vertical</item>
     <item name="android:paddingStart">@dimen/call_log_action_horizontal_padding</item>
     <item name="android:paddingEnd">@dimen/call_log_action_horizontal_padding</item>
-    <item name="android:textColor">?android:attr/colorPrimary</item>
+    <item name="android:textColor">@color/dndn</item>
     <item name="android:fontFamily">sans-serif-medium</item>
     <item name="android:focusable">true</item>
     <item name="android:singleLine">true</item>

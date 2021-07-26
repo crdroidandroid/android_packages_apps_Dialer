@@ -27,14 +27,14 @@
     android:paddingBottom="@dimen/row_top_bottom_padding"
     android:paddingStart="@dimen/row_start_padding"
     android:gravity="center_vertical"
-    android:background="?android:attr/selectableItemBackground">
+    android:background="@color/dndndn">
 
   <ImageView
       android:id="@+id/photo"
       android:layout_width="@dimen/photo_size"
       android:layout_height="@dimen/photo_size"
       android:src="@drawable/quantum_ic_person_add_white_24"
-      android:tint="?android:attr/colorPrimary"
+      android:tint="@color/dndn"
       android:scaleType="center"/>
 
   <TextView

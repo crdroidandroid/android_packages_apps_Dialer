@@ -48,7 +48,7 @@
 
   <!-- Colors our actionbar in action mode to dialer theme color. -->
   <style name="MainActionModeStyle" parent="@style/Widget.AppCompat.ActionMode">
-    <item name="background">?android:attr/colorPrimary</item>
+    <item name="background">@color/dndndn</item>
     <item name="titleTextStyle">@style/ActionModeTitleTextStyle</item>
   </style>
 

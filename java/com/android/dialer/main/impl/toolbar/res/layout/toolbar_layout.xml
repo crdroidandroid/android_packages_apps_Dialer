@@ -70,7 +70,7 @@
             android:layout_centerVertical="true"
             android:importantForAccessibility="no"
             android:scaleType="center"
-            android:src="@drawable/quantum_ic_search_vd_theme_24"/>
+            android:src="@drawable/quantum_ic_search_op"/>
 
 
         <ImageButton
