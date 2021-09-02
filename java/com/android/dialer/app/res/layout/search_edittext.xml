@@ -23,13 +23,10 @@
   android:layout_marginBottom="@dimen/search_bottom_margin"
   android:layout_marginLeft="@dimen/search_margin_horizontal"
   android:layout_marginRight="@dimen/search_margin_horizontal"
-  android:background="@android:color/transparent"
   android:elevation="0dp"
-  android:theme="@style/DialtactsSearchBarThemeOverlay"
   android:orientation="horizontal">
 
   <RelativeLayout
-    app:cardCornerRadius="@dimen/search_bar_corner_radius"
     android:id="@+id/search_box_collapsed"
     android:layout_width="match_parent"
     android:layout_height="match_parent"

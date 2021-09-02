@@ -142,7 +142,6 @@ final class SearchBarView extends FrameLayout {
             if (requestFocus) {
               searchBox.requestFocus();
             }
-            setBackgroundResource(R.drawable.search_bar_background);
           }
         });
     animator.start();
@@ -174,7 +173,6 @@ final class SearchBarView extends FrameLayout {
             super.onAnimationEnd(animation);
             searchBox.setText("");
             searchBoxExpanded.setVisibility(INVISIBLE);
-            setBackgroundResource(R.drawable.search_bar_background_rounded_corners);
           }
         });
     animator.start();
