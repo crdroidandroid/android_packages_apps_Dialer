@@ -20,10 +20,11 @@
   android:orientation="vertical"
   android:layout_alignParentStart="true"
   android:layout_alignParentTop="true"
-  android:background="?android:attr/colorBackground">
+  android:background="@color/dndndn">
 
   <com.android.dialer.widget.DialerToolbar
     android:id="@+id/toolbar"
+    android:background="@color/dndndn"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"/>
 

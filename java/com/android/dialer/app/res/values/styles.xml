@@ -50,7 +50,7 @@
   <!-- Text style for tabs. -->
   <style name="DialtactsActionBarTabTextStyle"
     parent="android:style/Widget.Material.Light.ActionBar.TabText">
-    <item name="android:textColor">@color/dndndn</item>
+    <item name="android:textColor">@color/dndn</item>
     <item name="android:textSize">@dimen/tab_text_size</item>
     <item name="android:fontFamily">"sans-serif-medium"</item>
   </style>
