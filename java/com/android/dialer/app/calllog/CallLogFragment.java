@@ -354,7 +354,7 @@ public class CallLogFragment extends Fragment
 		if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
                     if (dX > 0) { // Right swipe
                         canvas.clipRect(viewHolder.itemView.getLeft(), viewHolder.itemView.getTop(), viewHolder.itemView.getLeft() + (int) dX, viewHolder.itemView.getBottom());
-                            Drawable icon =  getResources().getDrawable(R.drawable.sms); //Change icon if needed
+                            Drawable icon =  getResources().getDrawable(R.drawable.ic_message);
                             int iconSize = icon.getIntrinsicHeight();
                             int halfIcon = iconSize / 2;
                             int top = viewHolder.itemView.getTop() + ((viewHolder.itemView.getBottom() - viewHolder.itemView.getTop()) / 2 - halfIcon);
@@ -362,7 +362,7 @@ public class CallLogFragment extends Fragment
                             icon.draw(canvas);
                     } else if (dX < 0) { // Left swipe
                         canvas.clipRect(viewHolder.itemView.getRight() + (int) dX, viewHolder.itemView.getTop(), viewHolder.itemView.getRight(), viewHolder.itemView.getBottom());
-                            Drawable icon =  getResources().getDrawable(R.drawable.phone_new);
+                            Drawable icon =  getResources().getDrawable(R.drawable.ic_phone_call);
                             int iconHorizontalMargin = 20;
                             int iconSize = icon.getIntrinsicHeight();
                             int halfIcon = iconSize / 2;
