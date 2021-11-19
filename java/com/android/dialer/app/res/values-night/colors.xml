@@ -26,4 +26,8 @@
   <!--  Colors for blocked numbers list -->
   <color name="blocked_number_block_color">#F44336</color>
 
+  <color name="primary_bg">@*android:color/primary_device_default_dark</color>
+  <color name="secondary_bg">@*android:color/surface_variant_dark</color>
+  <color name="accent_color">@*android:color/accent_device_default_dark</color>
+
 </resources>

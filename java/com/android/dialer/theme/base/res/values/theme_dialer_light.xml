@@ -21,6 +21,8 @@
     <!-- These are used to style all actionbars in Dialer. These aren't needed in Dialer.ThemeBase.NoActionBar -->
     <item name="actionBarStyle">@style/DialerActionBarBaseStyle</item>
     <item name="actionBarSize">@dimen/action_bar_height</item>
+    <item name="android:colorPrimary">@color/dialer_theme_color</item>
+    <item name="colorPrimary">@color/dialer_theme_color</item>
 
     <!-- Pulled from Theme.AppCompat.Light.DarkActionbar-->
     <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Light</item>

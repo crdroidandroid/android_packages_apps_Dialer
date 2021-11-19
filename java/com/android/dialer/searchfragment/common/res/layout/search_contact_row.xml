@@ -21,7 +21,7 @@
     android:layout_height="@dimen/search_row_height"
     android:paddingStart="8dp"
     android:paddingEnd="8dp"
-    android:background="?android:attr/selectableItemBackground">
+    android:background="@color/dndndn">
 
   <QuickContactBadge
       android:id="@+id/photo"

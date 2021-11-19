@@ -23,12 +23,12 @@
       android:id="@+id/recycler_view"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:background="?android:attr/colorBackground"/>
+      android:background="@color/dndndn"/>
 
   <com.android.dialer.widget.EmptyContentView
       android:id="@+id/empty_view"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:visibility="gone"
-      android:background="?android:attr/colorBackground"/>
+      android:background="@color/dndndn"/>
 </FrameLayout>

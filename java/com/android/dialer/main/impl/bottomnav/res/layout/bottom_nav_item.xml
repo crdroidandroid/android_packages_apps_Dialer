@@ -22,7 +22,7 @@
     android:minWidth="80dp"
     android:minHeight="80dp"
     android:gravity="center"
-    android:background="?android:attr/selectableItemBackgroundBorderless">
+    android:background="@color/secondary_bg">
 
   <FrameLayout
       android:layout_width="wrap_content"

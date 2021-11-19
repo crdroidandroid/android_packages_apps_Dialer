@@ -28,4 +28,8 @@
 
   <color name="nav_item">#80666666</color>
   <color name="nav_item_selected">#666666</color>
+
+  <color name="primary_bg">@*android:color/primary_device_default_light</color>
+  <color name="secondary_bg">@*android:color/surface_variant_light</color>
+  <color name="accent_color">@*android:color/accent_device_default_light</color>
 </resources>

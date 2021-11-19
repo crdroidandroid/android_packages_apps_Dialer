@@ -86,4 +86,5 @@
     <item name="android:textColor">?android:attr/textColorPrimary</item>
     <item name="android:textSize">16sp</item>
   </style>
+
 </resources>

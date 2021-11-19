@@ -17,6 +17,7 @@
 <resources>
   <style name="DialtactsTheme" parent="Dialer.ThemeBase.ActionBar">
     <!-- todo(calderwoodra): fill this in with dialpad theme and call log card theme -->
+        <item name="android:navigationBarColor">@color/secondary_bg</item>
   </style>
 
   <style name="DialpadTheme" parent="DialtactsTheme">

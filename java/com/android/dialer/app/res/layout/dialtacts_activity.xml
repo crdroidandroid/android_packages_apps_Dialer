@@ -19,7 +19,7 @@
   android:id="@+id/dialtacts_mainlayout"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:background="?android:attr/colorBackground"
+  android:background="@color/dndndn"
   android:clipChildren="false"
   android:clipToPadding="false"
   android:focusable="true"
@@ -47,7 +47,7 @@
       android:layout_marginBottom="@dimen/floating_action_button_margin_bottom"
       android:contentDescription="@string/action_menu_dialpad_button"
       android:src="@drawable/quantum_ic_dialpad_white_24"
-      app:backgroundTint="@color/goolag_deez_nutz"/>
+      app:backgroundTint="@color/dndndn"/>
 
   <!-- Host container for the contact tile drag shadow -->
   <FrameLayout

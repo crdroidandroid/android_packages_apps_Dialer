@@ -306,6 +306,8 @@ public class CallLogFragment extends Fragment
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedState) {
+//    getActivity().getWindow().setStatusBarColor(getActivity().getColor(R.color.dndndn));
+//    getActivity().getWindow().setNavigationBarColor(getActivity().getColor(R.color.secondary_bg));
     View view = inflater.inflate(R.layout.call_log_fragment, container, false);
     setupView(view);
     return view;

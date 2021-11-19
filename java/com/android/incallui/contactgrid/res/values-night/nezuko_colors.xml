@@ -16,5 +16,5 @@
   -->
 <resources>
     <color name="dndn">#FFFFFF</color>
-    <color name="dndndn">#000000</color>
+    <color name="dndndn">@*android:color/system_neutral1_900</color>
 </resources>
