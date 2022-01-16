@@ -42,7 +42,7 @@
         android:id="@id/incall_contact_grid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="52dp"
         android:layout_marginStart="12dp"
         android:gravity="start"
         android:orientation="vertical">
