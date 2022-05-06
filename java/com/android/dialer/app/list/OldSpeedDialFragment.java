@@ -146,7 +146,7 @@ public class OldSpeedDialFragment extends Fragment
         FragmentUtils.getParentUnsafe(this, HostInterface.class).getDragShadowOverlay());
 
     emptyView = (EmptyContentView) parentView.findViewById(R.id.empty_list_view);
-    emptyView.setImage(R.drawable.empty_speed_dial);
+    emptyView.setImage(R.drawable.oneplus_empty_speed_dial_illustration);
     emptyView.setActionClickedListener(this);
 
     contactTileFrame = parentView.findViewById(R.id.contact_tile_frame);
