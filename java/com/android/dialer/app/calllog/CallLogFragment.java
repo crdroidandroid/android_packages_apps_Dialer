@@ -300,7 +300,7 @@ public class CallLogFragment extends Fragment
     layoutManager = new LinearLayoutManager(getActivity());
     recyclerView.setLayoutManager(layoutManager);
     emptyListView = (EmptyContentView) view.findViewById(R.id.empty_list_view);
-    emptyListView.setImage(R.drawable.empty_call_log);
+    emptyListView.setImage(R.drawable.oneplus_empty_call_log_illustration);
     emptyListView.setActionClickedListener(this);
     modalAlertView = (ViewGroup) view.findViewById(R.id.modal_message_container);
     modalAlertManager =
