@@ -20,7 +20,7 @@
   <!-- TODO(a bug): refactor into dialer/theme -->
   <style name="MainActivityTheme" parent="MainActivityThemeBase">
     <!-- Used to change the navigation bar color -->
-    <item name="android:windowLightNavigationBar">true</item>
+    <item name="android:windowLightNavigationBar">@bool/light_navigation_bar</item>
     <item name="android:navigationBarColor">@color/rounded_dialpad_bg_color</item>
     <item name="android:navigationBarDividerColor">@null</item>
   </style>
@@ -29,7 +29,7 @@
   <!-- TODO(a bug): refactor into dialer/theme -->
   <style name="MainActivityTheme.Dark" parent="MainActivityThemeBase.Dark">
     <!-- Used to change the navigation bar color -->
-    <item name="android:windowLightNavigationBar">true</item>
+    <item name="android:windowLightNavigationBar">@bool/light_navigation_bar</item>
     <item name="android:navigationBarColor">@color/rounded_dialpad_bg_color</item>
     <item name="android:navigationBarDividerColor">@null</item>
   </style>
