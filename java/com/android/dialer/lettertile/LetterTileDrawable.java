@@ -173,10 +173,6 @@ public class LetterTileDrawable extends Drawable {
     }
   }
 
-  private static boolean isEnglishLetter(final char c) {
-    return ('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z');
-  }
-
   @Override
   public void draw(@NonNull final Canvas canvas) {
     final Rect bounds = getBounds();
@@ -335,7 +331,8 @@ public class LetterTileDrawable extends Drawable {
 
   private LetterTileDrawable setLetterAndColorFromContactDetails(
       final String displayName, final String identifier) {
-    if (!TextUtils.isEmpty(displayName) && isEnglishLetter(displayName.charAt(0))) {
+    if (displayName != null && !TextUtils.isEmpty(displayName)
+            && Character.isLetter(displayName.charAt(0))) {
       letter = Character.toUpperCase(displayName.charAt(0));
     } else {
       letter = null;
