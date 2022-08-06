@@ -155,7 +155,7 @@ public class MainSearchController implements SearchBarListener {
     fab.hide();
     toolbar.slideUp(animate, fragmentContainer);
     toolbar.expand(animate, Optional.absent(), /* requestFocus */ false);
-    toolbarShadow.setVisibility(View.VISIBLE);
+    toolbarShadow.setVisibility(View.GONE);
 
     activity.setTitle(R.string.dialpad_activity_title);
 
