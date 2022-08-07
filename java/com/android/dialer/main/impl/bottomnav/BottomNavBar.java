@@ -70,8 +70,8 @@ public final class BottomNavBar extends LinearLayout {
     voicemail = findViewById(R.id.voicemail_tab);
 
 
-    speedDial.setup(R.string.tab_title_speed_dial, R.drawable.bottom_nav_ic_speed_dial_vd_theme_24);
-    callLog.setup(R.string.tab_title_call_history, R.drawable.bottom_nav_ic_call_history_vd_theme_24);
+    speedDial.setup(R.string.tab_title_favourites, R.drawable.bottom_nav_ic_speed_dial_vd_theme_24);
+    callLog.setup(R.string.tab_title_recent, R.drawable.bottom_nav_ic_call_history_vd_theme_24);
     contacts.setup(R.string.tab_all_contacts, R.drawable.bottom_nav_ic_contacts_vd_theme_24);
     voicemail.setup(R.string.tab_title_voicemail, R.drawable.quantum_ic_voicemail_vd_theme_24);
 
