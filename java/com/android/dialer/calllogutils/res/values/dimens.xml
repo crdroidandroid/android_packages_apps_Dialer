@@ -15,5 +15,5 @@
  ~ limitations under the License
  -->
 <resources>
-  <dimen name="call_type_icon_size">12dp</dimen>
+  <dimen name="call_type_icon_size">16dp</dimen>
 </resources>
