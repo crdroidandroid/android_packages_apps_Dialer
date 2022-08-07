@@ -408,7 +408,7 @@ public class ContactGridManager {
     workIconImageView.setVisibility(info.isWorkIconVisible ? View.VISIBLE : View.GONE);
     if (hdIconImageView.getVisibility() == View.GONE) {
       if (info.isHdAttemptingIconVisible) {
-        hdIconImageView.setImageResource(R.drawable.asd_hd_icon);
+        hdIconImageView.setImageResource(R.drawable.quantum_ic_hd_white_24);
         hdIconImageView.setVisibility(View.VISIBLE);
         hdIconImageView.setActivated(false);
         Drawable drawableCurrent = hdIconImageView.getDrawable().getCurrent();
@@ -416,7 +416,7 @@ public class ContactGridManager {
           ((Animatable) drawableCurrent).start();
         }
       } else if (info.isHdIconVisible) {
-        hdIconImageView.setImageResource(R.drawable.asd_hd_icon);
+        hdIconImageView.setImageResource(R.drawable.quantum_ic_hd_white_24);
         hdIconImageView.setVisibility(View.VISIBLE);
         hdIconImageView.setActivated(true);
       }

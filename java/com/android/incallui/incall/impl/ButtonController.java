@@ -546,7 +546,7 @@ interface ButtonController {
           InCallButtonIds.BUTTON_ADD_CALL,
           0,
           R.string.incall_label_add_call,
-          R.drawable.ic_addcall_white);
+          R.drawable.quantum_ic_add_call_white);
       Assert.isNotNull(delegate);
     }
 
