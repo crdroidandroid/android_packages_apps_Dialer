@@ -38,6 +38,7 @@
     <item name="dialpad_style">@style/Dialpad.Themed</item>
     <item name="android:colorPrimaryDark">@color/dialer_theme_color_dark</item>
     <item name="colorPrimaryDark">@color/dialer_theme_color_dark</item>
+    <item name="android:windowLightStatusBar">@bool/light_navigation_bar</item>
   </style>
 
   <style name="MainActivityThemeBase.Dark" parent="Dialer.Dark.ThemeBase.NoActionBar">
