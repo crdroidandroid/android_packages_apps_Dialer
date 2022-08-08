@@ -17,7 +17,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Smart Options -->
     <string name="smart_category_title">Autres options</string>
-    <string name="smart_mute_title">Mute intelligent</string>
+    <string name="smart_mute_title">Muet intelligent</string>
     <string name="smart_mute_summary">Couper le son de l\'appel entrant en retournant l\'appareil</string>
     <!-- Full Screen Caller Photo -->
     <string name="fullscreen_caller_photo_title">Mode plein écran</string>
