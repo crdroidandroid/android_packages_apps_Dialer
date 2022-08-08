@@ -16,14 +16,14 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Smart Options -->
-    <string name="smart_category_title">Other options</string>
-    <string name="smart_mute_title">Smart mute</string>
-    <string name="smart_mute_summary">Mute the incoming call by flipping the device</string>
+    <string name="smart_category_title">Outras opções</string>
+    <string name="smart_mute_title">Modo silencioso inteligente</string>
+    <string name="smart_mute_summary">Silenciar chamada recebida virando o dispositivo para baixo</string>
     <!-- Full Screen Caller Photo -->
-    <string name="fullscreen_caller_photo_title">Fullscreen photo</string>
-    <string name="fullscreen_caller_photo_summary">Display full-screen photo for incoming and outgoing calls</string>
+    <string name="fullscreen_caller_photo_title">Foto em tela cheia</string>
+    <string name="fullscreen_caller_photo_summary">Exibir foto em tela cheia quando receber ou fazer chamadas</string>
     <!-- Tab text to show users their call log/call history [CHAR LIMIT=10] -->
-    <string name="tab_title_recent">Recent</string>
+    <string name="tab_title_recent">Recente</string>
     <!-- Tab text to show users their favorite contacts that they can call in 1 click [CHAR LIMIT=10] -->
-    <string name="tab_title_favourites">Favorites</string>
+    <string name="tab_title_favourites">Favoritos</string>
 </resources>
