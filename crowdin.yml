@@ -1,0 +1,3 @@
+files:
+  - source: /java/com/android/dialer/app/res/values/cr_strings.xml
+    translation: /java/com/android/dialer/app/res/values-%android_code%/%original_file_name%
