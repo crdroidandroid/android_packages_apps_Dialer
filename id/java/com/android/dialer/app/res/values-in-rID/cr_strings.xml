@@ -16,7 +16,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Smart Options -->
-    <string name="smart_category_title">Pilihan lain</string>
+    <string name="smart_category_title">Opsi lainnya</string>
     <string name="smart_mute_title">Bisukan Cerdas</string>
     <string name="smart_mute_summary">Bisukan panggilan masuk dengan membalik perangkat</string>
     <!-- Full Screen Caller Photo -->
