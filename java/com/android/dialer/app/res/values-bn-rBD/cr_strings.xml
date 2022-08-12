@@ -18,7 +18,7 @@
     <!-- Smart Options -->
     <string name="smart_category_title">অন্য বিকল্পগুলি</string>
     <string name="smart_mute_title">স্মার্ট নিঃশব্দ</string>
-    <string name="smart_mute_summary">ডিভাইসটি ফ্লিপ করে ইনকামিং কলটি মিউট করুন</string>
+    <string name="smart_mute_summary">Mute the incoming call by flipping the device</string>
     <!-- Full Screen Caller Photo -->
     <string name="fullscreen_caller_photo_title">ফুলস্ক্রিন ছবি</string>
     <string name="fullscreen_caller_photo_summary">ইনকামিং এবং আউটগোয়িং কলের জন্য পূর্ণ-স্ক্রীন ফটো প্রদর্শন করুন</string>
