@@ -18,7 +18,7 @@
     <!-- Smart Options -->
     <string name="smart_category_title">Diğer seçenekler</string>
     <string name="smart_mute_title">Akıllı sessizlik</string>
-    <string name="smart_mute_summary">Cihazı çevirerek gelen çağrıyı sustur</string>
+    <string name="smart_mute_summary">Cihazı çevirerek gelen aramayı sessize alın</string>
     <!-- Full Screen Caller Photo -->
     <string name="fullscreen_caller_photo_title">Tam ekran fotoğraf</string>
     <string name="fullscreen_caller_photo_summary">Gelen ve giden aramalar için tam ekran fotoğraf göster</string>
