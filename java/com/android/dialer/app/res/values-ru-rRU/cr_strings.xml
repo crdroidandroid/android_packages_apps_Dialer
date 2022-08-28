@@ -18,7 +18,7 @@
     <!-- Smart Options -->
     <string name="smart_category_title">Другие настройки</string>
     <string name="smart_mute_title">Умное отключение звука</string>
-    <string name="smart_mute_summary">Отключать звук входящего вызова переворотом устройства</string>
+    <string name="smart_mute_summary">Отключить звук входящего вызова при перевороте телефона</string>
     <!-- Full Screen Caller Photo -->
     <string name="fullscreen_caller_photo_title">Полноэкранное фото</string>
     <string name="fullscreen_caller_photo_summary">Показывать полноэкранное фото при входящих и исходящих вызовах</string>
