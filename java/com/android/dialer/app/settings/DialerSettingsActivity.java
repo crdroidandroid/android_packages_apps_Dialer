@@ -16,13 +16,10 @@
  */
 package com.android.dialer.app.settings;
 
-import static android.hardware.Sensor.TYPE_PROXIMITY;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.UserManager;
@@ -138,14 +135,6 @@ public class DialerSettingsActivity extends AppCompatActivity implements
       soundSettings.setViewId(R.id.settings_header_sounds_and_vibration);
       soundSettings.setIconSpaceReserved(false);
       getPreferenceScreen().addPreference(soundSettings);
-
-      if (showSensorOptions()) {
-        Preference sensorSettings = new Preference(getContext());
-        sensorSettings.setTitle(R.string.sensor_settings_title);
-        sensorSettings.setFragment(SensorSettingsFragment.class.getName());
-        sensorSettings.setIconSpaceReserved(false);
-        getPreferenceScreen().addPreference(sensorSettings);
-      }
 
       Preference quickResponseSettings = new Preference(getContext());
       Intent quickResponseSettingsIntent =
@@ -320,11 +309,6 @@ public class DialerSettingsActivity extends AppCompatActivity implements
      */
     private boolean isPrimaryUser() {
       return requireContext().getSystemService(UserManager.class).isSystemUser();
-    }
-
-    private boolean showSensorOptions() {
-      SensorManager sm = (SensorManager) requireContext().getSystemService(Context.SENSOR_SERVICE);
-      return sm.getDefaultSensor(TYPE_PROXIMITY) != null;
     }
   }
 }
