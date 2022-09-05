@@ -23,4 +23,10 @@
         android:title="@string/enable_post_call_title"
         android:summary="@string/enable_post_call_summary" />
 
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="disable_proximity_sensor_key"
+        android:title="@string/disable_proximity_sensor_title"
+        android:summary="@string/disable_proximity_sensor_summary" />
+
 </PreferenceScreen>
