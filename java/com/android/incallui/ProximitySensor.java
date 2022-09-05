@@ -48,7 +48,7 @@ public class ProximitySensor
     implements AccelerometerListener.ChangeListener, InCallStateListener, AudioModeListener {
 
   private static final String TAG = ProximitySensor.class.getSimpleName();
-  private static final String PREF_KEY_DISABLE_PROXI_SENSOR = "disable_proximity_sensor_key";
+  private static final String PREF_KEY_DISABLE_PROXI_SENSOR = "disable_proximity_sensor";
 
   private final PowerManager powerManager;
   private final PowerManager.WakeLock proximityWakeLock;

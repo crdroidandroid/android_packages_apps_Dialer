@@ -16,8 +16,11 @@
 
 package com.android.dialer.app.settings;
 
+import static android.hardware.Sensor.TYPE_PROXIMITY;
+
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -32,6 +35,7 @@ public class OtherSettingsFragment extends PreferenceFragmentCompat
     implements Preference.OnPreferenceChangeListener {
 
   private static final String ENABLE_POST_CALL = "enable_post_call";
+  private static final String DISABLE_PROXIMITY_SENSOR = "disable_proximity_sensor";
 
   private SharedPreferences mPrefs;
   private boolean mEnabled;
@@ -51,6 +55,11 @@ public class OtherSettingsFragment extends PreferenceFragmentCompat
     mEnablePostcall = findPreference(ENABLE_POST_CALL);
     mEnablePostcall.setChecked(mEnabled);
     mEnablePostcall.setOnPreferenceChangeListener(this);
+
+    if (!showSensorOptions()) {
+        SwitchPreferenceCompat disableProximity = findPreference(DISABLE_PROXIMITY_SENSOR);
+        getPreferenceScreen().removePreference(disableProximity);
+    }
   }
 
   @Override
@@ -64,5 +73,10 @@ public class OtherSettingsFragment extends PreferenceFragmentCompat
         return true;
     }
     return false;
+  }
+
+  private boolean showSensorOptions() {
+    SensorManager sm = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
+    return sm.getDefaultSensor(TYPE_PROXIMITY) != null;
   }
 }
