@@ -26,7 +26,6 @@
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Disable proximity sensor</string>
     <string name="disable_proximity_sensor_summary">Do not turn off touchscreen and display in call based on proximity sensor</string>
-    <string name="sensor_settings_title">Sensors</string>
 
     <!-- Smart Options -->
     <string name="smart_category_title">Other options</string>
