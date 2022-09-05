@@ -111,13 +111,6 @@ public class DialerSettingsActivity extends AppCompatPreferenceActivity {
     soundSettingsHeader.id = R.id.settings_header_sounds_and_vibration;
     target.add(soundSettingsHeader);
 
-    if (showSensorOptions()) {
-      Header sensorSettingsHeader = new Header();
-      sensorSettingsHeader.titleRes = R.string.sensor_settings_titile;
-      sensorSettingsHeader.fragment = SensorSettingsFragment.class.getName();
-      target.add(sensorSettingsHeader);
-    }
-
     Header quickResponseSettingsHeader = new Header();
     Intent quickResponseSettingsIntent =
         new Intent(TelecomManager.ACTION_SHOW_RESPOND_VIA_SMS_SETTINGS);
@@ -338,10 +331,5 @@ public class DialerSettingsActivity extends AppCompatPreferenceActivity {
   /** @return Whether the current user is the primary user. */
   private boolean isPrimaryUser() {
     return getSystemService(UserManager.class).isSystemUser();
-  }
-
-  private boolean showSensorOptions() {
-    SensorManager sm = (SensorManager) this.getSystemService(Context.SENSOR_SERVICE);
-    return sm.getDefaultSensor(TYPE_PROXIMITY) != null;
   }
 }
