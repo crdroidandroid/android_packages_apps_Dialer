@@ -16,7 +16,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Preference titles -->
-    <string name="other_settings_label">Other settings</string>
+    <string name="other_settings_label">Cài đặt khác</string>
     <!-- Smart Options -->
     <string name="smart_category_title">Tùy chọn khác</string>
     <string name="smart_mute_title">Tắt tiếng thông minh</string>
@@ -29,9 +29,9 @@
     <!-- Tab text to show users their favorite contacts that they can call in 1 click [CHAR LIMIT=10] -->
     <string name="tab_title_favourites">Yêu thích</string>
     <!-- Dialer postcall -->
-    <string name="enable_post_call_title">Post call snackbar</string>
-    <string name="enable_post_call_summary">Enable post call notifications at the bottom of screen</string>
+    <string name="enable_post_call_title">Hiện cuộc gọi trên thanh snackbar</string>
+    <string name="enable_post_call_summary">Bật thông tin cuộc gọi ở dưới cùng của màn hình</string>
     <!-- Disable Proximity Options -->
-    <string name="disable_proximity_sensor_title">Disable proximity sensor</string>
-    <string name="disable_proximity_sensor_summary">Do not turn off touchscreen and display in call based on proximity sensor</string>
+    <string name="disable_proximity_sensor_title">Tắt cảm biến tiệm cận</string>
+    <string name="disable_proximity_sensor_summary">Không tắt màn hình và hiện thị cuộc gọi khi sử dụng cảm biến tiệm cận</string>
 </resources>
