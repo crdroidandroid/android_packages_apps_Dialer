@@ -16,7 +16,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Preference titles -->
-    <string name="other_settings_label">Other settings</string>
+    <string name="other_settings_label">Inne ustawienia</string>
     <!-- Smart Options -->
     <string name="smart_category_title">Inne opcje</string>
     <string name="smart_mute_title">Inteligentne wyciszanie</string>
@@ -29,9 +29,9 @@
     <!-- Tab text to show users their favorite contacts that they can call in 1 click [CHAR LIMIT=10] -->
     <string name="tab_title_favourites">Ulubione</string>
     <!-- Dialer postcall -->
-    <string name="enable_post_call_title">Post call snackbar</string>
-    <string name="enable_post_call_summary">Enable post call notifications at the bottom of screen</string>
+    <string name="enable_post_call_title">Pokaż połączenie na snackbarze</string>
+    <string name="enable_post_call_summary">Włącz powiadomienia o połączeniach w dolnej części ekranu</string>
     <!-- Disable Proximity Options -->
-    <string name="disable_proximity_sensor_title">Disable proximity sensor</string>
-    <string name="disable_proximity_sensor_summary">Do not turn off touchscreen and display in call based on proximity sensor</string>
+    <string name="disable_proximity_sensor_title">Wyłącz czujnik zbliżeniowy</string>
+    <string name="disable_proximity_sensor_summary">Nie wyłączaj ekranu dotykowego i wyświetlacza w trakcie połączenia</string>
 </resources>
