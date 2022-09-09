@@ -32,6 +32,6 @@
     <string name="enable_post_call_title">Arama sonrası bildirim</string>
     <string name="enable_post_call_summary">Ekranın altından arama sonrası bildirimlerini etkinleştir</string>
     <!-- Disable Proximity Options -->
-    <string name="disable_proximity_sensor_title">Disable proximity sensor</string>
+    <string name="disable_proximity_sensor_title">Yakınlık sensörünü devre dışı bırak</string>
     <string name="disable_proximity_sensor_summary">Do not turn off touchscreen and display in call based on proximity sensor</string>
 </resources>
