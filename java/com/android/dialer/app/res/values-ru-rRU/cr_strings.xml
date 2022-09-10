@@ -15,6 +15,8 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Preference titles -->
+    <string name="other_settings_label">Прочие настройки</string>
     <!-- Smart Options -->
     <string name="smart_category_title">Другие настройки</string>
     <string name="smart_mute_title">Умное отключение звука</string>
@@ -26,4 +28,10 @@
     <string name="tab_title_recent">Недавние</string>
     <!-- Tab text to show users their favorite contacts that they can call in 1 click [CHAR LIMIT=10] -->
     <string name="tab_title_favourites">Избранные</string>
+    <!-- Dialer postcall -->
+    <string name="enable_post_call_title">Уведомление после звонка</string>
+    <string name="enable_post_call_summary">Показывать уведомление после звонка в нижней части экрана</string>
+    <!-- Disable Proximity Options -->
+    <string name="disable_proximity_sensor_title">Отключить датчик приближения</string>
+    <string name="disable_proximity_sensor_summary">Не отключть экран, сенсорный экран и не использовать датчик приближения во время вызова</string>
 </resources>

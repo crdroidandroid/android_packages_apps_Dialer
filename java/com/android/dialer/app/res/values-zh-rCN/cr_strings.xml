@@ -15,6 +15,8 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Preference titles -->
+    <string name="other_settings_label">其他设置</string>
     <!-- Smart Options -->
     <string name="smart_category_title">其他选项</string>
     <string name="smart_mute_title">智能静音</string>
@@ -26,4 +28,10 @@
     <string name="tab_title_recent">最近</string>
     <!-- Tab text to show users their favorite contacts that they can call in 1 click [CHAR LIMIT=10] -->
     <string name="tab_title_favourites">收藏夹</string>
+    <!-- Dialer postcall -->
+    <string name="enable_post_call_title">通话结束后通知</string>
+    <string name="enable_post_call_summary">在屏幕底部启用呼叫通知</string>
+    <!-- Disable Proximity Options -->
+    <string name="disable_proximity_sensor_title">禁用距离传感器</string>
+    <string name="disable_proximity_sensor_summary">基于距离传感器，在通话中不关闭触摸操作和屏幕显示</string>
 </resources>
