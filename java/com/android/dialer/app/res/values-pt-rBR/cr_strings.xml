@@ -33,5 +33,5 @@
     <string name="enable_post_call_summary">Enable post call notifications at the bottom of screen</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Desativar sensor de proximidade</string>
-    <string name="disable_proximity_sensor_summary">Do not turn off touchscreen and display in call based on proximity sensor</string>
+    <string name="disable_proximity_sensor_summary">Não apaga a tela durante a chamada com base no sensor de proximidade</string>
 </resources>
