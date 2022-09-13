@@ -16,7 +16,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Preference titles -->
-    <string name="other_settings_label">Other settings</string>
+    <string name="other_settings_label">기타 설정</string>
     <!-- Smart Options -->
     <string name="smart_category_title">기타 옵션</string>
     <string name="smart_mute_title">스마트 음소거</string>
