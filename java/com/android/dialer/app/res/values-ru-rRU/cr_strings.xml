@@ -16,7 +16,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Preference titles -->
-    <string name="other_settings_label">Прочие настройки</string>
+    <string name="other_settings_label">Другие настройки</string>
     <!-- Smart Options -->
     <string name="smart_category_title">Другие настройки</string>
     <string name="smart_mute_title">Умное отключение звука</string>
@@ -32,6 +32,6 @@
     <string name="enable_post_call_title">Уведомление после звонка</string>
     <string name="enable_post_call_summary">Показывать уведомление после звонка в нижней части экрана</string>
     <!-- Disable Proximity Options -->
-    <string name="disable_proximity_sensor_title">Отключить датчик приближения</string>
-    <string name="disable_proximity_sensor_summary">Не отключть экран, сенсорный экран и не использовать датчик приближения во время вызова</string>
+    <string name="disable_proximity_sensor_title">Выключить датчик приближения</string>
+    <string name="disable_proximity_sensor_summary">Не выключать экран и дисплей во время входящего вызова на основе датчика приближения</string>
 </resources>
