@@ -16,7 +16,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Preference titles -->
-    <string name="other_settings_label">Other settings</string>
+    <string name="other_settings_label">기타 설정</string>
     <!-- Smart Options -->
     <string name="smart_category_title">기타 옵션</string>
     <string name="smart_mute_title">스마트 음소거</string>
@@ -29,9 +29,9 @@
     <!-- Tab text to show users their favorite contacts that they can call in 1 click [CHAR LIMIT=10] -->
     <string name="tab_title_favourites">즐겨찾기</string>
     <!-- Dialer postcall -->
-    <string name="enable_post_call_title">Post call snackbar</string>
-    <string name="enable_post_call_summary">Enable post call notifications at the bottom of screen</string>
+    <string name="enable_post_call_title">통화 후 하단알림</string>
+    <string name="enable_post_call_summary">화면 맨아래에 통화 후 알림을 활성화합니다</string>
     <!-- Disable Proximity Options -->
-    <string name="disable_proximity_sensor_title">Disable proximity sensor</string>
-    <string name="disable_proximity_sensor_summary">Do not turn off touchscreen and display in call based on proximity sensor</string>
+    <string name="disable_proximity_sensor_title">근접센서 비활성화</string>
+    <string name="disable_proximity_sensor_summary">통화 시 근접센서를 통한 터치스크린과 화면 꺼짐을 비활성화합니다</string>
 </resources>

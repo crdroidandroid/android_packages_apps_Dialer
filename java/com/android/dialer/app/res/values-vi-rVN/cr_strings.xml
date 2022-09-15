@@ -29,9 +29,9 @@
     <!-- Tab text to show users their favorite contacts that they can call in 1 click [CHAR LIMIT=10] -->
     <string name="tab_title_favourites">Yêu thích</string>
     <!-- Dialer postcall -->
-    <string name="enable_post_call_title">Hiện cuộc gọi trên thanh snackbar</string>
+    <string name="enable_post_call_title">Hiện cuộc gọi trên thanh tạm thời</string>
     <string name="enable_post_call_summary">Bật thông tin cuộc gọi ở dưới cùng của màn hình</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Tắt cảm biến tiệm cận</string>
-    <string name="disable_proximity_sensor_summary">Không tắt màn hình và hiện thị cuộc gọi khi sử dụng cảm biến tiệm cận</string>
+    <string name="disable_proximity_sensor_summary">Màn hình sẽ không tắt khi đang có cuộc gọi</string>
 </resources>
