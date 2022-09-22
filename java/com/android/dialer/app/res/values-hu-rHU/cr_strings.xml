@@ -16,7 +16,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Preference titles -->
-    <string name="other_settings_label">Other settings</string>
+    <string name="other_settings_label">Egyéb beállítások</string>
     <!-- Smart Options -->
     <string name="smart_category_title">Egyéb beállítások</string>
     <string name="smart_mute_title">Okos némítás</string>
