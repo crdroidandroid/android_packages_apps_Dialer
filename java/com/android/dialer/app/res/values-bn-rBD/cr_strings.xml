@@ -16,7 +16,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Preference titles -->
-    <string name="other_settings_label">Other settings</string>
+    <string name="other_settings_label">অন্যান্য সেটিংস</string>
     <!-- Smart Options -->
     <string name="smart_category_title">অন্য বিকল্পগুলি</string>
     <string name="smart_mute_title">স্মার্ট নিঃশব্দ</string>
@@ -32,6 +32,6 @@
     <string name="enable_post_call_title">Post call snackbar</string>
     <string name="enable_post_call_summary">Enable post call notifications at the bottom of screen</string>
     <!-- Disable Proximity Options -->
-    <string name="disable_proximity_sensor_title">Disable proximity sensor</string>
-    <string name="disable_proximity_sensor_summary">Do not turn off touchscreen and display in call based on proximity sensor</string>
+    <string name="disable_proximity_sensor_title">প্রক্সিমিটি সেন্সর নিষ্ক্রিয় করুন</string>
+    <string name="disable_proximity_sensor_summary">কলে থাকার সময় প্রক্সিমিটি সেন্সরের উপর ভিত্তি করে টাচস্ক্রিন এবং ডিসপ্লে বন্ধ করবেন না</string>
 </resources>
