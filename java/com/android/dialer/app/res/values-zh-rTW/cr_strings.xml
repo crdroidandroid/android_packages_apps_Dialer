@@ -16,22 +16,22 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Preference titles -->
-    <string name="other_settings_label">Other settings</string>
+    <string name="other_settings_label">其他設定</string>
     <!-- Smart Options -->
-    <string name="smart_category_title">Other options</string>
-    <string name="smart_mute_title">Smart mute</string>
-    <string name="smart_mute_summary">Mute the incoming call by flipping the device</string>
+    <string name="smart_category_title">其他選項</string>
+    <string name="smart_mute_title">智慧靜音</string>
+    <string name="smart_mute_summary">翻轉裝置以使來電靜音</string>
     <!-- Full Screen Caller Photo -->
-    <string name="fullscreen_caller_photo_title">Fullscreen photo</string>
-    <string name="fullscreen_caller_photo_summary">Display full-screen photo for incoming and outgoing calls</string>
+    <string name="fullscreen_caller_photo_title">全螢幕圖示</string>
+    <string name="fullscreen_caller_photo_summary">在撥出或收到來電時將圖示以全螢幕顯示</string>
     <!-- Tab text to show users their call log/call history [CHAR LIMIT=10] -->
-    <string name="tab_title_recent">Recent</string>
+    <string name="tab_title_recent">近期通話</string>
     <!-- Tab text to show users their favorite contacts that they can call in 1 click [CHAR LIMIT=10] -->
-    <string name="tab_title_favourites">Favorites</string>
+    <string name="tab_title_favourites">我的最愛</string>
     <!-- Dialer postcall -->
-    <string name="enable_post_call_title">Post call snackbar</string>
-    <string name="enable_post_call_summary">Enable post call notifications at the bottom of screen</string>
+    <string name="enable_post_call_title">通話結束通知</string>
+    <string name="enable_post_call_summary">在通話結束之後於螢幕底部顯示通知</string>
     <!-- Disable Proximity Options -->
-    <string name="disable_proximity_sensor_title">Disable proximity sensor</string>
+    <string name="disable_proximity_sensor_title">停用距離傳感器</string>
     <string name="disable_proximity_sensor_summary">Do not turn off touchscreen and display in call based on proximity sensor</string>
 </resources>
