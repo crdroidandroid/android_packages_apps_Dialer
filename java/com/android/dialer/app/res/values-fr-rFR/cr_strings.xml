@@ -30,7 +30,7 @@
     <string name="tab_title_favourites">Favoris</string>
     <!-- Dialer postcall -->
     <string name="enable_post_call_title">Post call snackbar</string>
-    <string name="enable_post_call_summary">Enable post call notifications at the bottom of screen</string>
+    <string name="enable_post_call_summary">Activer les notifications de rappel au bas de l\'écran</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Désactiver le capteur de proximité</string>
     <string name="disable_proximity_sensor_summary">Ne pas éteindre l\'écran tactile et l\'affichage en cours d\'appels en fonction de la proximité</string>
