@@ -30,8 +30,8 @@
     <string name="tab_title_favourites">Obľúbené</string>
     <!-- Dialer postcall -->
     <string name="enable_post_call_title">Oznámenie po volaní</string>
-    <string name="enable_post_call_summary">Enable post call notifications at the bottom of screen</string>
+    <string name="enable_post_call_summary">Povoliť oznámenie po volaní v dolnej časti obrazovky</string>
     <!-- Disable Proximity Options -->
-    <string name="disable_proximity_sensor_title">Disable proximity sensor</string>
-    <string name="disable_proximity_sensor_summary">Do not turn off touchscreen and display in call based on proximity sensor</string>
+    <string name="disable_proximity_sensor_title">Vypnúť snímač vzdialenosti</string>
+    <string name="disable_proximity_sensor_summary">Nevypínať dotykovú obrazovku a displej počas hovoru založeného na snímači vzdialenosti</string>
 </resources>
