@@ -16,7 +16,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Preference titles -->
-    <string name="other_settings_label">Other settings</string>
+    <string name="other_settings_label">Ďalšie nastavenia</string>
     <!-- Smart Options -->
     <string name="smart_category_title">Ďalšie možnosti</string>
     <string name="smart_mute_title">Inteligentné stíšenie</string>
@@ -29,7 +29,7 @@
     <!-- Tab text to show users their favorite contacts that they can call in 1 click [CHAR LIMIT=10] -->
     <string name="tab_title_favourites">Obľúbené</string>
     <!-- Dialer postcall -->
-    <string name="enable_post_call_title">Post call snackbar</string>
+    <string name="enable_post_call_title">Oznámenie po volaní</string>
     <string name="enable_post_call_summary">Enable post call notifications at the bottom of screen</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Disable proximity sensor</string>
