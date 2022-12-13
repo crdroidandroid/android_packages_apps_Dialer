@@ -29,9 +29,9 @@
     <!-- Tab text to show users their favorite contacts that they can call in 1 click [CHAR LIMIT=10] -->
     <string name="tab_title_favourites">Αγαπημένα</string>
     <!-- Dialer postcall -->
-    <string name="enable_post_call_title">Post call snackbar</string>
+    <string name="enable_post_call_title">Μπάρα snack μετά την κλήση</string>
     <string name="enable_post_call_summary">Ενεργοποίηση ειδοποιήσεων στο κάτω μέρος της οθόνης μετά την κλήση</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Απενεργοποίηση αισθητήρα εγγύτητας</string>
-    <string name="disable_proximity_sensor_summary">Do not turn off touchscreen and display in call based on proximity sensor</string>
+    <string name="disable_proximity_sensor_summary">Διατήρηση αφής και οθόνης κατά την κλήση με βάση τον αισθητήρα εγγύτητας</string>
 </resources>
