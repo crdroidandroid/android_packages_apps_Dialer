@@ -29,9 +29,9 @@
     <!-- Tab text to show users their favorite contacts that they can call in 1 click [CHAR LIMIT=10] -->
     <string name="tab_title_favourites">Любими</string>
     <!-- Dialer postcall -->
-    <string name="enable_post_call_title">Post call snackbar</string>
-    <string name="enable_post_call_summary">Enable post call notifications at the bottom of screen</string>
+    <string name="enable_post_call_title">Кратък анализ при край на обаждане</string>
+    <string name="enable_post_call_summary">Активира кратък анализ в долната част на екрана при край на обаждане</string>
     <!-- Disable Proximity Options -->
-    <string name="disable_proximity_sensor_title">Disable proximity sensor</string>
-    <string name="disable_proximity_sensor_summary">Do not turn off touchscreen and display in call based on proximity sensor</string>
+    <string name="disable_proximity_sensor_title">Деактивиране на сензор за близост</string>
+    <string name="disable_proximity_sensor_summary">По време на разговор не изключва екрана, заради сензора за близост</string>
 </resources>
