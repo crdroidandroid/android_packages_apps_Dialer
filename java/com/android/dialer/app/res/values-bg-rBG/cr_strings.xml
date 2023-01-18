@@ -16,7 +16,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Preference titles -->
-    <string name="other_settings_label">Other settings</string>
+    <string name="other_settings_label">Други настройки</string>
     <!-- Smart Options -->
     <string name="smart_category_title">Други опции</string>
     <string name="smart_mute_title">Умно заглушаване</string>
