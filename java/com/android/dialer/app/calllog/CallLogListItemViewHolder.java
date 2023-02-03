@@ -17,9 +17,6 @@
 package com.android.dialer.app.calllog;
 
 import android.Manifest.permission;
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -47,8 +44,6 @@ import android.text.TextDirectionHeuristics;
 import android.text.TextUtils;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
-import android.transition.TransitionManager;
-import android.view.animation.DecelerateInterpolator;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -893,7 +888,6 @@ public final class CallLogListItemViewHolder extends RecyclerView.ViewHolder
         return;
       }
 
-      TransitionManager.beginDelayedTransition((ViewGroup) rootView);
       // Inflate the view stub if necessary, and wire up the event handlers.
       inflateActionViewStub();
       bindActionButtons();
@@ -906,41 +900,11 @@ public final class CallLogListItemViewHolder extends RecyclerView.ViewHolder
       // When recycling a view, it is possible the actionsView ViewStub was previously
       // inflated so we should hide it in this case.
       if (actionsView != null) {
-        collapseActions();
+        actionsView.setVisibility(View.GONE);
       }
     }
 
     updatePrimaryActionButton(show);
-  }
-
-  public void collapseActions() {
-    int currentHeight = callLogEntryView.getMeasuredHeight();
-    int targetHeight = currentHeight - actionsView.getMeasuredHeight();
-    ValueAnimator valueAnimator = ValueAnimator.ofInt(currentHeight, targetHeight);
-    valueAnimator.setInterpolator(new DecelerateInterpolator());
-    valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-      @Override
-      public void onAnimationUpdate(ValueAnimator animation) {
-        callLogEntryView.getLayoutParams().height = (int) animation.getAnimatedValue();
-        callLogEntryView.requestLayout();
-      }
-    });
-    valueAnimator.addListener(new AnimatorListenerAdapter() {
-      @Override
-      public void onAnimationEnd(Animator animation) {
-        actionsView.setVisibility(View.GONE);
-        Resources res = context.getResources();
-        callLogEntryView.setCardBackgroundColor(res.getColor(android.R.color.transparent));
-        callLogEntryView.setCardElevation(0f);
-        // we need to set this so we can expand again
-        ViewGroup.LayoutParams params = callLogEntryView.getLayoutParams();
-        params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-        callLogEntryView.setLayoutParams(params);
-      }
-    });
-    valueAnimator.setInterpolator(new DecelerateInterpolator());
-    valueAnimator.setDuration(200);
-    valueAnimator.start();
   }
 
   private void showOrHideVoicemailTranscriptionView(boolean isExpanded) {
