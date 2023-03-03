@@ -34,4 +34,6 @@
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Keela lähedussensor</string>
     <string name="disable_proximity_sensor_summary">Ära lülita lähedussensorit kontrollides puuteekraani kõne ajal välja</string>
+    <!-- Auto call recording -->
+    <string name="auto_call_recording_title">Auto call recording</string>
 </resources>
