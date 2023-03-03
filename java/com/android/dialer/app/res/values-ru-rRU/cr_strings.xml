@@ -34,4 +34,6 @@
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Выключить датчик приближения</string>
     <string name="disable_proximity_sensor_summary">Не выключать экран и дисплей во время входящего вызова на основе датчика приближения</string>
+    <!-- Auto call recording -->
+    <string name="auto_call_recording_title">Auto call recording</string>
 </resources>
