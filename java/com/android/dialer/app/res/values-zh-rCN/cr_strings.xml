@@ -34,4 +34,6 @@
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">禁用距离传感器</string>
     <string name="disable_proximity_sensor_summary">基于距离传感器，在通话中不关闭触摸操作和屏幕显示</string>
+    <!-- Auto call recording -->
+    <string name="auto_call_recording_title">Auto call recording</string>
 </resources>
