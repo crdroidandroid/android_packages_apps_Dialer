@@ -34,4 +34,6 @@
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Vypnúť snímač vzdialenosti</string>
     <string name="disable_proximity_sensor_summary">Nevypínať dotykovú obrazovku a displej počas hovoru založeného na snímači vzdialenosti</string>
+    <!-- Auto call recording -->
+    <string name="auto_call_recording_title">Auto call recording</string>
 </resources>
