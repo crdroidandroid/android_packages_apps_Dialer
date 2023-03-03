@@ -34,4 +34,6 @@
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Nonaktifkan sensor jarak</string>
     <string name="disable_proximity_sensor_summary">Jangan matikan layar sentuh dan tampilan berdasarkan sensor jarak</string>
+    <!-- Auto call recording -->
+    <string name="auto_call_recording_title">Auto call recording</string>
 </resources>
