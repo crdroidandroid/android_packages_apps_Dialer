@@ -34,4 +34,6 @@
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Деактивиране на сензор за близост</string>
     <string name="disable_proximity_sensor_summary">По време на разговор не изключва екрана, заради сензора за близост</string>
+    <!-- Auto call recording -->
+    <string name="auto_call_recording_title">Auto call recording</string>
 </resources>

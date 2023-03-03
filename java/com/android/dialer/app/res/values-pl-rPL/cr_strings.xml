@@ -34,4 +34,6 @@
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Wyłącz czujnik zbliżeniowy</string>
     <string name="disable_proximity_sensor_summary">Nie wyłączaj ekranu dotykowego i wyświetlacza w trakcie połączenia</string>
+    <!-- Auto call recording -->
+    <string name="auto_call_recording_title">Auto call recording</string>
 </resources>

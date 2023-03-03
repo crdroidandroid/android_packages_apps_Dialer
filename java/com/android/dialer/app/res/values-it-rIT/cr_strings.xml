@@ -34,4 +34,6 @@
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Disabilita sensore di prossimità</string>
     <string name="disable_proximity_sensor_summary">Non disattivare touchscreen e display durante una chiamata in base al sensore di prossimità</string>
+    <!-- Auto call recording -->
+    <string name="auto_call_recording_title">Auto call recording</string>
 </resources>

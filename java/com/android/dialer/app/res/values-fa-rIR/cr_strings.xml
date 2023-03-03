@@ -34,4 +34,6 @@
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">غیرفعال کردن سنسور مجاورت</string>
     <string name="disable_proximity_sensor_summary">هنگام تماس بر اساس حسگر مجاورت، صفحه لمسی و نمایشگر را خاموش نکنید</string>
+    <!-- Auto call recording -->
+    <string name="auto_call_recording_title">Auto call recording</string>
 </resources>
