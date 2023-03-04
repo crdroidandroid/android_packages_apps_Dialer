@@ -35,5 +35,5 @@
     <string name="disable_proximity_sensor_title">Tắt cảm biến tiệm cận</string>
     <string name="disable_proximity_sensor_summary">Màn hình sẽ không tắt khi đang có cuộc gọi</string>
     <!-- Auto call recording -->
-    <string name="auto_call_recording_title">Auto call recording</string>
+    <string name="auto_call_recording_title">Tự động ghi âm cuộc gọi</string>
 </resources>
