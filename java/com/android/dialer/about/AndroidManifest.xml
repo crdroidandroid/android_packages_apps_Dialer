@@ -19,13 +19,13 @@
         android:name="com.android.dialer.about.LicenseMenuActivity"
         android:label="@string/licenseActivityLabel"
         android:exported="true"
-        android:theme="@style/Theme.AppCompat.Light">
+        android:theme="@style/SettingsStyle">
     </activity>
     <activity
         android:name="com.android.dialer.about.LicenseActivity"
         android:label="@string/licenseActivityLabel"
         android:exported="false"
-        android:theme="@style/Theme.AppCompat.Light">
+        android:theme="@style/SettingsStyle">
     </activity>
   </application>
 </manifest>
