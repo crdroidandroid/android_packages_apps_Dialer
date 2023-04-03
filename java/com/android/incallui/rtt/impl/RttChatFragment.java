@@ -588,13 +588,4 @@ public class RttChatFragment extends Fragment
 
   @Override
   public void onAudioRouteSelectorDismiss() {}
-
-  @Override
-  public void requestCallRecordingPermissions(String[] permissions) {}
-
-  @Override
-  public void setCallRecordingDuration(long duration) {}
-
-  @Override
-  public void setCallRecordingState(boolean isRecording) {}
 }
