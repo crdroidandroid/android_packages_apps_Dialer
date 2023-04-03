@@ -39,6 +39,7 @@ import com.android.dialer.callrecord.ICallRecorderService;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 public class CallRecorderService extends Service {
   private static final String TAG = "CallRecorderService";
@@ -131,10 +132,9 @@ public class CallRecorderService extends Service {
       mMediaRecorder.setAudioEncoder(formatChoice == 0
           ? MediaRecorder.AudioEncoder.AMR_WB : MediaRecorder.AudioEncoder.AAC);
     } catch (IllegalStateException e) {
-      Log.w(TAG, "Error initializing media recorder", e);
-      mMediaRecorder.reset();
-      mMediaRecorder.release();
-      mMediaRecorder = null;
+      Log.e(TAG, "Error initializing media recorder", e);
+      releaseMediaRecorder();
+
       return false;
     }
 
@@ -169,9 +169,7 @@ public class CallRecorderService extends Service {
       }
     }
 
-    mMediaRecorder.reset();
-    mMediaRecorder.release();
-    mMediaRecorder = null;
+    releaseMediaRecorder();
 
     return false;
   }
@@ -182,17 +180,16 @@ public class CallRecorderService extends Service {
     if (mMediaRecorder != null) {
       try {
         mMediaRecorder.stop();
-        mMediaRecorder.reset();
-        mMediaRecorder.release();
       } catch (IllegalStateException e) {
         Log.e(TAG, "Exception closing media recorder", e);
       }
+
+      releaseMediaRecorder();
 
       Uri uri = ContentUris.withAppendedId(
           MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, mCurrentRecording.mediaId);
       getContentResolver().update(uri, CallRecording.generateCompletedValues(), null, null);
 
-      mMediaRecorder = null;
       mCurrentRecording = null;
     }
     return recording;
@@ -218,5 +215,18 @@ public class CallRecorderService extends Service {
 
   public static boolean isEnabled(Context context) {
     return context.getResources().getBoolean(R.bool.call_recording_enabled);
+  }
+
+  private void releaseMediaRecorder() {
+    Objects.requireNonNull(mMediaRecorder);
+    try {
+      mMediaRecorder.reset();
+    } catch (Exception e) {
+      Log.e(TAG, "unable to reset media recorder", e);
+    }
+
+    mMediaRecorder.release();
+
+    mMediaRecorder = null;
   }
 }
