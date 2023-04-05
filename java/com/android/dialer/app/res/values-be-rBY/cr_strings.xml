@@ -35,5 +35,5 @@
     <string name="disable_proximity_sensor_title">Адключыць датчык набліжэння</string>
     <string name="disable_proximity_sensor_summary">Не выключаць сэнсарны экран і дысплэй падчас выкліку на аснове датчыка набліжэння</string>
     <!-- Auto call recording -->
-    <string name="auto_call_recording_title">Auto call recording</string>
+    <string name="auto_call_recording_title">Аўтаматычна запісваць размовы</string>
 </resources>

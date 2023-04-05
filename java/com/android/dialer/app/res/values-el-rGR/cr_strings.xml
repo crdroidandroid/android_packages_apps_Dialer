@@ -35,5 +35,5 @@
     <string name="disable_proximity_sensor_title">Απενεργοποίηση αισθητήρα εγγύτητας</string>
     <string name="disable_proximity_sensor_summary">Διατήρηση αφής και οθόνης κατά την κλήση με βάση τον αισθητήρα εγγύτητας</string>
     <!-- Auto call recording -->
-    <string name="auto_call_recording_title">Auto call recording</string>
+    <string name="auto_call_recording_title">Αυτόματη καταγραφή κλήσεων</string>
 </resources>
