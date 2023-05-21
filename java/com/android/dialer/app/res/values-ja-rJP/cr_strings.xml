@@ -33,7 +33,7 @@
     <string name="enable_post_call_summary">Enable post call notifications at the bottom of screen</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">近接センサーを無効化</string>
-    <string name="disable_proximity_sensor_summary">Do not turn off touchscreen and display in call based on proximity sensor</string>
+    <string name="disable_proximity_sensor_summary">近接センサーが有効でも通話中にタッチパネルを消灯しない</string>
     <!-- Auto call recording -->
     <string name="auto_call_recording_title">通話を自動的に録音する</string>
 </resources>
