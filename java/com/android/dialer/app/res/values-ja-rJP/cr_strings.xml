@@ -29,8 +29,8 @@
     <!-- Tab text to show users their favorite contacts that they can call in 1 click [CHAR LIMIT=10] -->
     <string name="tab_title_favourites">お気に入り</string>
     <!-- Dialer postcall -->
-    <string name="enable_post_call_title">Post call snackbar</string>
-    <string name="enable_post_call_summary">Enable post call notifications at the bottom of screen</string>
+    <string name="enable_post_call_title">通話後のスナックバー</string>
+    <string name="enable_post_call_summary">画面の下部に通話後の通知を表示します</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">近接センサーを無効化</string>
     <string name="disable_proximity_sensor_summary">近接センサーが有効でも通話中にタッチパネルを消灯しない</string>
