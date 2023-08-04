@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2013 The CyanogenMod Project
+     Copyright (C) 2019-2021 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,20 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <plurals name="hour">
-        <item quantity="one">1 timme</item>
-        <item quantity="other">%d timmar</item>
-    </plurals>
-    <plurals name="minute">
-        <item quantity="one">1 min</item>
-        <item quantity="other">%d min</item>
-    </plurals>
-    <plurals name="second">
-        <item quantity="one">1 sek</item>
-        <item quantity="other">%d sek</item>
-    </plurals>
-    <plurals name="call">
-        <item quantity="one">1 samtal</item>
-        <item quantity="other">%d samtal</item>
-    </plurals>
+    <string name="helplines_help">Дапамога</string>
+    <string name="helpline_name">Назва</string>
 </resources>

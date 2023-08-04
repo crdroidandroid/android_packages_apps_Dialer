@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2013 The CyanogenMod Project
+     Copyright (C) 2013-2014 The CyanogenMod Project
+     Copyright (C) 2018 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,20 +16,11 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <plurals name="hour">
-        <item quantity="one">1 timme</item>
-        <item quantity="other">%d timmar</item>
-    </plurals>
-    <plurals name="minute">
-        <item quantity="one">1 min</item>
-        <item quantity="other">%d min</item>
-    </plurals>
-    <plurals name="second">
-        <item quantity="one">1 sek</item>
-        <item quantity="other">%d sek</item>
-    </plurals>
-    <plurals name="call">
-        <item quantity="one">1 samtal</item>
-        <item quantity="other">%d samtal</item>
-    </plurals>
+    <string name="call_log_show_all_accounts">Alla konton</string>
+    <string name="call_log_all_calls_header">Alla samtal</string>
+    <string name="call_log_incoming_header">Endast inkommande samtal</string>
+    <string name="call_log_outgoing_header">Endast utgående samtal</string>
+    <string name="call_log_missed_header">Endast missade samtal</string>
+    <string name="call_log_voicemail_header">Endast samtal med röstmeddelande</string>
+    <string name="call_log_blacklist_header">Endast blockerade samtal</string>
 </resources>
