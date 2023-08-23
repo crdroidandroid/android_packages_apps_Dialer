@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2022 crDroid Android Project
+     Copyright (C) 2016-2023 crDroid Android Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,6 +17,11 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Preference titles -->
     <string name="other_settings_label">دیگر تنظیمات</string>
+    <!-- Call recording -->
+    <string name="auto_call_recording_title">ضبط تماس بصورت خودکار</string>
+    <!-- Disable Proximity Options -->
+    <string name="disable_proximity_sensor_title">غیرفعال کردن سنسور مجاورت</string>
+    <string name="disable_proximity_sensor_summary">هنگام تماس بر اساس حسگر مجاورت، صفحه لمسی و نمایشگر را خاموش نکنید</string>
     <!-- Smart Options -->
     <string name="smart_category_title">گزینه های دیگر</string>
     <string name="smart_mute_title">بی‌صدا کردن هوشمند</string>
@@ -24,16 +29,7 @@
     <!-- Full Screen Caller Photo -->
     <string name="fullscreen_caller_photo_title">عکس تمام‌صفحه</string>
     <string name="fullscreen_caller_photo_summary">نمایش عکس تمام‌صفحه در تماس‌های ورودی و خروجی</string>
-    <!-- Tab text to show users their call log/call history [CHAR LIMIT=10] -->
-    <string name="tab_title_recent">اخیر</string>
-    <!-- Tab text to show users their favorite contacts that they can call in 1 click [CHAR LIMIT=10] -->
-    <string name="tab_title_favourites">موارد دلخواه</string>
     <!-- Dialer postcall -->
     <string name="enable_post_call_title">نوار اسنک تماس پستی</string>
     <string name="enable_post_call_summary">فعال کردن اعلامیه های تماس پستی در پایین صفحه نمایش</string>
-    <!-- Disable Proximity Options -->
-    <string name="disable_proximity_sensor_title">غیرفعال کردن سنسور مجاورت</string>
-    <string name="disable_proximity_sensor_summary">هنگام تماس بر اساس حسگر مجاورت، صفحه لمسی و نمایشگر را خاموش نکنید</string>
-    <!-- Auto call recording -->
-    <string name="auto_call_recording_title">ضبط تماس بصورت خودکار</string>
 </resources>
