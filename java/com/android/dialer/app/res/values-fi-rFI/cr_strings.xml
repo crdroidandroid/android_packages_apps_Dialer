@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2022 crDroid Android Project
+     Copyright (C) 2016-2023 crDroid Android Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,6 +17,11 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Preference titles -->
     <string name="other_settings_label">Other settings</string>
+    <!-- Call recording -->
+    <string name="auto_call_recording_title">Auto call recording</string>
+    <!-- Disable Proximity Options -->
+    <string name="disable_proximity_sensor_title">Disable proximity sensor</string>
+    <string name="disable_proximity_sensor_summary">Do not turn off touchscreen and display in call based on proximity sensor</string>
     <!-- Smart Options -->
     <string name="smart_category_title">Other options</string>
     <string name="smart_mute_title">Smart mute</string>
@@ -24,16 +29,7 @@
     <!-- Full Screen Caller Photo -->
     <string name="fullscreen_caller_photo_title">Fullscreen photo</string>
     <string name="fullscreen_caller_photo_summary">Display full-screen photo for incoming and outgoing calls</string>
-    <!-- Tab text to show users their call log/call history [CHAR LIMIT=10] -->
-    <string name="tab_title_recent">Recent</string>
-    <!-- Tab text to show users their favorite contacts that they can call in 1 click [CHAR LIMIT=10] -->
-    <string name="tab_title_favourites">Favorites</string>
     <!-- Dialer postcall -->
     <string name="enable_post_call_title">Post call snackbar</string>
     <string name="enable_post_call_summary">Enable post call notifications at the bottom of screen</string>
-    <!-- Disable Proximity Options -->
-    <string name="disable_proximity_sensor_title">Disable proximity sensor</string>
-    <string name="disable_proximity_sensor_summary">Do not turn off touchscreen and display in call based on proximity sensor</string>
-    <!-- Auto call recording -->
-    <string name="auto_call_recording_title">Auto call recording</string>
 </resources>
