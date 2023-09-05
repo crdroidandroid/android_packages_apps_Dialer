@@ -19,6 +19,7 @@
     <string name="other_settings_label">Інші налаштування</string>
     <!-- Call recording -->
     <string name="auto_call_recording_title">Автоматичний запис виклику</string>
+    <string name="auto_call_recording_summary">Automatic recording of incoming and outgoing calls</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Вимкнути датчик наближення</string>
     <string name="disable_proximity_sensor_summary">Не вимикати сенсорний екран і дисплей під час виклику за допомогою датчика наближення</string>
