@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2022 crDroid Android Project
+     Copyright (C) 2016-2023 crDroid Android Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,6 +17,11 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Preference titles -->
     <string name="other_settings_label">Cài đặt khác</string>
+    <!-- Call recording -->
+    <string name="auto_call_recording_title">Tự động ghi âm cuộc gọi</string>
+    <!-- Disable Proximity Options -->
+    <string name="disable_proximity_sensor_title">Tắt cảm biến tiệm cận</string>
+    <string name="disable_proximity_sensor_summary">Màn hình sẽ không tắt khi đang có cuộc gọi</string>
     <!-- Smart Options -->
     <string name="smart_category_title">Tùy chọn khác</string>
     <string name="smart_mute_title">Tắt tiếng thông minh</string>
@@ -24,16 +29,7 @@
     <!-- Full Screen Caller Photo -->
     <string name="fullscreen_caller_photo_title">Ảnh toàn màn hình</string>
     <string name="fullscreen_caller_photo_summary">Hiển thị hình ảnh người gọi toàn màn hình</string>
-    <!-- Tab text to show users their call log/call history [CHAR LIMIT=10] -->
-    <string name="tab_title_recent">Gần đây</string>
-    <!-- Tab text to show users their favorite contacts that they can call in 1 click [CHAR LIMIT=10] -->
-    <string name="tab_title_favourites">Yêu thích</string>
     <!-- Dialer postcall -->
     <string name="enable_post_call_title">Hiện cuộc gọi trên thanh tạm thời</string>
     <string name="enable_post_call_summary">Bật thông tin cuộc gọi ở dưới cùng của màn hình</string>
-    <!-- Disable Proximity Options -->
-    <string name="disable_proximity_sensor_title">Tắt cảm biến tiệm cận</string>
-    <string name="disable_proximity_sensor_summary">Màn hình sẽ không tắt khi đang có cuộc gọi</string>
-    <!-- Auto call recording -->
-    <string name="auto_call_recording_title">Tự động ghi âm cuộc gọi</string>
 </resources>
