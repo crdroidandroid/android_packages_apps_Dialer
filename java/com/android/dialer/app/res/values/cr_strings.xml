@@ -21,7 +21,6 @@
 
     <!-- Call recording -->
     <string name="auto_call_recording_title">Auto call recording</string>
-    <string name="auto_call_recording_key" translatable="false">auto_call_recording</string>
 
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Disable proximity sensor</string>
