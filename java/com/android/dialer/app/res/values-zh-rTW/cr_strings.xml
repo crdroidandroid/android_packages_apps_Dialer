@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2022 crDroid Android Project
+     Copyright (C) 2016-2023 crDroid Android Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,6 +17,11 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Preference titles -->
     <string name="other_settings_label">其他設定</string>
+    <!-- Call recording -->
+    <string name="auto_call_recording_title">自動錄音</string>
+    <!-- Disable Proximity Options -->
+    <string name="disable_proximity_sensor_title">停用距離傳感器</string>
+    <string name="disable_proximity_sensor_summary">通話中將裝置靠近自己時不關閉螢幕</string>
     <!-- Smart Options -->
     <string name="smart_category_title">其他選項</string>
     <string name="smart_mute_title">智慧靜音</string>
@@ -24,16 +29,7 @@
     <!-- Full Screen Caller Photo -->
     <string name="fullscreen_caller_photo_title">全螢幕圖示</string>
     <string name="fullscreen_caller_photo_summary">在撥出或收到來電時將圖示以全螢幕顯示</string>
-    <!-- Tab text to show users their call log/call history [CHAR LIMIT=10] -->
-    <string name="tab_title_recent">近期通話</string>
-    <!-- Tab text to show users their favorite contacts that they can call in 1 click [CHAR LIMIT=10] -->
-    <string name="tab_title_favourites">我的最愛</string>
     <!-- Dialer postcall -->
     <string name="enable_post_call_title">通話結束通知</string>
     <string name="enable_post_call_summary">在通話結束之後於螢幕底部顯示通知</string>
-    <!-- Disable Proximity Options -->
-    <string name="disable_proximity_sensor_title">停用距離傳感器</string>
-    <string name="disable_proximity_sensor_summary">通話中將裝置靠近自己時不關閉螢幕</string>
-    <!-- Auto call recording -->
-    <string name="auto_call_recording_title">自動錄音</string>
 </resources>
