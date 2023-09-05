@@ -19,6 +19,7 @@
     <string name="other_settings_label">Други настройки</string>
     <!-- Call recording -->
     <string name="auto_call_recording_title">Auto call recording</string>
+    <string name="auto_call_recording_summary">Automatic recording of incoming and outgoing calls</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Деактивиране на сензор за близост</string>
     <string name="disable_proximity_sensor_summary">По време на разговор не изключва екрана, заради сензора за близост</string>
