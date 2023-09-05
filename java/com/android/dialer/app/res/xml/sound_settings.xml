@@ -85,7 +85,7 @@
 
   <SwitchPreference
     android:defaultValue="false"
-    android:key="@string/auto_call_recording_key"
+    android:key="auto_call_recording"
     android:title="@string/auto_call_recording_title"/>
 
   </PreferenceCategory>
