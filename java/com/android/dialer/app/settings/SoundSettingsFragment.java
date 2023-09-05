@@ -193,61 +193,57 @@ public class SoundSettingsFragment extends DialerPreferenceFragment
    */
   @Override
   public boolean onPreferenceChange(Preference preference, Object objValue) {
+    boolean Value = (Boolean) objValue;
     if (!Settings.System.canWrite(getContext())) {
-      // A user shouldn't be able to get here, but this protects against monkey crashes.
-      Toast.makeText(
-              getContext(),
-              getResources().getString(R.string.toast_cannot_write_system_settings),
-              Toast.LENGTH_SHORT)
-          .show();
-      return true;
+        // A user shouldn't be able to get here, but this protects against monkey crashes.
+        Toast.makeText(
+            getContext(),
+            getResources().getString(R.string.toast_cannot_write_system_settings),
+            Toast.LENGTH_SHORT)
+            .show();
+        return true;
     }
     if (preference == vibrateWhenRinging) {
-      boolean doVibrate = (Boolean) objValue;
-      Settings.System.putInt(
-          getActivity().getContentResolver(),
-          Settings.System.VIBRATE_WHEN_RINGING,
-          doVibrate ? DO_VIBRATION_FOR_CALLS : NO_VIBRATION_FOR_CALLS);
+        Settings.System.putInt(
+            getActivity().getContentResolver(),
+            Settings.System.VIBRATE_WHEN_RINGING,
+            Value ? DO_VIBRATION_FOR_CALLS : NO_VIBRATION_FOR_CALLS);
     } else if (preference == dtmfToneLength) {
-      int index = dtmfToneLength.findIndexOfValue((String) objValue);
-      Settings.System.putInt(
-          getActivity().getContentResolver(), Settings.System.DTMF_TONE_TYPE_WHEN_DIALING, index);
+        int index = dtmfToneLength.findIndexOfValue((String) objValue);
+        Settings.System.putInt(
+            getActivity().getContentResolver(), Settings.System.DTMF_TONE_TYPE_WHEN_DIALING, index);
     } else if (preference == enableDndInCall) {
-      boolean newValue = (Boolean) objValue;
-      if (newValue && !notificationManager.isNotificationPolicyAccessGranted()) {
-        new AlertDialog.Builder(getContext())
-            .setMessage(R.string.incall_dnd_dialog_message)
-            .setPositiveButton(R.string.allow, new DialogInterface.OnClickListener() {
-              @Override
-              public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-                Intent intent = new Intent(android.provider.Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
-                startActivity(intent);
-              }
-            })
-            .setNegativeButton(R.string.deny, new DialogInterface.OnClickListener() {
-              @Override
-              public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-              }
-            })
-            .show();
-
-        // At this time, it is unknown whether the user granted the permission
-        return false;
-      }
+        if (Value && !notificationManager.isNotificationPolicyAccessGranted()) {
+            new AlertDialog.Builder(getContext())
+                .setMessage(R.string.incall_dnd_dialog_message)
+                .setPositiveButton(R.string.allow, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        Intent intent = new Intent(android.provider.Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton(R.string.deny, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .show();
+            // At this time, it is unknown whether the user granted the permission
+            return false;
+        }
     } else if (preference == mAutoCallRecording) {
-        boolean value = (Boolean) objValue;
         mPrefs
-          .edit()
-          .putBoolean(AUTO_CALL_RECORDING_KEY, value)
-          .apply();
+            .edit()
+            .putBoolean(AUTO_CALL_RECORDING_KEY, Value)
+            .apply();
     } else if (preference == mSmartMute) {
-        boolean value = (Boolean) objValue;
         mPrefs
-          .edit()
-          .putBoolean(BUTTON_SMART_MUTE_KEY, value)
-          .apply();
+            .edit()
+            .putBoolean(BUTTON_SMART_MUTE_KEY, Value)
+            .apply();
     }
     return true;
   }
