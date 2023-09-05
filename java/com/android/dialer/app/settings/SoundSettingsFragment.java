@@ -21,6 +21,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.os.Handler;
@@ -28,6 +29,7 @@ import android.os.Message;
 import android.os.Vibrator;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
@@ -52,6 +54,11 @@ public class SoundSettingsFragment extends DialerPreferenceFragment
   private static final int MSG_UPDATE_RINGTONE_SUMMARY = 1;
 
   public static final String BUTTON_SMART_MUTE_KEY = "button_smart_mute";
+
+  private static final String AUTO_CALL_RECORDING_KEY = "auto_call_recording";
+
+  private SharedPreferences mPrefs;
+  private SwitchPreference mAutoCallRecording;
 
   private Preference ringtonePreference;
   private final Handler ringtoneLookupComplete =
@@ -92,6 +99,11 @@ public class SoundSettingsFragment extends DialerPreferenceFragment
     addPreferencesFromResource(R.xml.sound_settings);
 
     Context context = getActivity();
+    mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+    mAutoCallRecording = (SwitchPreference) findPreference(AUTO_CALL_RECORDING_KEY);
+    mAutoCallRecording.setChecked(mPrefs.getBoolean(AUTO_CALL_RECORDING_KEY, false));
+    mAutoCallRecording.setOnPreferenceChangeListener(this);
 
     ringtonePreference = findPreference(context.getString(R.string.ringtone_preference_key));
     vibrateWhenRinging =
@@ -219,6 +231,12 @@ public class SoundSettingsFragment extends DialerPreferenceFragment
         // At this time, it is unknown whether the user granted the permission
         return false;
       }
+    } else if (preference == mAutoCallRecording) {
+        boolean value = (Boolean) objValue;
+        mPrefs
+          .edit()
+          .putBoolean(AUTO_CALL_RECORDING_KEY, value)
+          .apply();
     }
     return true;
   }
