@@ -19,6 +19,7 @@
     <string name="other_settings_label">Άλλες ρυθμίσεις</string>
     <!-- Call recording -->
     <string name="auto_call_recording_title">Αυτόματη καταγραφή κλήσεων</string>
+    <string name="auto_call_recording_summary">Automatic recording of incoming and outgoing calls</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Απενεργοποίηση αισθητήρα εγγύτητας</string>
     <string name="disable_proximity_sensor_summary">Διατήρηση αφής και οθόνης κατά την κλήση με βάση τον αισθητήρα εγγύτητας</string>
