@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2022 crDroid Android Project
+     Copyright (C) 2016-2023 crDroid Android Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,6 +17,11 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Preference titles -->
     <string name="other_settings_label">Overige instellingen</string>
+    <!-- Call recording -->
+    <string name="auto_call_recording_title">Automatische gespreks-opname</string>
+    <!-- Disable Proximity Options -->
+    <string name="disable_proximity_sensor_title">Nabijheidssensor uitschakelen</string>
+    <string name="disable_proximity_sensor_summary">Schakel touchscreen en scherm tijdens gesprek niet uit op basis van nabijheidssensor</string>
     <!-- Smart Options -->
     <string name="smart_category_title">Overige opties</string>
     <string name="smart_mute_title">Slim dempen</string>
@@ -24,16 +29,7 @@
     <!-- Full Screen Caller Photo -->
     <string name="fullscreen_caller_photo_title">Foto op volledig scherm</string>
     <string name="fullscreen_caller_photo_summary">Toon foto op volledig scherm voor inkomende en uitgaande oproepen</string>
-    <!-- Tab text to show users their call log/call history [CHAR LIMIT=10] -->
-    <string name="tab_title_recent">Recente</string>
-    <!-- Tab text to show users their favorite contacts that they can call in 1 click [CHAR LIMIT=10] -->
-    <string name="tab_title_favourites">Favorieten</string>
     <!-- Dialer postcall -->
     <string name="enable_post_call_title">Notificaties na de oproep</string>
     <string name="enable_post_call_summary">Notificaties na het gesprek toestaan aan de onderkant van het scherm</string>
-    <!-- Disable Proximity Options -->
-    <string name="disable_proximity_sensor_title">Nabijheidssensor uitschakelen</string>
-    <string name="disable_proximity_sensor_summary">Schakel touchscreen en scherm tijdens gesprek niet uit op basis van nabijheidssensor</string>
-    <!-- Auto call recording -->
-    <string name="auto_call_recording_title">Automatische gespreks-opname</string>
 </resources>
