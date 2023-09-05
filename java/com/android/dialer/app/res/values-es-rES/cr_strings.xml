@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2022 crDroid Android Project
+     Copyright (C) 2016-2023 crDroid Android Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,6 +17,11 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Preference titles -->
     <string name="other_settings_label">Otras configuraciones</string>
+    <!-- Call recording -->
+    <string name="auto_call_recording_title">Grabación automática de llamadas</string>
+    <!-- Disable Proximity Options -->
+    <string name="disable_proximity_sensor_title">Deshabilitar sensor de proximidad</string>
+    <string name="disable_proximity_sensor_summary">No apagar touch y pantalla durante llamadas mediante sensor de proximidad</string>
     <!-- Smart Options -->
     <string name="smart_category_title">Otras opciones</string>
     <string name="smart_mute_title">Silencio inteligente</string>
@@ -24,16 +29,7 @@
     <!-- Full Screen Caller Photo -->
     <string name="fullscreen_caller_photo_title">Foto a pantalla completa</string>
     <string name="fullscreen_caller_photo_summary">Mostrar foto en pantalla completa para llamadas entrantes y salientes</string>
-    <!-- Tab text to show users their call log/call history [CHAR LIMIT=10] -->
-    <string name="tab_title_recent">Recientes</string>
-    <!-- Tab text to show users their favorite contacts that they can call in 1 click [CHAR LIMIT=10] -->
-    <string name="tab_title_favourites">Favoritos</string>
     <!-- Dialer postcall -->
     <string name="enable_post_call_title">Mensaje emergente Post-llamada</string>
     <string name="enable_post_call_summary">Habilitar notificaciones post-llamadas en la parte inferior de la pantalla</string>
-    <!-- Disable Proximity Options -->
-    <string name="disable_proximity_sensor_title">Deshabilitar sensor de proximidad</string>
-    <string name="disable_proximity_sensor_summary">No apagar touch y pantalla durante llamadas mediante sensor de proximidad</string>
-    <!-- Auto call recording -->
-    <string name="auto_call_recording_title">Grabación automática de llamadas</string>
 </resources>
