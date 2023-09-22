@@ -209,7 +209,8 @@ public class InCallPresenter implements CallList.Listener, AudioModeProvider.Aud
               return;
             }
             // Check if the number is blocked, to silence the ringer.
-            if (BlockedNumberContract.isBlocked(context, incomingNumber)) {
+            if (BlockedNumberContract.canCurrentUserBlockNumbers(context) &&
+                    BlockedNumberContract.isBlocked(context, incomingNumber)) {
               TelecomUtil.silenceRinger(context);
             }
           }
