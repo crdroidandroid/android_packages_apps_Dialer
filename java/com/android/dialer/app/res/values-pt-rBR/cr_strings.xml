@@ -19,7 +19,7 @@
     <string name="other_settings_label">Outras configurações</string>
     <!-- Call recording -->
     <string name="auto_call_recording_title">Gravação automática de chamadas</string>
-    <string name="auto_call_recording_summary">Automatic recording of incoming and outgoing calls</string>
+    <string name="auto_call_recording_summary">Gravação automática de chamadas recebidas e efetuadas</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Desativar sensor de proximidade</string>
     <string name="disable_proximity_sensor_summary">Não apaga a tela durante a chamada com base no sensor de proximidade</string>
