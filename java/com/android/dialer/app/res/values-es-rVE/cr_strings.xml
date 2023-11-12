@@ -18,8 +18,8 @@
     <!-- Preference titles -->
     <string name="other_settings_label">Otros ajustes</string>
     <!-- Call recording -->
-    <string name="auto_call_recording_title">Auto call recording</string>
-    <string name="auto_call_recording_summary">Automatic recording of incoming and outgoing calls</string>
+    <string name="auto_call_recording_title">Grabación automática de llamadas</string>
+    <string name="auto_call_recording_summary">Grabación automática de llamadas entrantes y salientes</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Desactivar sensor de proximidad</string>
     <string name="disable_proximity_sensor_summary">Do not turn off touchscreen and display in call based on proximity sensor</string>
