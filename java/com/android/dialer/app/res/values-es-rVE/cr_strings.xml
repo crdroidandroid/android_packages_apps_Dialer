@@ -18,11 +18,11 @@
     <!-- Preference titles -->
     <string name="other_settings_label">Otros ajustes</string>
     <!-- Call recording -->
-    <string name="auto_call_recording_title">Auto call recording</string>
-    <string name="auto_call_recording_summary">Automatic recording of incoming and outgoing calls</string>
+    <string name="auto_call_recording_title">Grabación automática de llamadas</string>
+    <string name="auto_call_recording_summary">Grabación automática de llamadas entrantes y salientes</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Desactivar sensor de proximidad</string>
-    <string name="disable_proximity_sensor_summary">Do not turn off touchscreen and display in call based on proximity sensor</string>
+    <string name="disable_proximity_sensor_summary">No apagar la pantalla durante llamadas mediante el sensor de proximidad</string>
     <!-- Smart Options -->
     <string name="smart_category_title">Otras opciones</string>
     <string name="smart_mute_title">Silencio inteligente</string>
@@ -31,6 +31,6 @@
     <string name="fullscreen_caller_photo_title">Foto a pantalla completa</string>
     <string name="fullscreen_caller_photo_summary">Mostrar foto a pantalla completa para llamadas entrantes y salientes</string>
     <!-- Dialer postcall -->
-    <string name="enable_post_call_title">Post call snackbar</string>
-    <string name="enable_post_call_summary">Enable post call notifications at the bottom of screen</string>
+    <string name="enable_post_call_title">Menseje emergente post llamada</string>
+    <string name="enable_post_call_summary">Habilitar notificaciones post llamadas en la parte inferior de la pantalla</string>
 </resources>
