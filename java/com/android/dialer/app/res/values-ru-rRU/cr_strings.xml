@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2016-2023 crDroid Android Project
+     Copyright (C) 2016-2024 crDroid Android Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
     <string name="auto_call_recording_summary">Автоматическая запись входящих и исходящих разговоров</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Отключить датчик приближения</string>
-    <string name="disable_proximity_sensor_summary">Не отключть экран, сенсорный экран и не использовать датчик приближения во время вызова</string>
+    <string name="disable_proximity_sensor_summary">Не отключать экран и не использовать датчик приближения во время вызова</string>
     <!-- Smart Options -->
     <string name="smart_category_title">Другие настройки</string>
     <string name="smart_mute_title">Умное отключение звука</string>
