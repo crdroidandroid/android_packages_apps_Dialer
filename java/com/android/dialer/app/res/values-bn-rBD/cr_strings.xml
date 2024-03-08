@@ -18,8 +18,8 @@
     <!-- Preference titles -->
     <string name="other_settings_label">অন্যান্য সেটিংস</string>
     <!-- Call recording -->
-    <string name="auto_call_recording_title">Auto call recording</string>
-    <string name="auto_call_recording_summary">Automatic recording of incoming and outgoing calls</string>
+    <string name="auto_call_recording_title">অটো কল রেকর্ডিং</string>
+    <string name="auto_call_recording_summary">ইনকামিং এবং আউটগোয়িং কলের স্বয়ংক্রিয় রেকর্ডিং</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">প্রক্সিমিটি সেন্সর নিষ্ক্রিয় করুন</string>
     <string name="disable_proximity_sensor_summary">কলে থাকার সময় প্রক্সিমিটি সেন্সরের উপর ভিত্তি করে টাচস্ক্রিন এবং ডিসপ্লে বন্ধ করবেন না</string>
@@ -31,6 +31,6 @@
     <string name="fullscreen_caller_photo_title">ফুলস্ক্রিন ছবি</string>
     <string name="fullscreen_caller_photo_summary">ইনকামিং এবং আউটগোয়িং কলের জন্য পূর্ণ-স্ক্রীন ফটো প্রদর্শন করুন</string>
     <!-- Dialer postcall -->
-    <string name="enable_post_call_title">Post call snackbar</string>
-    <string name="enable_post_call_summary">Enable post call notifications at the bottom of screen</string>
+    <string name="enable_post_call_title"></string>
+    <string name="enable_post_call_summary">স্ক্রিনের নীচে পোস্ট কল বিজ্ঞপ্তিগুলি সক্ষম করুন৷</string>
 </resources>
