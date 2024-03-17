@@ -184,7 +184,14 @@ public class SoundSettingsFragment extends PreferenceFragmentCompat
     if (!Settings.System.canWrite(getContext())) {
       // If the user launches this setting fragment, then toggles the WRITE_SYSTEM_SETTINGS
       // AppOp, then close the fragment since there is nothing useful to do.
-      getActivity().onBackPressed();
+      Toast.makeText(
+              getContext(),
+              getResources().getString(R.string.toast_cannot_write_system_settings),
+              Toast.LENGTH_SHORT)
+          .show();
+      new Handler(Looper.getMainLooper()).post(() -> {
+            requireActivity().onBackPressed();
+        });
       return;
     }
 
