@@ -16,13 +16,13 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Preference titles -->
-    <string name="other_settings_label">Other settings</string>
+    <string name="other_settings_label">Andra inställningar</string>
     <!-- Call recording -->
-    <string name="auto_call_recording_title">Auto call recording</string>
-    <string name="auto_call_recording_summary">Automatic recording of incoming and outgoing calls</string>
+    <string name="auto_call_recording_title">Automatisk inspelning av samtal</string>
+    <string name="auto_call_recording_summary">Automatisk inspelning av inkommande och utgående samtal</string>
     <!-- Disable Proximity Options -->
-    <string name="disable_proximity_sensor_title">Disable proximity sensor</string>
-    <string name="disable_proximity_sensor_summary">Do not turn off touchscreen and display in call based on proximity sensor</string>
+    <string name="disable_proximity_sensor_title">Stäng av närhetssensor</string>
+    <string name="disable_proximity_sensor_summary">Inte stäng av touchskärm och display baserat på närhetssensor</string>
     <!-- Smart Options -->
     <string name="smart_category_title">Andra inställningar</string>
     <string name="smart_mute_title">Smart tystning</string>
