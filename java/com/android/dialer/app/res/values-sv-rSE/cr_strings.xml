@@ -18,11 +18,11 @@
     <!-- Preference titles -->
     <string name="other_settings_label">Andra inställningar</string>
     <!-- Call recording -->
-    <string name="auto_call_recording_title">Automatisk inspelning av samtal</string>
+    <string name="auto_call_recording_title">Aromatisk inspelning av samtal</string>
     <string name="auto_call_recording_summary">Automatisk inspelning av inkommande och utgående samtal</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Stäng av närhetssensor</string>
-    <string name="disable_proximity_sensor_summary">Inte stäng av touchskärm och display baserat på närhetssensor</string>
+    <string name="disable_proximity_sensor_summary">Stäng inte av pekskärmen och visa i samtal baserat på närhetssensorn</string>
     <!-- Smart Options -->
     <string name="smart_category_title">Andra inställningar</string>
     <string name="smart_mute_title">Smart tystning</string>
@@ -31,6 +31,6 @@
     <string name="fullscreen_caller_photo_title">Fullskärmsläge</string>
     <string name="fullscreen_caller_photo_summary">Visa helskärmsbild för inkommande och utgående samtal</string>
     <!-- Dialer postcall -->
-    <string name="enable_post_call_title">Post call snackbar</string>
-    <string name="enable_post_call_summary">Enable post call notifications at the bottom of screen</string>
+    <string name="enable_post_call_title">Avisering efter samtal</string>
+    <string name="enable_post_call_summary">Aktivera aviseringar efter samtal vid botten av skärmen</string>
 </resources>
