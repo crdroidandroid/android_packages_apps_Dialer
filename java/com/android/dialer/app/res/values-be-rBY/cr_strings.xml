@@ -24,7 +24,7 @@
     <string name="disable_proximity_sensor_title">Адключыць датчык набліжэння</string>
     <string name="disable_proximity_sensor_summary">Не выключаць сэнсарны экран і дысплэй падчас выкліку на аснове датчыка набліжэння</string>
     <!-- Smart Options -->
-    <string name="smart_category_title">Іншыя налады</string>
+    <string name="smart_category_title">Іншыя параметры</string>
     <string name="smart_mute_title">Разумнае адключэнне гуку</string>
     <string name="smart_mute_summary">Адключаць гук уваходнага выкліку пераваротам прылады</string>
     <!-- Full Screen Caller Photo -->
@@ -32,5 +32,5 @@
     <string name="fullscreen_caller_photo_summary">Адлюстроўваць фота на ўвесь экран для ўваходных і выходных выклікаў</string>
     <!-- Dialer postcall -->
     <string name="enable_post_call_title">Апавяшчэнне пасля званка</string>
-    <string name="enable_post_call_summary">Уключыць апавяшчэння пасля званка ўнізе экрана</string>
+    <string name="enable_post_call_summary">Уключыць апавяшчэнні пасля званка ўнізе экрана</string>
 </resources>
