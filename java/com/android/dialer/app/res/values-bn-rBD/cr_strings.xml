@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2016-2024 crDroid Android Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Preference titles -->
+    <string name="other_settings_label">অন্যান্য সেটিংস</string>
+    <!-- Call recording -->
+    <string name="auto_call_recording_title">অটো কল রেকর্ডিং</string>
+    <string name="auto_call_recording_summary">ইনকামিং এবং আউটগোয়িং কলের স্বয়ংক্রিয় রেকর্ডিং</string>
+    <!-- Disable Proximity Options -->
+    <string name="disable_proximity_sensor_title">প্রক্সিমিটি সেন্সর নিষ্ক্রিয় করুন</string>
+    <string name="disable_proximity_sensor_summary">কলে থাকার সময় প্রক্সিমিটি সেন্সরের উপর ভিত্তি করে টাচস্ক্রিন এবং ডিসপ্লে বন্ধ করবেন না</string>
+    <!-- Smart Options -->
+    <string name="smart_category_title">অন্য বিকল্পগুলি</string>
+    <string name="smart_mute_title">স্মার্ট নিঃশব্দ</string>
+    <string name="smart_mute_summary">ডিভাইসটি ফ্লিপ করে ইনকামিং কলটি মিউট করুন</string>
+    <!-- Full Screen Caller Photo -->
+    <string name="fullscreen_caller_photo_title">ফুলস্ক্রিন ছবি</string>
+    <string name="fullscreen_caller_photo_summary">ইনকামিং এবং আউটগোয়িং কলের জন্য পূর্ণ-স্ক্রীন ফটো প্রদর্শন করুন</string>
+    <!-- Dialer postcall -->
+    <string name="enable_post_call_title"></string>
+    <string name="enable_post_call_summary">স্ক্রিনের নীচে পোস্ট কল বিজ্ঞপ্তিগুলি সক্ষম করুন৷</string>
+</resources>

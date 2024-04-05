@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2016-2024 crDroid Android Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Preference titles -->
+    <string name="other_settings_label">其他設定</string>
+    <!-- Call recording -->
+    <string name="auto_call_recording_title">自動錄音</string>
+    <string name="auto_call_recording_summary">自動錄製來電與撥出通話</string>
+    <!-- Disable Proximity Options -->
+    <string name="disable_proximity_sensor_title">停用距離傳感器</string>
+    <string name="disable_proximity_sensor_summary">通話中將裝置靠近自己時不關閉螢幕</string>
+    <!-- Smart Options -->
+    <string name="smart_category_title">其他選項</string>
+    <string name="smart_mute_title">智慧靜音</string>
+    <string name="smart_mute_summary">翻轉裝置以使來電靜音</string>
+    <!-- Full Screen Caller Photo -->
+    <string name="fullscreen_caller_photo_title">全螢幕圖示</string>
+    <string name="fullscreen_caller_photo_summary">在撥出或收到來電時將圖示以全螢幕顯示</string>
+    <!-- Dialer postcall -->
+    <string name="enable_post_call_title">通話結束通知</string>
+    <string name="enable_post_call_summary">在通話結束之後於螢幕底部顯示通知</string>
+</resources>

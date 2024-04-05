@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2016-2024 crDroid Android Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Preference titles -->
+    <string name="other_settings_label">Další nastavení</string>
+    <!-- Call recording -->
+    <string name="auto_call_recording_title">Automatické nahrávání hovorů</string>
+    <string name="auto_call_recording_summary">Automatické nahravání příchozích a odchozích hovorů</string>
+    <!-- Disable Proximity Options -->
+    <string name="disable_proximity_sensor_title">Zakázat senzor přiblížení</string>
+    <string name="disable_proximity_sensor_summary">Na základě senzoru přiblížení nevypínat obrazovku ani dotykovou vrstvu během hovoru</string>
+    <!-- Smart Options -->
+    <string name="smart_category_title">Další možnosti</string>
+    <string name="smart_mute_title">Inteligentní ztlumení</string>
+    <string name="smart_mute_summary">Ztlumit vyzvánění příchozího hovoru otočením zařízení</string>
+    <!-- Full Screen Caller Photo -->
+    <string name="fullscreen_caller_photo_title">Fotka volajícího na celou obrazovku</string>
+    <string name="fullscreen_caller_photo_summary">Zobrazit fotografii na celou obrazovku v příchozích a odchozích hovorech</string>
+    <!-- Dialer postcall -->
+    <string name="enable_post_call_title">Oznámení po volání</string>
+    <string name="enable_post_call_summary">Povolit oznámení po volání v dolní části obrazovky</string>
+</resources>
