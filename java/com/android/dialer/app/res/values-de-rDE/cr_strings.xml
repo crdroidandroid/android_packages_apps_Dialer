@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2016-2024 crDroid Android Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Preference titles -->
+    <string name="other_settings_label">Weitere Einstellungen</string>
+    <!-- Call recording -->
+    <string name="auto_call_recording_title">Automatische Anrufaufzeichnung</string>
+    <string name="auto_call_recording_summary">Automatische Aufnahme von eingehenden und ausgehenden Anrufen</string>
+    <!-- Disable Proximity Options -->
+    <string name="disable_proximity_sensor_title">Näherungssensor deaktivieren</string>
+    <string name="disable_proximity_sensor_summary">Bildschirm während eines Anrufs nicht automatisch mithilfe des Näherungssensors ausschalten</string>
+    <!-- Smart Options -->
+    <string name="smart_category_title">Weitere Optionen</string>
+    <string name="smart_mute_title">Intelligentes Stummschalten</string>
+    <string name="smart_mute_summary">Eingehende Anrufe durch Umdrehen des Geräts stummschalten</string>
+    <!-- Full Screen Caller Photo -->
+    <string name="fullscreen_caller_photo_title">Vollbild-Foto</string>
+    <string name="fullscreen_caller_photo_summary">Vollbild-Foto bei ein- und ausgehenden Anrufen anzeigen</string>
+    <!-- Dialer postcall -->
+    <string name="enable_post_call_title">Benachrichtigung nach dem Anruf</string>
+    <string name="enable_post_call_summary">Benachrichtigungen am unteren Bildschirmrand nach einem Anruf aktivieren</string>
+</resources>
