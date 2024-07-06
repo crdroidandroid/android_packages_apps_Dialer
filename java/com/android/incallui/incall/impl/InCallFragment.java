@@ -21,6 +21,7 @@ import android.Manifest;
 import android.Manifest.permission;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.SharedPreferences;
@@ -39,6 +40,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowInsets;
+import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -164,6 +166,20 @@ public class InCallFragment extends Fragment
     }
   }
 
+  private int getMaxBrightnessMode(Context context) {
+    final String prefName = context.getPackageName() + "_preferences";
+    final SharedPreferences prefs = context.getSharedPreferences(prefName, context.MODE_MULTI_PROCESS);
+    try {
+      String value = prefs.getString(context.getString(R.string.max_brightness_on_incoming_call_mode_key), null);
+      if (value != null) {
+        return Integer.parseInt(value);
+      }
+    } catch (NumberFormatException e) {
+      // ignore and fall through
+    }
+    return 0;
+  }
+
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -172,6 +188,18 @@ public class InCallFragment extends Fragment
             .newInCallButtonUiDelegate();
     if (savedInstanceState != null) {
       stateRestored = true;
+    }
+    
+    NotificationManager mNotificationManager = getContext().getSystemService(NotificationManager.class);
+    int dndMode = mNotificationManager.getCurrentInterruptionFilter();
+    int maxBrightnessMode = getMaxBrightnessMode(getContext());
+    boolean shouldSetMaxBrightness = (maxBrightnessMode == 1 && dndMode == mNotificationManager.INTERRUPTION_FILTER_ALL)
+        || maxBrightnessMode == 2;
+
+    if (shouldSetMaxBrightness) {
+      WindowManager.LayoutParams layoutParams = getActivity().getWindow().getAttributes();
+      layoutParams.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE;
+      getActivity().getWindow().setAttributes(layoutParams);
     }
   }
 

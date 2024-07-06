@@ -36,6 +36,13 @@
     <string name="fullscreen_caller_photo_title">Fullscreen photo</string>
     <string name="fullscreen_caller_photo_summary">Display full-screen photo for incoming and outgoing calls</string>
 
+    <!-- Maximum brightness on incoming calls -->
+    <string name="max_brightness_on_incoming_call_mode">Maximum brightness for incoming calls</string>
+    <string name="max_brightness_on_incoming_call_mode_key" translatable="false">max_brightness_on_incoming_call_mode_key</string>
+    <string name="max_brightness_on_incoming_call_disabled">Disabled</string>
+    <string name="max_brightness_on_incoming_call_not_dnd">Only when not in Do not disturb mode</string>
+    <string name="max_brightness_on_incoming_call_always">Always</string>
+
     <!-- Dialer postcall -->
     <string name="enable_post_call_title">Post call snackbar</string>
     <string name="enable_post_call_summary">Enable post call notifications at the bottom of screen</string>

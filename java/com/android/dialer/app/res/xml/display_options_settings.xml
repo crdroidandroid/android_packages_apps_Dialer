@@ -43,7 +43,15 @@
       android:key="fullscreen_caller_photo"
       android:title="@string/fullscreen_caller_photo_title"
       android:summary="@string/fullscreen_caller_photo_summary"
-      android:defaultValue="false" />
+      android:defaultValue="false"
       app:iconSpaceReserved="false"/>
-
+      
+  <ListPreference
+      android:key="@string/max_brightness_on_incoming_call_mode_key"
+      android:summary="%s"
+      android:entries="@array/max_brightness_on_incoming_call_entries"
+      android:entryValues="@array/max_brightness_on_incoming_call_values"
+      android:title="@string/max_brightness_on_incoming_call_mode"
+      android:defaultValue="0"
+      app:iconSpaceReserved="false"/>
 </PreferenceScreen>

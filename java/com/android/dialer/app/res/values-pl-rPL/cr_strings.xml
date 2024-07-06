@@ -30,6 +30,11 @@
     <!-- Full Screen Caller Photo -->
     <string name="fullscreen_caller_photo_title">Zdjęcie na pełen ekran</string>
     <string name="fullscreen_caller_photo_summary">Wyświetl zdjęcie na pełnym ekranie dla połączeń przychodzących oraz wychodzących</string>
+    <!-- Maximum brightness on incoming calls -->
+    <string name="max_brightness_on_incoming_call_mode">Maksymalna jasność ekranu</string>
+    <string name="max_brightness_on_incoming_call_disabled">Wyłączono</string>
+    <string name="max_brightness_on_incoming_call_not_dnd">Poza trybem Nie przeszkadzać</string>
+    <string name="max_brightness_on_incoming_call_always">Zawsze</string>
     <!-- Dialer postcall -->
     <string name="enable_post_call_title">Pokaż połączenie na snackbarze</string>
     <string name="enable_post_call_summary">Włącz powiadomienia o połączeniach w dolnej części ekranu</string>
