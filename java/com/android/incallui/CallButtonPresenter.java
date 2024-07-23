@@ -23,6 +23,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Trace;
 import android.os.Handler;
+import android.os.UserManager;
 import android.telecom.CallAudioState;
 import android.telecom.PhoneAccountHandle;
 
@@ -503,7 +504,10 @@ public class CallButtonPresenter
             && call.getState() != DialerCallState.CONNECTING;
 
     final CallRecorder recorder = CallRecorder.getInstance();
-    final boolean showCallRecordOption = !isVideo && call.getState() == DialerCallState.ACTIVE;
+    final UserManager userManager = getContext().getSystemService(UserManager.class);
+
+    final boolean showCallRecordOption = !isVideo && call.getState() == DialerCallState.ACTIVE
+        && userManager.isUserUnlocked();
 
     otherAccount = TelecomUtil.getOtherAccount(getContext(), call.getAccountHandle());
     boolean showSwapSim =
