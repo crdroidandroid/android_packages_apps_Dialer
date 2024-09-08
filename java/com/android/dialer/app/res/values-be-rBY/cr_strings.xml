@@ -18,8 +18,7 @@
     <!-- Preference titles -->
     <string name="other_settings_label">Іншыя налады</string>
     <!-- Call recording -->
-    <string name="auto_call_recording_title">Аўтаматычна запісваць размовы</string>
-    <string name="auto_call_recording_summary">Аўтаматычны запіс уваходных і выходных званкоў</string>
+    <string name="call_recording_autostart_title">Autostart call recording</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Адключыць датчык набліжэння</string>
     <string name="disable_proximity_sensor_summary">Не выключаць сэнсарны экран і дысплэй падчас выкліку на аснове датчыка набліжэння</string>
