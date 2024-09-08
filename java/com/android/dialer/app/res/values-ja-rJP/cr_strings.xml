@@ -18,8 +18,7 @@
     <!-- Preference titles -->
     <string name="other_settings_label">その他の設定</string>
     <!-- Call recording -->
-    <string name="auto_call_recording_title">通話を自動的に録音する</string>
-    <string name="auto_call_recording_summary">着信と発信の自動記録</string>
+    <string name="call_recording_autostart_title">Autostart call recording</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">近接センサーを無効化</string>
     <string name="disable_proximity_sensor_summary">近接センサーが有効でも通話中にタッチパネルを消灯しない</string>
