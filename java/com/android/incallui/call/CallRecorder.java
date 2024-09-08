@@ -374,10 +374,6 @@ public class CallRecorder implements CallList.Listener {
   }
 
   private boolean isCallRecordAutostart() {
-    if (!canRecordInCurrentCountry()) {
-      return false;
-    }
-
     // This replicates PreferenceManager.getDefaultSharedPreferences, except
     // that we need multi process preferences, as the pref is written in a separate
     // process (com.android.dialer vs. com.android.incallui)
