@@ -18,8 +18,7 @@
     <!-- Preference titles -->
     <string name="other_settings_label">기타 설정</string>
     <!-- Call recording -->
-    <string name="auto_call_recording_title">자동 통화 녹음</string>
-    <string name="auto_call_recording_summary">받는 전화와 거는 전화를 자동으로 녹음</string>
+    <string name="call_recording_autostart_title">Autostart call recording</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">근접센서 비활성화</string>
     <string name="disable_proximity_sensor_summary">통화 시 근접센서를 통한 터치스크린과 화면 꺼짐을 비활성화합니다</string>
