@@ -18,8 +18,7 @@
     <!-- Preference titles -->
     <string name="other_settings_label">其他设置</string>
     <!-- Call recording -->
-    <string name="auto_call_recording_title">自动录音</string>
-    <string name="auto_call_recording_summary">自动录制来电和呼出通话</string>
+    <string name="call_recording_autostart_title">Autostart call recording</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">禁用距离传感器</string>
     <string name="disable_proximity_sensor_summary">基于距离传感器，在通话中不关闭触摸操作和屏幕显示</string>
