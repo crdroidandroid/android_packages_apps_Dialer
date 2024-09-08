@@ -18,8 +18,7 @@
     <!-- Preference titles -->
     <string name="other_settings_label">Overige instellingen</string>
     <!-- Call recording -->
-    <string name="auto_call_recording_title">Automatische gespreks-opname</string>
-    <string name="auto_call_recording_summary">Automatisch opnemen van inkomende en uitgaande oproepen</string>
+    <string name="call_recording_autostart_title">Autostart call recording</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Nabijheidssensor uitschakelen</string>
     <string name="disable_proximity_sensor_summary">Schakel touchscreen en scherm tijdens gesprek niet uit op basis van nabijheidssensor</string>
