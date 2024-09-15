@@ -18,8 +18,7 @@
     <!-- Preference titles -->
     <string name="other_settings_label">Cài đặt khác</string>
     <!-- Call recording -->
-    <string name="auto_call_recording_title">Tự động ghi âm cuộc gọi</string>
-    <string name="auto_call_recording_summary">Tất cả cuộc gọi được tự động ghi âm</string>
+    <string name="call_recording_autostart_title">Tự động ghi âm cuộc gọi</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Tắt cảm biến tiệm cận</string>
     <string name="disable_proximity_sensor_summary">Màn hình sẽ không tắt khi đang có cuộc gọi</string>
