@@ -18,8 +18,7 @@
     <!-- Preference titles -->
     <string name="other_settings_label">Прочие настройки</string>
     <!-- Call recording -->
-    <string name="auto_call_recording_title">Автозапись вызова</string>
-    <string name="auto_call_recording_summary">Автоматическая запись входящих и исходящих разговоров</string>
+    <string name="call_recording_autostart_title">Автозапись вызова</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Отключить датчик приближения</string>
     <string name="disable_proximity_sensor_summary">Не отключать экран и не использовать датчик приближения во время вызова</string>
