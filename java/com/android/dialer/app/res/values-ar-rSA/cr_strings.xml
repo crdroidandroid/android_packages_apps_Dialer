@@ -18,8 +18,7 @@
     <!-- Preference titles -->
     <string name="other_settings_label">إعدادات أخرى</string>
     <!-- Call recording -->
-    <string name="auto_call_recording_title">تسجيل تلقائي للمكالمات</string>
-    <string name="auto_call_recording_summary">التسجيل التلقائي للمكالمات الداخلة والخارجة</string>
+    <string name="call_recording_autostart_title">تشغيل تلقائي لتسجيل المكالمات</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">تعطيل مستشعر التقارب</string>
     <string name="disable_proximity_sensor_summary">لا تقم بإيقاف تشغيل الشاشة و اللمس خلال المكالمة بناءً على مستشعر القرب</string>
