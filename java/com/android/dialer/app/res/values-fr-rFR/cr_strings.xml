@@ -18,8 +18,7 @@
     <!-- Preference titles -->
     <string name="other_settings_label">Paramètres supplémentaires</string>
     <!-- Call recording -->
-    <string name="auto_call_recording_title">Enregistrement d\'appel automatique</string>
-    <string name="auto_call_recording_summary">Enregistrement automatique des appels entrants et sortants</string>
+    <string name="call_recording_autostart_title">Démarrage automatique de l\'enregistrement des appels</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Désactiver le capteur de proximité</string>
     <string name="disable_proximity_sensor_summary">Ne pas éteindre l\'écran tactile et l\'affichage en cours d\'appels en fonction de la proximité</string>
