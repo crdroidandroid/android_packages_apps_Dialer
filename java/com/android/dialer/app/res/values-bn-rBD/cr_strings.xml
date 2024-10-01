@@ -18,8 +18,7 @@
     <!-- Preference titles -->
     <string name="other_settings_label">অন্যান্য সেটিংস</string>
     <!-- Call recording -->
-    <string name="auto_call_recording_title">অটো কল রেকর্ডিং</string>
-    <string name="auto_call_recording_summary">ইনকামিং এবং আউটগোয়িং কলের স্বয়ংক্রিয় রেকর্ডিং</string>
+    <string name="call_recording_autostart_title">স্বয়ংক্রিয়ভাবে কলরেকর্ড চালু।</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">প্রক্সিমিটি সেন্সর নিষ্ক্রিয় করুন</string>
     <string name="disable_proximity_sensor_summary">কলে থাকার সময় প্রক্সিমিটি সেন্সরের উপর ভিত্তি করে টাচস্ক্রিন এবং ডিসপ্লে বন্ধ করবেন না</string>

@@ -18,8 +18,7 @@
     <!-- Preference titles -->
     <string name="other_settings_label">Egyéb beállítások</string>
     <!-- Call recording -->
-    <string name="auto_call_recording_title">Automatikus hívásrögzítés</string>
-    <string name="auto_call_recording_summary">Bejövő- és kimenő hívások automata rögzítése</string>
+    <string name="call_recording_autostart_title">Hívásrögzítés automatikus indítása</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Közelségi érzékelő kikapcsolása</string>
     <string name="disable_proximity_sensor_summary">Ne kapcsolja ki az érintő képernyőt és a képernyőt a közelségi érzékelőn alapuló híváson</string>

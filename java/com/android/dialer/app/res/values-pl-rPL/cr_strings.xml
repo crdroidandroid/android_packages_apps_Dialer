@@ -18,8 +18,7 @@
     <!-- Preference titles -->
     <string name="other_settings_label">Inne ustawienia</string>
     <!-- Call recording -->
-    <string name="auto_call_recording_title">Automatyczne nagrywanie połączeń</string>
-    <string name="auto_call_recording_summary">Automatyczne nagrywanie połączeń przychodzących i wychodzących</string>
+    <string name="call_recording_autostart_title">Automatyczne nagrywanie połączeń</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Wyłącz czujnik zbliżeniowy</string>
     <string name="disable_proximity_sensor_summary">Nie wyłączaj ekranu dotykowego i wyświetlacza w trakcie połączenia</string>
