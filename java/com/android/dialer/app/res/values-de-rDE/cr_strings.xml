@@ -18,8 +18,7 @@
     <!-- Preference titles -->
     <string name="other_settings_label">Weitere Einstellungen</string>
     <!-- Call recording -->
-    <string name="auto_call_recording_title">Automatische Anrufaufzeichnung</string>
-    <string name="auto_call_recording_summary">Automatische Aufnahme von eingehenden und ausgehenden Anrufen</string>
+    <string name="call_recording_autostart_title">Anrufaufzeichnung automatisch starten</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Näherungssensor deaktivieren</string>
     <string name="disable_proximity_sensor_summary">Bildschirm während eines Anrufs nicht automatisch mithilfe des Näherungssensors ausschalten</string>

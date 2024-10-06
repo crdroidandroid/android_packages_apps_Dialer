@@ -18,8 +18,7 @@
     <!-- Preference titles -->
     <string name="other_settings_label">הגדרות נוספות</string>
     <!-- Call recording -->
-    <string name="auto_call_recording_title">הקלטת שיחה אוטומטית</string>
-    <string name="auto_call_recording_summary">הקלטה אוטומטית של שיחות נכנסות ויוצאות</string>
+    <string name="call_recording_autostart_title">Autostart call recording</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">ביטול חיישן קרבה</string>
     <string name="disable_proximity_sensor_summary">אל תכבה את המסך ומסך המגע בזמן שיחה על בסיס חיישן קרבה</string>

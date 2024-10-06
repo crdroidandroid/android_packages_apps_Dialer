@@ -18,8 +18,7 @@
     <!-- Preference titles -->
     <string name="other_settings_label">Další nastavení</string>
     <!-- Call recording -->
-    <string name="auto_call_recording_title">Automatické nahrávání hovorů</string>
-    <string name="auto_call_recording_summary">Automatické nahravání příchozích a odchozích hovorů</string>
+    <string name="call_recording_autostart_title">Autostart call recording</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Zakázat senzor přiblížení</string>
     <string name="disable_proximity_sensor_summary">Na základě senzoru přiblížení nevypínat obrazovku ani dotykovou vrstvu během hovoru</string>
