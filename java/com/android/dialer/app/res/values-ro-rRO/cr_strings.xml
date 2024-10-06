@@ -18,8 +18,7 @@
     <!-- Preference titles -->
     <string name="other_settings_label">Alte setări</string>
     <!-- Call recording -->
-    <string name="auto_call_recording_title">Înregistrare automată a apelurilor</string>
-    <string name="auto_call_recording_summary">Înregistrare automată a apelurilor primite și efectuate</string>
+    <string name="call_recording_autostart_title">Autopornire înregistrare apel</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Dezactivează senzorul de proximitate</string>
     <string name="disable_proximity_sensor_summary">Nu dezactivați ecranul tactil și nu afișați în apel în funcție de senzorul de proximitate</string>
