@@ -19,7 +19,7 @@
     <string name="other_settings_label">دیگر تنظیمات</string>
     <!-- Call recording -->
     <string name="auto_call_recording_title">ضبط تماس بصورت خودکار</string>
-    <string name="auto_call_recording_summary">Automatic recording of incoming and outgoing calls</string>
+    <string name="auto_call_recording_summary">ضبط خودکار تماس های ورودی و خروجی</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">غیرفعال کردن سنسور مجاورت</string>
     <string name="disable_proximity_sensor_summary">هنگام تماس بر اساس حسگر مجاورت، صفحه لمسی و نمایشگر را خاموش نکنید</string>
