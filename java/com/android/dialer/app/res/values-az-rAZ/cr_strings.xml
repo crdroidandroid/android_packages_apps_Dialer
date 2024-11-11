@@ -18,8 +18,8 @@
     <!-- Preference titles -->
     <string name="other_settings_label">Başqa quraşdırmalar</string>
     <!-- Call recording -->
-    <string name="auto_call_recording_title">Auto call recording</string>
-    <string name="auto_call_recording_summary">Automatic recording of incoming and outgoing calls</string>
+    <string name="auto_call_recording_title">Avtomatik zəng qeyd etmə</string>
+    <string name="auto_call_recording_summary">Gələn və gedən zəngləri avtomatik qeyd etmək</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Yaxınlıq sensorunu söndür</string>
     <string name="disable_proximity_sensor_summary">Toxunma ekranını və yaxınlıq sensoruna əsaslanan hüceyrə ekranını söndürməyin</string>
