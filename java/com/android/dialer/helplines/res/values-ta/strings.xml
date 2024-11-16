@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2021 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="helplines_name">உதவி எண்கள்</string>
+    <string name="helplines_loading">ஏற்றுகிறது\u2026</string>
+    <string name="helplines_empty">உதவி எண்கள் எவையும் அல்ல.\nசெறிவு அட்டையைச் செருகி மீண்டும் முயல்க</string>
+    <string name="helplines_help">உதவி</string>
+    <string name="helplines_help_title">இவை அழைக்கப் பாதுகாப்பானவை</string>
+    <string name="helplines_help_message">உம் அழைப்பு வரலாற்றில் இவ்வெண்கள் எவையும் தோன்றவில்லை.\nமேலுந்தகவலுக்கு நீங்கள் எந்த உருப்படியையும் சொடுக்கலாம்</string>
+    <string name="helpline_button_more">மேலும்</string>
+</resources>

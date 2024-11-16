@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2013-2014 The CyanogenMod Project
-     Copyright (C) 2018 The LineageOS Project
+<!-- Copyright (C) 2024 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -16,11 +14,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="call_log_show_all_accounts">Gach cuntas</string>
-    <string name="call_log_all_calls_header">Gach glaonna</string>
-    <string name="call_log_incoming_header">Glaonna isteach amháin</string>
-    <string name="call_log_outgoing_header">Glaonna amach amháin</string>
-    <string name="call_log_missed_header">Glaonna caillte amháin</string>
-    <string name="call_log_voicemail_header">Glaonna le glórphost amháin</string>
-    <string name="call_log_blacklist_header">Glaonna bactha amháin</string>
+  <string name="sync_preference_title">동기화</string>
+  <string name="config_override_preference_title">VVM 설정 덮어쓰기</string>
 </resources>

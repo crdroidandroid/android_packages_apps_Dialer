@@ -28,9 +28,9 @@
     <string name="call_stats_filter_to">Bitmə tarixi</string>
     <string name="call_stats_filter_picker_title">Filtr aralığı</string>
     <string name="date_quick_selection">Cəld seçim</string>
-    <string name="date_qs_currentmonth">Hazırki ay</string>
-    <string name="date_qs_currentquarter">Hazırki rüb</string>
-    <string name="date_qs_currentyear">Hazırki il</string>
+    <string name="date_qs_currentmonth">Hazırkı ay</string>
+    <string name="date_qs_currentquarter">Hazırkı rüb</string>
+    <string name="date_qs_currentyear">Hazırkı il</string>
     <string name="date_qs_lastweek">Keçən həftə</string>
     <string name="date_qs_lastmonth">Keçən ay</string>
     <string name="date_qs_lastquarter">Keçən rüb</string>
