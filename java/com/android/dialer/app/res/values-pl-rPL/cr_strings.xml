@@ -29,7 +29,7 @@
     <string name="smart_mute_summary">Wycisz połączenia przychodzące poprzez odwrócenie urządzenia</string>
     <!-- Full Screen Caller Photo -->
     <string name="fullscreen_caller_photo_title">Zdjęcie na całym ekranie</string>
-    <string name="fullscreen_caller_photo_summary">Wyświetl zdjęcie na pełnym ekranie dla połączeń przychodzących oraz wychodzących</string>
+    <string name="fullscreen_caller_photo_summary">Wyświetlaj zdjęcie kontaktu na całym ekranie dla połączeń przychodzących oraz wychodzących</string>
     <!-- Dialer postcall -->
     <string name="enable_post_call_title">Pokaż połączenie na snackbarze</string>
     <string name="enable_post_call_summary">Włącz powiadomienia o połączeniach w dolnej części ekranu</string>
