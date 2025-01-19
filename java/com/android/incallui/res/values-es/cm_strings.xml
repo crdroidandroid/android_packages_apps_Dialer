@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="call_recording_failed_message">Error al iniciar la grabación de la llamada</string>
+    <string name="call_recording_failed_message">Ocurrió un error al iniciar la grabación</string>
     <string name="call_recording_file_location">Grabación de llamada guardada en <xliff:g id="filename">%s</xliff:g></string>
     <string name="onscreenCallRecordText">Grabar llamada</string>
     <string name="onscreenCallRecordingText">Grabación de llamada - <xliff:g id="duration" example="00:10">%1$s</xliff:g></string>
