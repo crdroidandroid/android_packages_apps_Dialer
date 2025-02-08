@@ -18,7 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="call_stats_detail_title">தொடர்புப் புள்ளிவிவரங்கள்</string>
     <string name="call_stats_incoming">உள்வருதல்: <xliff:g id="value">%s</xliff:g></string>
-    <string name="call_stats_outgoing">வெளிச்செல்லுதல்: <xliff:g id="value">%s</xliff:g></string>
+    <string name="call_stats_outgoing">வெளிசெல்லுதல்: <xliff:g id="value">%s</xliff:g></string>
     <string name="call_stats_missed">தவறவிட்டல்: <xliff:g id="value">%s</xliff:g></string>
     <string name="call_stats_blocked">தடுத்தல்: <xliff:g id="value">%s</xliff:g></string>
     <string name="call_stats_percent"><xliff:g id="percent">%d</xliff:g>%%</string>
