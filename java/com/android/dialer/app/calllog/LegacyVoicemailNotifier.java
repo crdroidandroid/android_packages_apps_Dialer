@@ -141,7 +141,7 @@ public final class LegacyVoicemailNotifier {
     Notification.Builder builder =
         new Notification.Builder(context)
             .setSmallIcon(resId)
-            .setColor(ThemeComponent.get(context).theme().getColorPrimary())
+            .setColor(ThemeComponent.get(context).theme().getColorCallNotificationBackground())
             .setWhen(System.currentTimeMillis())
             .setContentTitle(notificationTitle)
             .setContentText(contentText)

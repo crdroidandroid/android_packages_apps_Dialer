@@ -371,7 +371,7 @@ public class MissedCallNotifier implements Worker<Pair<Integer, String>, Void> {
     return new Notification.Builder(context, NotificationChannelId.MISSED_CALL)
         .setGroup(MissedCallConstants.GROUP_KEY)
         .setSmallIcon(android.R.drawable.stat_notify_missed_call)
-        .setColor(ThemeComponent.get(context).theme().getColorPrimary())
+        .setColor(ThemeComponent.get(context).theme().getColorCallNotificationBackground())
         .setAutoCancel(true)
         .setOnlyAlertOnce(true)
         .setShowWhen(true)
