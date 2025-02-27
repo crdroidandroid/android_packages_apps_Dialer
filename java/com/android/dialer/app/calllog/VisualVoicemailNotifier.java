@@ -140,7 +140,7 @@ final class VisualVoicemailNotifier {
   private static NotificationCompat.Builder createNotificationBuilder(@NonNull Context context) {
     return new NotificationCompat.Builder(context)
         .setSmallIcon(android.R.drawable.stat_notify_voicemail)
-        .setColor(ThemeComponent.get(context).theme().getColorPrimary())
+        .setColor(ThemeComponent.get(context).theme().getColorCallNotificationBackground())
         .setGroup(GROUP_KEY)
         .setOnlyAlertOnce(true)
         .setAutoCancel(true);
