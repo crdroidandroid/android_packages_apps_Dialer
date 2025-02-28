@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2013-2014 The CyanogenMod Project
+<!-- Copyright (C) 2024 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,9 +14,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <plurals name="play_recordings">
-        <item quantity="one">பதிவை இயக்குக</item>
-        <item quantity="other">பதிவுகளை இயக்குக</item>
-    </plurals>
-    <string name="call_playback_no_app_found_toast">தேர்ந்த பதிவை மீளொலிக்கச் செயலி ஏதுமில்லை.</string>
+  <string name="sync_preference_title">همگام‌‌‍سازی</string>
+  <string name="config_override_preference_title">لغو پیکربندی VVM</string>
 </resources>

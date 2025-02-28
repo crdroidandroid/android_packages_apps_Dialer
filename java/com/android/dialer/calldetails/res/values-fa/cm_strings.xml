@@ -16,8 +16,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <plurals name="play_recordings">
-        <item quantity="one">பதிவை இயக்குக</item>
-        <item quantity="other">பதிவுகளை இயக்குக</item>
+        <item quantity="one">پخش فایل ضبط شده</item>
+        <item quantity="other">پخش فایهای ضبط شده</item>
     </plurals>
-    <string name="call_playback_no_app_found_toast">தேர்ந்த பதிவை மீளொலிக்கச் செயலி ஏதுமில்லை.</string>
+    <string name="call_playback_no_app_found_toast">هیچ برنامه ای برای پخش فایل ضبط شده موجود نیست.</string>
 </resources>

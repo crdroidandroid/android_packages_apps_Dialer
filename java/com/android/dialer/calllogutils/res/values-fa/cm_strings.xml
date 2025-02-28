@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2013-2014 The CyanogenMod Project
+     Copyright (C) 2018 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,9 +16,11 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <plurals name="play_recordings">
-        <item quantity="one">பதிவை இயக்குக</item>
-        <item quantity="other">பதிவுகளை இயக்குக</item>
-    </plurals>
-    <string name="call_playback_no_app_found_toast">தேர்ந்த பதிவை மீளொலிக்கச் செயலி ஏதுமில்லை.</string>
+    <string name="call_log_show_all_accounts">همه حساب‌ها</string>
+    <string name="call_log_all_calls_header">همه تماس‌ها</string>
+    <string name="call_log_incoming_header">تنها تماس‌های دریافتی</string>
+    <string name="call_log_outgoing_header">تنها تماس های خروجی</string>
+    <string name="call_log_missed_header">تنها تماس‌های از دست رفته</string>
+    <string name="call_log_voicemail_header">تنها تماس با پست صوتی</string>
+    <string name="call_log_blacklist_header">فقط تماس‌های مسدود شده</string>
 </resources>
