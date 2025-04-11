@@ -14,6 +14,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="sync_preference_title">Sincronização</string>
-  <string name="config_override_preference_title">Sobrescrever configuração do VVM</string>
+  <string name="sync_preference_title">ஒத்திசைவு</string>
+  <string name="config_override_preference_title">VVM கட்டமைப்பு மீறல்</string>
 </resources>
