@@ -18,7 +18,7 @@
     <!-- Preference titles -->
     <string name="other_settings_label">Други настройки</string>
     <!-- Call recording -->
-    <string name="call_recording_autostart_title">Autostart call recording</string>
+    <string name="call_recording_autostart_title">Автоматично записване на разговори</string>
     <!-- Disable Proximity Options -->
     <string name="disable_proximity_sensor_title">Деактивиране на сензор за близост</string>
     <string name="disable_proximity_sensor_summary">По време на разговор не изключва екрана, заради сензора за близост</string>
