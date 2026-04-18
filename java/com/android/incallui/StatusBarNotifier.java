@@ -45,6 +45,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
 import android.media.AudioAttributes;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Trace;
 import android.telecom.Call.Details;
 import android.telecom.CallAudioState;
@@ -349,11 +350,13 @@ public class StatusBarNotifier
         break;
       case NOTIFICATION_INCOMING_CALL_QUIET:
         builder.setChannelId(NotificationChannelId.ONGOING_CALL);
+        builder.setCategory(Notification.CATEGORY_CALL);
         break;
       case NOTIFICATION_IN_CALL:
         publicBuilder.setColorized(true);
         builder.setColorized(true);
         builder.setChannelId(NotificationChannelId.ONGOING_CALL);
+        builder.setCategory(Notification.CATEGORY_CALL);
         break;
       default:
         break;
@@ -412,20 +415,43 @@ public class StatusBarNotifier
       DialerCall call, int state, CallAudioState callAudioState, Notification.Builder builder) {
     setNotificationWhen(call, state, builder);
 
-    // Add hang up option for any active calls (active | onhold), outgoing calls (dialing).
     if (state == DialerCallState.ACTIVE
         || state == DialerCallState.ONHOLD
         || DialerCallState.isDialing(state)) {
       addHangupAction(builder);
       addSpeakerAction(builder, callAudioState);
+      builder.addExtras(createHangUpExtras());
     } else if (state == DialerCallState.INCOMING || state == DialerCallState.CALL_WAITING) {
       addDismissAction(builder);
       if (call.isVideoCall()) {
         addVideoCallAction(builder);
+        builder.addExtras(createIncomingCallExtras(true /* isVideo */));
       } else {
         addAnswerAction(builder);
+        builder.addExtras(createIncomingCallExtras(false /* isVideo */));
       }
     }
+  }
+
+  private Bundle createIncomingCallExtras(boolean isVideo) {
+    PendingIntent answerIntent = createNotificationPendingIntent(
+        context,
+        isVideo ? ACTION_ANSWER_VIDEO_INCOMING_CALL : ACTION_ANSWER_VOICE_INCOMING_CALL);
+    PendingIntent declineIntent = createNotificationPendingIntent(
+        context, ACTION_DECLINE_INCOMING_CALL);
+    Bundle extras = new Bundle();
+    extras.putInt(Notification.EXTRA_CALL_TYPE, Notification.CallStyle.CALL_TYPE_INCOMING);
+    extras.putParcelable(Notification.EXTRA_ANSWER_INTENT, answerIntent);
+    extras.putParcelable(Notification.EXTRA_DECLINE_INTENT, declineIntent);
+    return extras;
+  }
+
+  private Bundle createHangUpExtras() {
+    PendingIntent hangUpIntent = createNotificationPendingIntent(
+        context, ACTION_HANG_UP_ONGOING_CALL);
+    Bundle extras = new Bundle();
+    extras.putParcelable(Notification.EXTRA_HANG_UP_INTENT, hangUpIntent);
+    return extras;
   }
 
   /**
