@@ -18,79 +18,138 @@
 package com.android.dialer.theme.base.impl;
 
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 
 import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 import androidx.annotation.StyleRes;
 
 import com.android.dialer.R;
 import com.android.dialer.common.Assert;
+import com.android.dialer.common.LogUtil;
 import com.android.dialer.theme.base.Theme;
 
 import javax.inject.Singleton;
 
-/** Utility for fetching */
-@SuppressWarnings("unused")
+/**
+ * Resolves Dialer theme colors.
+ */
 @Singleton
 public class AospThemeImpl implements Theme {
 
-  private int colorIcon = -1;
-  private int colorIconSecondary = -1;
-  private int colorPrimary = -1;
-  private int colorPrimaryDark = -1;
-  private int colorAccent = -1;
-  private int textColorPrimary = -1;
-  private int textColorSecondary = -1;
-  private int textColorPrimaryInverse = -1;
-  private int textColorHint = -1;
-  private int colorBackground = -1;
-  private int colorBackgroundFloating = -1;
-  private int colorTextOnUnthemedDarkBackground = -1;
-  private int colorIconOnUnthemedDarkBackground = -1;
-  private int colorCallNotificationBackground = -1;
+  private static final String TAG = "AospThemeImpl";
+
+  private static final int IDX_COLOR_PRIMARY = 0;
+  private static final int IDX_COLOR_PRIMARY_DARK = 1;
+  private static final int IDX_COLOR_ACCENT = 2;
+  private static final int IDX_TEXT_COLOR_PRIMARY = 3;
+  private static final int IDX_TEXT_COLOR_SECONDARY = 4;
+  private static final int IDX_TEXT_COLOR_PRIMARY_INVERSE = 5;
+  private static final int IDX_TEXT_COLOR_HINT = 6;
+  private static final int IDX_COLOR_BACKGROUND = 7;
+  private static final int IDX_COLOR_BACKGROUND_FLOATING = 8;
+  private static final int IDX_COLOR_ICON = 9;
+  private static final int IDX_COLOR_ICON_SECONDARY = 10;
+  private static final int IDX_COLOR_TEXT_ON_UNTHEMED_DARK_BACKGROUND = 11;
+  private static final int IDX_COLOR_ICON_ON_UNTHEMED_DARK_BACKGROUND = 12;
+  private static final int IDX_COLOR_CALL_NOTIFICATION_BACKGROUND = 13;
+
+  /** Attributes to resolve. Order must match the IDX_* constants above. */
+  private static final int[] ATTRS =
+      new int[] {
+        android.R.attr.colorPrimary,
+        android.R.attr.colorPrimaryDark,
+        android.R.attr.colorAccent,
+        android.R.attr.textColorPrimary,
+        android.R.attr.textColorSecondary,
+        android.R.attr.textColorPrimaryInverse,
+        android.R.attr.textColorHint,
+        android.R.attr.colorBackground,
+        android.R.attr.colorBackgroundFloating,
+        R.attr.colorIcon,
+        R.attr.colorIconSecondary,
+        R.attr.colorTextOnUnthemedDarkBackground,
+        R.attr.colorIconOnUnthemedDarkBackground,
+        R.attr.colorCallNotificationBackground
+      };
+
+  private static final int[] FALLBACK_COLORS =
+      new int[] {
+        0xFF1A73E8, // colorPrimary
+        0xFF1A73E8, // colorPrimaryDark
+        0xFF1A73E8, // colorAccent
+        0xDE000000, // textColorPrimary
+        0x8A000000, // textColorSecondary
+        0xFFDADCE0, // textColorPrimaryInverse
+        0xFF80868B, // textColorHint
+        Color.WHITE, // colorBackground
+        Color.WHITE, // colorBackgroundFloating
+        0xFF5F6368, // colorIcon
+        0xFFBDC1C6, // colorIconSecondary
+        Color.WHITE, // colorTextOnUnthemedDarkBackground
+        Color.WHITE, // colorIconOnUnthemedDarkBackground
+        0xFF1A73E8 // colorCallNotificationBackground
+      };
+
+  private final Context appContext;
+  private final Object lock = new Object();
+
+  private Configuration cachedConfig;
+  private int[] cachedColors;
 
   public AospThemeImpl(Context context) {
+    Assert.checkArgument(ATTRS.length == FALLBACK_COLORS.length);
+    appContext = context.getApplicationContext();
+    appContext.setTheme(getApplicationThemeRes());
+    getColors();
+  }
 
-    context = context.getApplicationContext();
-    context.setTheme(getApplicationThemeRes());
-    TypedArray array =
-        context
-            .getTheme()
-            .obtainStyledAttributes(
-                getApplicationThemeRes(),
-                new int[] {
-                  android.R.attr.colorPrimary,
-                  android.R.attr.colorPrimaryDark,
-                  android.R.attr.colorAccent,
-                  android.R.attr.textColorPrimary,
-                  android.R.attr.textColorSecondary,
-                  android.R.attr.textColorPrimaryInverse,
-                  android.R.attr.textColorHint,
-                  android.R.attr.colorBackground,
-                  android.R.attr.colorBackgroundFloating,
-                  R.attr.colorIcon,
-                  R.attr.colorIconSecondary,
-                  R.attr.colorTextOnUnthemedDarkBackground,
-                  R.attr.colorIconOnUnthemedDarkBackground,
-                  R.attr.colorCallNotificationBackground
-                });
-    colorPrimary = array.getColor(/* index= */ 0, /* defValue= */ -1);
-    colorPrimaryDark = array.getColor(/* index= */ 1, /* defValue= */ -1);
-    colorAccent = array.getColor(/* index= */ 2, /* defValue= */ -1);
-    textColorPrimary = array.getColor(/* index= */ 3, /* defValue= */ -1);
-    textColorSecondary = array.getColor(/* index= */ 4, /* defValue= */ -1);
-    textColorPrimaryInverse = array.getColor(/* index= */ 5, /* defValue= */ -1);
-    textColorHint = array.getColor(/* index= */ 6, /* defValue= */ -1);
-    colorBackground = array.getColor(/* index= */ 7, /* defValue= */ -1);
-    colorBackgroundFloating = array.getColor(/* index= */ 8, /* defValue= */ -1);
-    colorIcon = array.getColor(/* index= */ 9, /* defValue= */ -1);
-    colorIconSecondary = array.getColor(/* index= */ 10, /* defValue= */ -1);
-    colorTextOnUnthemedDarkBackground = array.getColor(/* index= */ 11, /* defValue= */ -1);
-    colorIconOnUnthemedDarkBackground = array.getColor(/* index= */ 12, /* defValue= */ -1);
-    colorCallNotificationBackground = array.getColor(/* index= */ 13, /* defValue= */ -1);
-    array.recycle();
+  @NonNull
+  private int[] getColors() {
+    Configuration current = appContext.getResources().getConfiguration();
+    synchronized (lock) {
+      if (cachedColors == null || cachedConfig == null || !cachedConfig.equals(current)) {
+        cachedColors = resolveColors(appContext.getResources());
+        cachedConfig = new Configuration(current);
+      }
+      return cachedColors;
+    }
+  }
+
+  @NonNull
+  private int[] resolveColors(@NonNull Resources resources) {
+    Resources.Theme theme = resources.newTheme();
+    theme.applyStyle(getApplicationThemeRes(), true);
+
+    int[] colors = new int[ATTRS.length];
+    TypedArray array = theme.obtainStyledAttributes(getApplicationThemeRes(), ATTRS);
+    try {
+      for (int i = 0; i < ATTRS.length; i++) {
+        colors[i] = readColor(array, i);
+      }
+    } finally {
+      array.recycle();
+    }
+    return colors;
+  }
+
+  @ColorInt
+  private static int readColor(@NonNull TypedArray array, int index) {
+    if (array.hasValue(index)) {
+      try {
+        return array.getColor(index, FALLBACK_COLORS[index]);
+      } catch (RuntimeException e) {
+        LogUtil.e(TAG + ".readColor", "failed to resolve color attr at index " + index, e);
+      }
+    } else {
+      LogUtil.w(TAG + ".readColor", "color attr at index %d is not defined, using fallback", index);
+    }
+    return FALLBACK_COLORS[index];
   }
 
   /**
@@ -128,61 +187,51 @@ public class AospThemeImpl implements Theme {
 
   @Override
   public @ColorInt int getColorIcon() {
-    Assert.checkArgument(colorIcon != -1);
-    return colorIcon;
+    return getColors()[IDX_COLOR_ICON];
   }
 
   @Override
   public @ColorInt int getColorIconSecondary() {
-    Assert.checkArgument(colorIconSecondary != -1);
-    return colorIconSecondary;
+    return getColors()[IDX_COLOR_ICON_SECONDARY];
   }
 
   @Override
   public @ColorInt int getColorPrimary() {
-    Assert.checkArgument(colorPrimary != -1);
-    return colorPrimary;
+    return getColors()[IDX_COLOR_PRIMARY];
   }
 
   @Override
-  public int getColorPrimaryDark() {
-    Assert.checkArgument(colorPrimaryDark != -1);
-    return colorPrimaryDark;
+  public @ColorInt int getColorPrimaryDark() {
+    return getColors()[IDX_COLOR_PRIMARY_DARK];
   }
 
   @Override
   public @ColorInt int getColorAccent() {
-    Assert.checkArgument(colorAccent != -1);
-    return colorAccent;
+    return getColors()[IDX_COLOR_ACCENT];
   }
 
   @Override
   public @ColorInt int getTextColorSecondary() {
-    Assert.checkArgument(textColorSecondary != -1);
-    return textColorSecondary;
+    return getColors()[IDX_TEXT_COLOR_SECONDARY];
   }
 
   @Override
   public @ColorInt int getTextColorPrimary() {
-    Assert.checkArgument(textColorPrimary != -1);
-    return textColorPrimary;
+    return getColors()[IDX_TEXT_COLOR_PRIMARY];
   }
 
   @Override
   public @ColorInt int getColorTextOnUnthemedDarkBackground() {
-    Assert.checkArgument(colorTextOnUnthemedDarkBackground != -1);
-    return colorTextOnUnthemedDarkBackground;
+    return getColors()[IDX_COLOR_TEXT_ON_UNTHEMED_DARK_BACKGROUND];
   }
 
   @Override
   public @ColorInt int getColorIconOnUnthemedDarkBackground() {
-    Assert.checkArgument(colorIconOnUnthemedDarkBackground != -1);
-    return colorIconOnUnthemedDarkBackground;
+    return getColors()[IDX_COLOR_ICON_ON_UNTHEMED_DARK_BACKGROUND];
   }
 
   @Override
   public @ColorInt int getColorCallNotificationBackground() {
-    Assert.checkArgument(colorCallNotificationBackground != -1);
-    return colorCallNotificationBackground;
+    return getColors()[IDX_COLOR_CALL_NOTIFICATION_BACKGROUND];
   }
 }
