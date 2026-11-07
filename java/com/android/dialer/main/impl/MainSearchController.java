@@ -170,7 +170,6 @@ public class MainSearchController implements SearchBarListener {
     if (searchFragment == null) {
       searchFragment = NewSearchFragment.newInstance();
       transaction.add(R.id.search_fragment_container, searchFragment, SEARCH_FRAGMENT_TAG);
-      transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
     } else if (!isSearchVisible()) {
       transaction.show(searchFragment);
     }
