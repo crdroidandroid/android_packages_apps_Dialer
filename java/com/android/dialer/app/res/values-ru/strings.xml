@@ -101,7 +101,7 @@
   <string name="display_options_title">Отображение контактов</string>
   <string name="sounds_and_vibration_title">Звуки и вибрация</string>
   <string name="accessibility_settings_title">Специальные возможности</string>
-  <string name="ringtone_title">Рингтон</string>
+  <string name="ringtone_title">Звук вызова</string>
   <string name="vibrate_on_ring_title">Вибросигнал при вызове</string>
   <string name="dtmf_tone_enable_title">Звук при наборе номера</string>
   <string name="dtmf_tone_length_title">Длительность сигналов при наборе номера</string>

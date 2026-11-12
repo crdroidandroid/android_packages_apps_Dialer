@@ -17,7 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="incall_category_title">Во время вызова</string>
-    <string name="incall_enable_dnd_title">Включать режим Не беспокоить во время вызова</string>
+    <string name="incall_enable_dnd_title">«Не беспокоить» во время вызова</string>
     <string name="incall_vibrate_outgoing_title">Вибрировать при ответе</string>
     <string name="incall_vibrate_call_waiting_title">Вибрировать при ожидании</string>
     <string name="incall_vibrate_hangup_title">Вибрировать при разъединении</string>
